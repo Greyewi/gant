@@ -5,7 +5,7 @@ import moment from "moment"
  * Constants
  * */
 
-export const moduleName = 'gant'
+export const moduleName = 'timeline'
 const prefix = moduleName
 /*ACTIONS*/
 export const INIT_TIME_FIELD = `${prefix}/INIT_TIME_FIELD`

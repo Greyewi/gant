@@ -1,6 +1,6 @@
 import React, {useRef} from "react"
 import Mousetrap from 'mousetrap';
-import {timeFieldArraySelector, addNewMoth} from "../../models/gant";
+import {timeFieldArraySelector, addNewMoth} from "../../models/timeline";
 import {connect} from "react-redux";
 
 

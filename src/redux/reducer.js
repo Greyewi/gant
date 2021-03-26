@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
-import gantReducer, {moduleName as gantModule} from '../models/gant'
+import timeLineReducer, {moduleName as timeLineModule} from '../models/timeline'
 
 export default combineReducers({
-    [gantModule]: gantReducer,
+    [timeLineModule]: timeLineReducer,
 
 })

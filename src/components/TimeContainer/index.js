@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {timeFieldArraySelector} from "../../models/gant"
+import {timeFieldArraySelector} from "../../models/timeline"
 import {FieldContainerElement} from "./styles";
 
 const TimeContainer = ({children, timeFieldArray}) => {
