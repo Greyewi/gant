@@ -9,8 +9,7 @@ export const moduleName = 'gant'
 const prefix = moduleName
 /*ACTIONS*/
 export const INIT_TIME_FIELD = `${prefix}/INIT_TIME_FIELD`
-export const ADD_PREVIOUS_MONTH = `${prefix}/ADD_PREVIOUS_MONTH`
-export const ADD_NEXT_MONTH = `${prefix}/ADD_NEXT_MONTH`
+export const ADD_NEW_MONTH = `${prefix}/ADD_NEW_MONTH`
 export const DELETE_FIRST_MONTH = `${prefix}/DELETE_FIRST_MONTH`
 export const DELETE_LAST_MONTH = `${prefix}/DELETE_LAST_MONTH`
 
@@ -34,8 +33,7 @@ export default function reducer(state = ReducerRecord, action) {
 
     switch (type) {
         case INIT_TIME_FIELD:
-        case ADD_PREVIOUS_MONTH:
-        case ADD_NEXT_MONTH:
+        case ADD_NEW_MONTH:
         case DELETE_FIRST_MONTH:
         case DELETE_LAST_MONTH:
             return Object.assign({}, state, {
@@ -57,6 +55,10 @@ export const timeFieldArraySelector = createSelector(stateSelector, state => sta
  * Action creators
  * */
 
+export const addNewMoth = (months) => ({
+    type: ADD_NEW_MONTH,
+    payload: months
+})
 
 /*export const startGame = () => ({
   type: SET_NEW_GAME,

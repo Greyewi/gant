@@ -5,7 +5,7 @@ import {FieldContainerElement} from "./styles";
 
 const TimeContainer = ({children, timeFieldArray}) => {
     return <FieldContainerElement>
-        {timeFieldArray.map((item, key) => React.cloneElement(children, {timeField: item, odd: (key % 2 === 0)}))}
+        {timeFieldArray.map((item, key) => React.cloneElement(children, {timeField: item, key: key, odd: (key % 2 === 0)}))}
     </FieldContainerElement>
 }
 
