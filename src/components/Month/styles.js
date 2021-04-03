@@ -17,3 +17,11 @@ export const NameOfMonth = styled.div`
   justify-content: center;
   padding-bottom: 10px;
 `
+
+export const DayContainer = styled.div`
+  font-size: 9px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 301px;
+`

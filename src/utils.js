@@ -1,9 +1,19 @@
 import moment from "moment"
+import {format} from './constants'
 
 export const addPreviousMonth = (array) => {
-    return [moment(array, "DD-MM-YYYY").subtract(1, "months").format("DD-MM-YYYY"), ...array]
+    return [moment(array, format).subtract(1, "months").format(format), ...array]
 }
 
 export const addNextMonth = (array) => {
-    return [...array, moment(array, "DD-MM-YYYY").add(array.length, "months").format("DD-MM-YYYY")]
+    return [...array, moment(array, format).add(array.length, "months").format(format)]
+}
+
+export const getDaysArrayByMonth = (data) => {
+    const days = moment(data, format).daysInMonth()
+    const arr = []
+    for(let i = 1; i <= days; i++){
+        arr.push(i)
+    }
+    return arr
 }
