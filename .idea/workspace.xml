@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TaskContainer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pcMMtpH93kjMf0H5IB1dAFanxG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="" />
+      <created>1615477880818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615477880818</updated>
+      <workItem from="1615477882018" duration="2977000" />
+      <workItem from="1615480899052" duration="3888000" />
+      <workItem from="1615999837141" duration="5703000" />
+      <workItem from="1616060794254" duration="6000" />
+      <workItem from="1616186056005" duration="1100000" />
+      <workItem from="1616226284297" duration="4336000" />
+      <workItem from="1616564372751" duration="950000" />
+      <workItem from="1616745681581" duration="13089000" />
+      <workItem from="1617123772234" duration="4050000" />
+      <workItem from="1617172335877" duration="5177000" />
+      <workItem from="1617390091260" duration="7666000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="638" y="323" key="#ESLint" timestamp="1616005530579">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="638" y="323" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1616005530579" />
+    <state x="507" y="121" key="#JavaScript" timestamp="1616001849810">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="507" y="121" key="#JavaScript/0.0.1536.824@0.0.1536.824" timestamp="1616001849810" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616230591724">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1616230591724" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1616746299722">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616746299722" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1615483848060">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615483848060" />
+  </component>
+</project>
