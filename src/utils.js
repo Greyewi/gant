@@ -17,3 +17,9 @@ export const getDaysArrayByMonth = (data) => {
     }
     return arr
 }
+
+export const addDayToMonth = (month, day) => {
+    const dArr = month.split('-')
+    dArr[0] = day
+    return dArr.join('-')
+}

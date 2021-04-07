@@ -12,6 +12,7 @@ const prefix = moduleName
 export const ADD_NEW_TASK = `${prefix}/ADD_NEW_TASK`
 export const ADD_START_INTERVAL_TASK = `${prefix}/ADD_START_INTERVAL_TASK`
 export const ADD_END_INTERVAL_TASK = `${prefix}/ADD_END_INTERVAL_TASK`
+export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/DELETE_FIRST_MONTH`
 
@@ -32,7 +33,7 @@ export const ReducerRecord = {
     taskColor: "#000",
     position: 0,
     startInterval: null,
-    endInterval: null
+    endInterval: null,
 }
 
 export default function reducer(state = ReducerState, action) {
@@ -53,6 +54,11 @@ export default function reducer(state = ReducerState, action) {
             return Object.assign({}, state, {
                 endInterval: payload,
             })
+        case REMOVE_INTERVAL_TASK:
+            return Object.assign({}, state, {
+                startInterval: null,
+                endInterval: null
+            })
         default:
             return state
     }
@@ -65,10 +71,19 @@ export default function reducer(state = ReducerState, action) {
 export const stateSelector = state => state[moduleName]
 export const taskListSelector = createSelector(stateSelector, state => state.taskList)
 export const intervalSelector = createSelector(stateSelector, state => {
-    const arr = moment(state.startInterval, format) < moment(state.endInterval, format) ?
-      [state.startInterval, state.endInterval] :
-      [state.endInterval, state.startInterval]
-    return arr
+    if(!state.startInterval && state.endInterval) {
+        return [state.endInterval]
+    } else if (state.startInterval && !state.endInterval){
+        return [state.startInterval]
+    } else if (!state.startInterval && !state.endInterval){
+        return []
+    } else {
+        const arr = moment(state.startInterval, format) < moment(state.endInterval, format) ?
+            [state.startInterval, state.endInterval] :
+            [state.endInterval, state.startInterval]
+        return arr
+    }
+
 })
 
 /**
@@ -85,6 +100,8 @@ export const addEndIntervalTask = (endData) => ({
     payload: endData
 })
 
+
+
 /**
  * Redux thunks
  * */
@@ -93,9 +110,13 @@ export const addEndIntervalTask = (endData) => ({
 export const addNewTask = (newTask) => (dispatch, getState) => {
     const {taskList} = getState()[moduleName]
 
-    dispatch({
+/*    dispatch({
         type: ADD_NEW_TASK,
         payload: [...taskList, newTask]
+
+    })*/
+    dispatch({
+        type: REMOVE_INTERVAL_TASK
 
     })
 }

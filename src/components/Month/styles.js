@@ -18,7 +18,7 @@ export const NameOfMonth = styled.div`
   padding-bottom: 10px;
 `
 
-export const DayContainer = styled.div`
+export const DayContainer = styled.div.attrs(props => ({'data-date': props.date}))`
   font-size: 9px;
   color: #fff;
   display: flex;
