@@ -20,16 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/timeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +42,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -56,6 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,7 +93,7 @@
       <workItem from="1617172335877" duration="5177000" />
       <workItem from="1617390091260" duration="7666000" />
       <workItem from="1617825404857" duration="5442000" />
-      <workItem from="1617881503246" duration="2333000" />
+      <workItem from="1617881503246" duration="8385000" />
     </task>
     <servers />
   </component>
@@ -113,6 +117,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="638" y="323" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1616005530579" />
+    <state x="2034" y="235" key="#Inspections" timestamp="1617904683822">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2034" y="235" key="#Inspections/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1617904683822" />
     <state x="507" y="121" key="#JavaScript" timestamp="1616001849810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
