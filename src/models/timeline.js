@@ -7,7 +7,6 @@ import moment from "moment"
 
 export const moduleName = 'timeline'
 const prefix = moduleName
-/*ACTIONS*/
 export const INIT_TIME_FIELD = `${prefix}/INIT_TIME_FIELD`
 export const ADD_NEW_MONTH = `${prefix}/ADD_NEW_MONTH`
 export const DELETE_FIRST_MONTH = `${prefix}/DELETE_FIRST_MONTH`
@@ -22,8 +21,7 @@ export const ReducerRecord = {
     timeFieldArray: [
         moment().format("DD-MM-YYYY"),
         moment().add(1, 'months').format("DD-MM-YYYY"),
-        moment().add(2, 'months').format("DD-MM-YYYY"),
-        moment().add(3, 'months').format("DD-MM-YYYY")
+        moment().add(2, 'months').format("DD-MM-YYYY")
     ],
 
 }

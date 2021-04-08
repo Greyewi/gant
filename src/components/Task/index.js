@@ -1,11 +1,16 @@
 import React from "react"
-import {TaskContainer} from "./style";
+import {TaskElement} from "./style";
 
-const Task = () => {
+const Task = ({interval, color, name, status, currentDate, day, handleMouseOver, ...rest}) => {
     return (
-        <TaskContainer>
-
-        </TaskContainer>
+          <TaskElement
+            color={color}
+            isEnd={currentDate === interval[1]}
+            isStart={currentDate === interval[0]}
+            onMouseOver={() => handleMouseOver(currentDate, day)}
+          >
+            {name}
+          </TaskElement>
     )
 }
 

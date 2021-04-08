@@ -8,7 +8,6 @@ import {format} from '../constants'
 
 export const moduleName = 'tasks'
 const prefix = moduleName
-/*ACTIONS*/
 export const ADD_NEW_TASK = `${prefix}/ADD_NEW_TASK`
 export const ADD_START_INTERVAL_TASK = `${prefix}/ADD_START_INTERVAL_TASK`
 export const ADD_END_INTERVAL_TASK = `${prefix}/ADD_END_INTERVAL_TASK`
@@ -16,24 +15,22 @@ export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/DELETE_FIRST_MONTH`
 
-
-
 /**
  * Reducer
  * */
 
 export const ReducerState = {
-    taskList: []
-}
-
-export const ReducerRecord = {
-    name: " ",
-    dateOfStart: moment().format(format),
-    dateOfEnd: moment().add(1, 'months').format(format),
-    taskColor: "#000",
-    position: 0,
+    taskList: [],
     startInterval: null,
     endInterval: null,
+}
+
+export const ProcessRecord = {
+    name: "NEW PROCESS",
+    dateOfStart: moment().format(format),
+    dateOfEnd: moment().format(format),
+    taskColor: "transparent",
+    taskStatus: 'inCreate',
 }
 
 export default function reducer(state = ReducerState, action) {
@@ -41,8 +38,6 @@ export default function reducer(state = ReducerState, action) {
 
     switch (type) {
         case ADD_NEW_TASK:
-        case DELETE_TASK:
-        case EDIT_TASK:
             return Object.assign({}, state, {
                 taskList: payload,
             })
@@ -100,24 +95,28 @@ export const addEndIntervalTask = (endData) => ({
     payload: endData
 })
 
-
-
 /**
  * Redux thunks
  * */
 
 
-export const addNewTask = (newTask) => (dispatch, getState) => {
+export const addNewTask = () => (dispatch, getState) => {
+    const interval = intervalSelector(getState())
     const {taskList} = getState()[moduleName]
 
-/*    dispatch({
+    dispatch({
         type: ADD_NEW_TASK,
-        payload: [...taskList, newTask]
+        payload: [
+          ...taskList,
+            Object.assign(
+              ProcessRecord,
+              {dateOfStart: interval[0], dateOfEnd: interval[1]}
+              )
+        ]
+    })
 
-    })*/
     dispatch({
         type: REMOVE_INTERVAL_TASK
-
     })
 }
 
@@ -144,13 +143,7 @@ export const deleteTask = (key) => (dispatch, getState) => {
     })
 }
 
-
-
 /*export const startGame = () => ({
   type: SET_NEW_GAME,
   payload: [getRandomInt(4)]
 })*/
-
-
-
-
