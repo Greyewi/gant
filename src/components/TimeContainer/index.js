@@ -2,13 +2,16 @@ import React from "react"
 import {connect} from "react-redux"
 import {timeFieldArraySelector} from "../../models/timeline"
 import {
+  editTask,
   addNewTask,
   taskListSelector,
   intervalSelector,
   addStartIntervalTask,
   addEndIntervalTask,
+  activeTaskEditSelector,
   isOpenTaskFormIdSelector
 } from "../../models/tasks"
+
 import {FieldContainerElement} from "./styles"
 import Modal from "../Modal"
 import Form from "../Form"
@@ -32,6 +35,7 @@ const TimeContainer = ({children, timeFieldArray, isOpenTaskFormId, taskList, ..
 export default connect((state) => ({
   isOpenTaskFormId: isOpenTaskFormIdSelector(state),
   timeFieldArray: timeFieldArraySelector(state),
+  activeTaskEdit: activeTaskEditSelector(state),
   taskList: taskListSelector(state),
   interval: intervalSelector(state)
-}), {addNewTask, addStartIntervalTask, addEndIntervalTask})(TimeContainer)
+}), {editTask, addNewTask, addStartIntervalTask, addEndIntervalTask})(TimeContainer)

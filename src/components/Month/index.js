@@ -4,20 +4,18 @@ import React, {useCallback} from "react"
 import {format} from '../../constants'
 import {getDaysArrayByMonth, addDayToMonth, dateIntoInterval} from '../../utils'
 import Task from '../Task'
-import Form from '../Form'
-import Modal from '../Modal'
 
-const Month = ({timeField, odd, addStartIntervalTask, addEndIntervalTask, interval, addNewTask, isOpenTaskFormId, taskList}) => {
+const Month = ({timeField, odd, addStartIntervalTask, addEndIntervalTask, interval, addNewTask, ...rest}) => {
 
   const setStartInterval = useCallback((addInterval, day) => {
     addInterval(moment(addDayToMonth(timeField, day), format).format(format))
-  }, [timeField, addDayToMonth])
+  }, [timeField])
 
   const setEndInterval = useCallback((month, day) => {
     if (month && day && interval.length > 0) {
       addEndIntervalTask(addDayToMonth(month, day))
     }
-  }, [interval, addDayToMonth, addEndIntervalTask])
+  }, [interval, addEndIntervalTask])
 
   return <MonthElement odd={odd} isResizeTask={interval.length > 1}>
     <NameOfMonth>{moment(timeField, format).format("MMMM YYYY")}</NameOfMonth>
@@ -35,6 +33,7 @@ const Month = ({timeField, odd, addStartIntervalTask, addEndIntervalTask, interv
           currentDate={addDayToMonth(timeField, day)}
           day={day}
           handleMouseOver={(data, day) => setEndInterval(data, day)}
+          {...rest}
         />}
       </DayItem>)}
     </DayContainer>

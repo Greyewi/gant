@@ -1,16 +1,16 @@
 import React from "react"
 import {TaskElement} from "./style";
 
-const Task = ({interval, color, name, status, currentDate, day, handleMouseOver, ...rest}) => {
+const Task = ({interval, currentDate, day, handleMouseOver, activeTaskEdit}) => {
+  const {fill, border} = activeTaskEdit
     return (
           <TaskElement
-            color={color}
+            color={fill}
+            border={border}
             isEnd={currentDate === interval[1]}
             isStart={currentDate === interval[0]}
             onMouseOver={() => handleMouseOver(currentDate, day)}
-          >
-            {name}
-          </TaskElement>
+          />
     )
 }
 

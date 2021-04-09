@@ -1,92 +1,77 @@
-import React from "react"
-import {FormContainer, FormTitle} from "./style";
-import { Formik } from 'formik';
-import moment from 'moment'
-import {format} from '../../constants'
-import {setFormatDateFromHTMLtoMain} from '../../utils'
+import React, {useState, useCallback} from "react"
+import {FormContainer, FillSelector, FillOptionSelector} from "./style"
+import {Formik, Field} from 'formik'
+import ColorPicker from 'react-color'
+import "react-datepicker/dist/react-datepicker.css"
 
+const MyColorPicker = ({ field, form, handleChange, ...props }) => {
+  const {value} = field
+  const [color, setColor] = useState(value)
+  return <div>
+    <input {...field} {...props} value={color} style={{display: 'none'}}/>
+    <ColorPicker
+      color={color}
+      onChange={val => {
+        setColor(val.hex)
+        handleChange(val.hex)
+      }}
+    />
+  </div>
+}
 
-const Form = ({task, addStartIntervalTask, addEndIntervalTask, interval}) => {
+const Form = ({task = {}, editTask}) => {
+  const {border, fill} = task
+
+  const taskChange = useCallback((value, fieldName) =>{
+    editTask({...task, [fieldName]: value})
+  }, [editTask, task])
+
   return (
     <Formik
-      initialValues={{ name: task.name, border: task.border, fill: task.fill }}
-      validate={values => {
-        const errors = {};
-        if (!values.name) {
-          errors.name = 'Required';
-        }
-        return errors;
+      initialValues={{
+        border: border,
+        fill: fill,
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      validate={values => {
+        const errors = {}
+        if (!values.name) {
+          errors.name = 'Required'
+        }
+        return errors
+      }}
+      onSubmit={(values, {setSubmitting}) => {
+        editTask(values)
+        setSubmitting(false)
       }}
     >
       {({
           values,
-          errors,
-          touched,
           handleChange,
           handleBlur,
           handleSubmit,
-          isSubmitting,
-          /* and other goodies */
         }) => (
-      <FormContainer onSubmit={handleSubmit}>
-        <FormTitle>New Task</FormTitle>
-        <input
-          type="date"
-          name="startDate"
-          onChange={(e) => addStartIntervalTask(setFormatDateFromHTMLtoMain(e.target.value))}
-          onBlur={handleBlur}
-          value={moment(interval[0], format).format('yyyy-MM-DD')}
-        />
-        <input
-          type="date"
-          name="endDate"
-          onChange={(e) => addEndIntervalTask(setFormatDateFromHTMLtoMain(e.target.value))}
-          onBlur={handleBlur}
-          value={moment(interval[1], format).format('yyyy-MM-DD')}
-        />
-        <select
-          name="border"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.border}
-        >
-          <option value="solid" > solid </option>
-          <option value="none" > none </option>
-          <option value="dashed" > dashed </option>
-          <option value="dotted" > dotted </option>
-        </select>
-        {errors.border && touched.border && errors.border}
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.name}
-        />
-        {errors.name && touched.name && errors.name}
-        <input
-          type="color"
-          name="fill"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.fill}
-        />
-        {errors.fill && touched.fill && errors.fill}
-        <div>
-          <button type="reset">
-            Cancel
-          </button>
-          <button type="submit" disabled={isSubmitting}>
-            Save
-          </button>
-        </div>
-      </FormContainer>
+        <FormContainer onSubmit={handleSubmit}>
+          <FillSelector
+            name="border"
+            onChange={event => {
+              handleChange(event)
+              editTask({...task, border: event.target.value})
+            }}
+            onBlur={handleBlur}
+            value={values.border}
+          >
+            <FillOptionSelector value="solid"> solid</FillOptionSelector>
+            <FillOptionSelector value="none"> none</FillOptionSelector>
+            <FillOptionSelector value="dashed"> dashed</FillOptionSelector>
+            <FillOptionSelector value="dotted"> dotted</FillOptionSelector>
+          </FillSelector>
+          <Field
+            name="fill"
+            id="fill"
+            component={MyColorPicker}
+            handleChange={(event) => taskChange(event, 'fill')}
+          />
+        </FormContainer>
       )}
     </Formik>
   )

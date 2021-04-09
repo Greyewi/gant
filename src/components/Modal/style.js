@@ -21,10 +21,10 @@ export const ModalClose = styled.span.attrs(props => ({onClick: props.onClick}))
 export const ModalElement = styled.div.attrs(props => ({onClick: props.onClick}))`
   background-color: #fff;
   min-height: 200px;
-  width: 300px;
+  width: 225px;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 20px 20px 20px;
+  padding: 0;
   border: 0;
 `
