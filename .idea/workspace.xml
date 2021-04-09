@@ -20,18 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/style.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +90,7 @@
       <workItem from="1617172335877" duration="5177000" />
       <workItem from="1617390091260" duration="7666000" />
       <workItem from="1617825404857" duration="5442000" />
-      <workItem from="1617881503246" duration="8385000" />
+      <workItem from="1617881503246" duration="12007000" />
     </task>
     <servers />
   </component>

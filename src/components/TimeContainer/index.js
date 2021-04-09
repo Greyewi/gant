@@ -23,8 +23,8 @@ const TimeContainer = ({children, timeFieldArray, isOpenTaskFormId, taskList, ..
       odd: (key % 2 === 0),
       ...rest
     }))}
-    {isOpenTaskFormId && <Modal defaultOpen={isOpenTaskFormId}>
-      <Form task={taskList.find(f => f.id === isOpenTaskFormId)}/>
+    {isOpenTaskFormId && <Modal defaultOpen={isOpenTaskFormId} isOpen={isOpenTaskFormId}>
+      <Form task={taskList.find(f => f.id === isOpenTaskFormId)} {...rest}/>
     </Modal>}
   </FieldContainerElement>
 }

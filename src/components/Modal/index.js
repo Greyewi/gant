@@ -7,8 +7,7 @@ const modalElement = document.getElementById('modal')
 const el = document.createElement('div')
 el.classList.add('model-ch')
 
-const Modal = ({children, defaultOpen = false}) => {
-  const [isOpen, setIsOpenModal] = useState(defaultOpen)
+const Modal = ({children, isOpen = false, onCloseModal}) => {
 
   useEffect(() => {
     modalElement.appendChild(el)
@@ -30,9 +29,9 @@ const Modal = ({children, defaultOpen = false}) => {
   return(
     <>
       {isOpen && ReactDOM.createPortal(
-        <ModalContainer onClick={() => setIsOpenModal(false)}>
+        <ModalContainer onClick={onCloseModal}>
             <ModalElement onClick={e => e.stopPropagation()}>
-              <ModalClose onClick={() => setIsOpenModal(false)}>X</ModalClose>
+              <ModalClose onClick={onCloseModal}>X</ModalClose>
               {children}
             </ModalElement>
         </ModalContainer>,

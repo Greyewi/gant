@@ -1,8 +1,12 @@
 import React from "react"
-import {FormContainer} from "./style";
+import {FormContainer, FormTitle} from "./style";
 import { Formik } from 'formik';
+import moment from 'moment'
+import {format} from '../../constants'
+import {setFormatDateFromHTMLtoMain} from '../../utils'
 
-const Form = ({task}) => {
+
+const Form = ({task, addStartIntervalTask, addEndIntervalTask, interval}) => {
   return (
     <Formik
       initialValues={{ name: task.name, border: task.border, fill: task.fill }}
@@ -31,15 +35,31 @@ const Form = ({task}) => {
           /* and other goodies */
         }) => (
       <FormContainer onSubmit={handleSubmit}>
+        <FormTitle>New Task</FormTitle>
+        <input
+          type="date"
+          name="startDate"
+          onChange={(e) => addStartIntervalTask(setFormatDateFromHTMLtoMain(e.target.value))}
+          onBlur={handleBlur}
+          value={moment(interval[0], format).format('yyyy-MM-DD')}
+        />
+        <input
+          type="date"
+          name="endDate"
+          onChange={(e) => addEndIntervalTask(setFormatDateFromHTMLtoMain(e.target.value))}
+          onBlur={handleBlur}
+          value={moment(interval[1], format).format('yyyy-MM-DD')}
+        />
         <select
           name="border"
           onChange={handleChange}
           onBlur={handleBlur}
+          value={values.border}
         >
-          <option value="solid" selected={values.border === "solid"}> solid </option>
-          <option value="none" selected={values.border === "none"}> none </option>
-          <option value="dashed" selected={values.border === "dashed"}> dashed </option>
-          <option value="dotted" selected={values.border === "dotted"}> dotted </option>
+          <option value="solid" > solid </option>
+          <option value="none" > none </option>
+          <option value="dashed" > dashed </option>
+          <option value="dotted" > dotted </option>
         </select>
         {errors.border && touched.border && errors.border}
         <input
@@ -58,12 +78,14 @@ const Form = ({task}) => {
           value={values.fill}
         />
         {errors.fill && touched.fill && errors.fill}
-        <button type="reset">
-          Cancel
-        </button>
-        <button type="submit" disabled={isSubmitting}>
-          Save
-        </button>
+        <div>
+          <button type="reset">
+            Cancel
+          </button>
+          <button type="submit" disabled={isSubmitting}>
+            Save
+          </button>
+        </div>
       </FormContainer>
       )}
     </Formik>

@@ -26,3 +26,6 @@ export const addDayToMonth = (month, day) => {
 
 export const dateIntoInterval = (date, interval) =>
   moment(date, format) >= moment(interval[0], format) && moment(date, format) <= moment(interval[1], format)
+
+
+export const setFormatDateFromHTMLtoMain = (inputValue) => moment(inputValue, 'yyyy-MM-DD').format(format)

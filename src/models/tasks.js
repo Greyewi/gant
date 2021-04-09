@@ -123,9 +123,9 @@ export const addNewTask = () => (dispatch, getState) => {
         ]
     })
 
-    dispatch({
-        type: REMOVE_INTERVAL_TASK
-    })
+    // dispatch({
+    //     type: REMOVE_INTERVAL_TASK
+    // })
 
     dispatch({
         type: SET_OPEN_FORM_TASK,
