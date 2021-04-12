@@ -13,12 +13,11 @@ const ProcessList = ({processList, addNewProcess, editProcess, changeProcessList
         value={process.name}
         onChange={(e) => editProcess({...process, name: e.target.value})}
       />
-      <TimeContainer>
-        <Month/>
+      <TimeContainer processId={process.id}>
+        <Month />
       </TimeContainer>
     </ProcessLine>
   })), [processList, editProcess])
-
   return (
     <ProcessRow>
       <DnDList

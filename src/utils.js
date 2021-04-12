@@ -48,3 +48,18 @@ export const reorder = (list, startIndex, endIndex) => {
 
     return result
 }
+
+export const enumerateDaysBetweenDates = (startDate, endDate) => {
+    const dates = []
+    const currDate = moment(startDate, format).startOf('day')
+    const lastDate = moment(endDate, format).startOf('day')
+    while (currDate.add(1, 'days').diff(lastDate) < 0) {
+        dates.push(currDate.clone().format(format))
+    }
+    return dates
+}
+
+export const getDatedIntoIntervals = (list = []) => {
+    const dates = list.map((item) => enumerateDaysBetweenDates(item.dateOfStart, item.dateOfEnd))
+    return dates && dates.length ? dates[0] : []
+}

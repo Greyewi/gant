@@ -1,15 +1,14 @@
 import {MonthElement} from "./styles"
-import React from "react"
 import Day from '../Day'
 
 const Month = ({
+                 processId,
                  timeField,
                  odd,
-                 interval
+                 taskList
                }) => {
-
-  return <MonthElement odd={odd} isResizeTask={interval.length > 1}>
-    <Day timeField={timeField}/>
+  return <MonthElement odd={odd}>
+    <Day processId={processId} taskList={taskList} timeField={timeField}/>
   </MonthElement>
 }
 

@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 export const MonthElement = styled.div`
   background-color: ${props => props.odd ? "#333" : "#444"};
-  cursor: ${props => props.isResizeTask ? "col-resize" : "auto"} ;
   width: auto;
 `
 

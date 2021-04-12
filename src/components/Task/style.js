@@ -1,13 +1,33 @@
-import styled from  "styled-components"
+import styled, {keyframes} from  "styled-components"
 
 export const TaskContainer = styled.div`
   background-color: ${props => props.odd ? "#333" : "#444"};
   width: 10px;
   height: 15px;
   min-width: 10px;
+  transition-duration: 0.3s;
 `
 
-export const TaskElement = styled.div.attrs(props => ({'data-date': props.date}))`
+const scale = keyframes`
+  from {
+    width: 50%;
+  }
+  to {
+    width: 100%;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+export const TaskElement = styled.div.attrs(props => ({...props}))`
   background-color: ${props => props.color || '#E09B33'};
   width: 100%;
   height: 50px;

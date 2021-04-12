@@ -1,40 +1,36 @@
-import React from "react"
+import React, {useRef, useEffect} from "react"
 import {connect} from "react-redux"
 import {timeFieldArraySelector} from "../../modules/timeline"
 import {
-  activeTaskEditSelector,
-  addEndIntervalTask,
   addNewTask,
-  addStartIntervalTask,
   editTask,
-  intervalSelector,
   isOpenTaskFormIdSelector,
-  setActiveTask,
-  taskListSelector
+  setActiveTask
 } from "../../modules/tasks"
-
+import useTraceUpdate from '../../hooks/useTraceUpdate'
 import {FieldContainerElement} from "./styles"
 import Modal from "../../ui/Modal"
 import Form from "../Form"
 
-const TimeContainer = ({children, timeFieldArray, setActiveTask, isOpenTaskFormId, taskList, interval, ...rest}) => {
+
+const TimeContainer = (props) => {
+  const {children, timeFieldArray, setActiveTask, isOpenTaskFormId, processId} = props
+  useTraceUpdate(props)
+
   return <FieldContainerElement>
     {timeFieldArray.map((item, key) => React.cloneElement(children, {
-      interval: interval,
+      processId,
       timeField: item,
       key: key,
       odd: (key % 2 === 0)
     }))}
     {isOpenTaskFormId && <Modal toggle={() => setActiveTask(null)} isOpen={isOpenTaskFormId}>
-      <Form task={taskList.find(f => f.id === isOpenTaskFormId)} {...rest}/>
+      <Form />
     </Modal>}
   </FieldContainerElement>
 }
 
 export default connect((state) => ({
   isOpenTaskFormId: isOpenTaskFormIdSelector(state),
-  timeFieldArray: timeFieldArraySelector(state),
-  activeTaskEdit: activeTaskEditSelector(state),
-  taskList: taskListSelector(state),
-  interval: intervalSelector(state)
-}), {editTask, addNewTask, setActiveTask, addStartIntervalTask, addEndIntervalTask})(TimeContainer)
+  timeFieldArray: timeFieldArraySelector(state)
+}), {editTask, addNewTask, setActiveTask})(TimeContainer)

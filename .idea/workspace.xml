@@ -20,51 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Process/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Process/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/processes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-BlackItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-LightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-MediumItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-ThinItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/images/add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/images/drag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/DnDList/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/DnDList/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Modal/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Modal/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useTraceUpdate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Buttons/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Day/Day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Day/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Day/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/timeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/DnDList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/DnDList/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shared/fonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -148,7 +116,8 @@
       <workItem from="1617971909485" duration="379000" />
       <workItem from="1617985047667" duration="21672000" />
       <workItem from="1618059290522" duration="3000000" />
-      <workItem from="1618080499973" duration="18202000" />
+      <workItem from="1618080499973" duration="24897000" />
+      <workItem from="1618236753598" duration="12074000" />
     </task>
     <servers />
   </component>

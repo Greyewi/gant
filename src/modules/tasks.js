@@ -17,6 +17,7 @@ export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/EDIT_TASK`
 export const SET_ACTIVE_TASK = `${prefix}/SET_ACTIVE_TASK`
 export const SET_OPEN_FORM_TASK = `${prefix}/SET_OPEN_FORM_TASK`
+export const UNION_COUPLE_TASK = `${prefix}/UNION_COUPLE_TASK`
 
 /**
  * Reducer
@@ -24,21 +25,22 @@ export const SET_OPEN_FORM_TASK = `${prefix}/SET_OPEN_FORM_TASK`
 
 export const ReducerState = {
   taskList: [],
-  startInterval: null,
+  isOpenTaskFormId: null,
   endInterval: null,
-  isOpenTaskFormId: false,
-  name: "",
-  fill: '#E09B33',
-  border: 'solid'
+  startInterval: null,
+  border: 'solid',
+  isCreatable: false,
+  activeProcessId: null
 }
 
 export const ReducerRecord = {
-  id: uuidv4(),
+  id: null,
   name: "Enter name",
   dateOfStart: moment().format(format),
   dateOfEnd: moment().format(format),
   fill: '#E09B33',
   border: 'solid',
+  processId: null
 }
 
 export default function reducer(state = ReducerState, action) {
@@ -47,30 +49,32 @@ export default function reducer(state = ReducerState, action) {
   switch (type) {
     case ADD_NEW_TASK:
       return Object.assign({}, state, {
-        taskList: payload,
+        taskList: payload
+      })
+    case UNION_COUPLE_TASK:
+      return Object.assign({}, state, {
+        taskList: payload
       })
     case EDIT_TASK:
       return Object.assign({}, state, {
         ...payload,
       })
     case ADD_START_INTERVAL_TASK:
-      return Object.assign({}, state, {
-        startInterval: payload,
-      })
+      return {...state, startInterval: payload.startData, isCreatable: true, activeProcessId: payload.processId}
     case SET_ACTIVE_TASK:
       return Object.assign({}, state, {
         isOpenTaskFormId: payload,
       })
     case ADD_END_INTERVAL_TASK:
-      return Object.assign({}, state, {
-        endInterval: payload,
-      })
+      return { ...state, endInterval: payload.endData, activeProcessId: payload.processId}
     case SET_OPEN_FORM_TASK:
       return Object.assign({}, state, {
         isOpenTaskFormId: payload,
       })
     case REMOVE_INTERVAL_TASK:
       return Object.assign({}, state, {
+        isCreatable: false,
+        activeProcessId: null,
         startInterval: null,
         endInterval: null
       })
@@ -85,7 +89,9 @@ export default function reducer(state = ReducerState, action) {
 
 export const stateSelector = state => state[moduleName]
 export const taskListSelector = createSelector(stateSelector, state => state.taskList)
+export const isCreatableSelector = createSelector(stateSelector, state => state.isCreatable)
 export const isOpenTaskFormIdSelector = createSelector(stateSelector, state => state.isOpenTaskFormId)
+export const activeProcessIdSelector = createSelector(stateSelector, state => state.activeProcessId)
 export const activeTaskEditSelector = createSelector(stateSelector, ({name, fill, border}) => ({name, fill, border}))
 export const intervalSelector = createSelector(stateSelector, state => {
   if (!state.startInterval && state.endInterval) {
@@ -100,16 +106,15 @@ export const intervalSelector = createSelector(stateSelector, state => {
       [state.endInterval, state.startInterval]
     return arr
   }
-
 })
 
 /**
  * Action creators
  * */
 
-export const addStartIntervalTask = (startData) => ({
+export const addStartIntervalTask = (startData, processId) => ({
   type: ADD_START_INTERVAL_TASK,
-  payload: startData
+  payload: {startData, processId}
 })
 
 export const setActiveTask = (taskId) => ({
@@ -117,16 +122,16 @@ export const setActiveTask = (taskId) => ({
   payload: taskId
 })
 
-export const addEndIntervalTask = (endData) => ({
+export const addEndIntervalTask = (endData, processId) => ({
   type: ADD_END_INTERVAL_TASK,
-  payload: endData
+  payload: {endData, processId}
 })
 
 /**
  * Redux thunks
  * */
 
-export const addNewTask = () => (dispatch, getState) => {
+export const addNewTask = (processId) => (dispatch, getState) => {
   const interval = intervalSelector(getState())
   const {taskList} = getState()[moduleName]
   const newTask = ReducerRecord
@@ -136,8 +141,9 @@ export const addNewTask = () => (dispatch, getState) => {
     payload: [
       ...taskList,
       Object.assign(
+        {},
         newTask,
-        {dateOfStart: interval[0], dateOfEnd: interval[1]}
+        {id: uuidv4(), dateOfStart: interval[0], dateOfEnd: interval[1], processId}
       )
     ]
   })
@@ -145,6 +151,10 @@ export const addNewTask = () => (dispatch, getState) => {
   dispatch({
     type: SET_OPEN_FORM_TASK,
     payload: newTask.id
+  })
+
+  dispatch({
+    type: REMOVE_INTERVAL_TASK
   })
 }
 
@@ -163,14 +173,6 @@ export const editTask = newTask => (dispatch, getState) => {
     payload: {taskList : newTaskList, ...newTask}
   })
 
-  // dispatch({
-  //   type: SET_OPEN_FORM_TASK,
-  //   payload: null
-  // })
-  //
-  // dispatch({
-  //   type: REMOVE_INTERVAL_TASK
-  // })
 }
 
 export const deleteTask = (key) => (dispatch, getState) => {
@@ -182,7 +184,28 @@ export const deleteTask = (key) => (dispatch, getState) => {
   })
 }
 
-/*export const startGame = () => ({
-  type: SET_NEW_GAME,
-  payload: [getRandomInt(4)]
-})*/
+export const unionTwoTask = (unionTaskId, direction) => (dispatch, getState) => { //direction === 'end' or 'start'
+  const {taskList} = getState()[moduleName]
+  const interval = intervalSelector(getState())
+
+  const newDates = direction === 'start' ? {dateOfStart: interval[0]} : {dateOfEnd: interval[1]}
+
+  const newTaskList = taskList.map((taskItem) => {
+    if (taskItem.id === unionTaskId) {
+      taskItem = {...taskItem, ...newDates}
+    }
+    return taskItem
+  })
+
+
+  if(window.confirm('Do you want to union task?')){
+    dispatch({
+      type: UNION_COUPLE_TASK,
+      payload: newTaskList
+    })
+  }
+
+  dispatch({
+    type: REMOVE_INTERVAL_TASK
+  })
+}
