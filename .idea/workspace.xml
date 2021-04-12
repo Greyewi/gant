@@ -20,17 +20,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Process/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Process/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/processes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-BlackItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/fonts/Roboto-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/images/add.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/images/drag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/DnDList/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/DnDList/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/Modal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/Modal/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Buttons/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Form/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/style.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/timeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +75,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1pcMMtpH93kjMf0H5IB1dAFanxG" />
   <component name="ProjectViewState">
@@ -57,7 +98,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shared/fonts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -66,8 +107,19 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shared/fonts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ui/DnDList" />
+      <recent name="$PROJECT_DIR$/src/shared" />
+      <recent name="$PROJECT_DIR$/src/components/Process" />
+      <recent name="$PROJECT_DIR$/src/ui" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -94,7 +146,9 @@
       <workItem from="1617825404857" duration="5442000" />
       <workItem from="1617881503246" duration="12366000" />
       <workItem from="1617971909485" duration="379000" />
-      <workItem from="1617985047667" duration="12632000" />
+      <workItem from="1617985047667" duration="21672000" />
+      <workItem from="1618059290522" duration="3000000" />
+      <workItem from="1618080499973" duration="18202000" />
     </task>
     <servers />
   </component>
@@ -126,6 +180,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="507" y="121" key="#JavaScript/0.0.1536.824@0.0.1536.824" timestamp="1616001849810" />
+    <state x="2088" y="280" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1618080444793">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2088" y="280" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618080444793" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616230591724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -134,9 +192,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616746299722" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1615483848060">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="1786" y="75" key="SettingsEditor" timestamp="1618080413229">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
+    <state x="1786" y="75" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618080413229" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615483848060" />
+    <state x="494" y="241" width="567" height="490" key="find.popup" timestamp="1618226543159">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="2099" y="266" width="602" height="548" key="find.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618079134710" />
+    <state x="494" y="241" width="567" height="490" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1618226543159" />
   </component>
 </project>

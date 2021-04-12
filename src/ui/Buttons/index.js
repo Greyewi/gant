@@ -1,6 +1,6 @@
 import React, {useRef} from "react"
 import Mousetrap from 'mousetrap';
-import {timeFieldArraySelector, addNewMoth} from "../../models/timeline";
+import {timeFieldArraySelector, addNewMoth} from "../../modules/timeline";
 import {connect} from "react-redux";
 
 
@@ -32,7 +32,7 @@ export default connect((state) => ({
 import React from "react"
 import {addPreviousMonth, addNextMonth} from "../../utils"
 import {connect} from "react-redux"
-import {timeFieldArraySelector} from "../../models/gant"
+import {timeFieldArraySelector} from "../../modules/gant"
 
 const Buttons = (timeFieldArray) => {
     return (

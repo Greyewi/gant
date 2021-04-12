@@ -49,17 +49,17 @@ export const DateInput = styled.input.attrs(props => ({...props}))`
   }
 `
 
-export const FillSelector = styled.select.attrs(props => ({...props}))`
+export const BorderSelector = styled.select.attrs(props => ({...props}))`
   background-color: #2c2c2c;
   border:0;
   color:#ddd;
   appearance: none;
   padding:10px;
-  width: 225px;
+  width: 170px;
   outline: none;
 `
 
-export const FillOptionSelector = styled.option.attrs(props => ({...props}))`
+export const BorderOptionSelector = styled.option.attrs(props => ({...props}))`
   background-color: #2c2c2c;
   border:0;
   color:#ddd;

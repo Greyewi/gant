@@ -15,6 +15,7 @@ export const ADD_END_INTERVAL_TASK = `${prefix}/ADD_END_INTERVAL_TASK`
 export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/EDIT_TASK`
+export const SET_ACTIVE_TASK = `${prefix}/SET_ACTIVE_TASK`
 export const SET_OPEN_FORM_TASK = `${prefix}/SET_OPEN_FORM_TASK`
 
 /**
@@ -55,6 +56,10 @@ export default function reducer(state = ReducerState, action) {
     case ADD_START_INTERVAL_TASK:
       return Object.assign({}, state, {
         startInterval: payload,
+      })
+    case SET_ACTIVE_TASK:
+      return Object.assign({}, state, {
+        isOpenTaskFormId: payload,
       })
     case ADD_END_INTERVAL_TASK:
       return Object.assign({}, state, {
@@ -105,6 +110,11 @@ export const intervalSelector = createSelector(stateSelector, state => {
 export const addStartIntervalTask = (startData) => ({
   type: ADD_START_INTERVAL_TASK,
   payload: startData
+})
+
+export const setActiveTask = (taskId) => ({
+  type: SET_ACTIVE_TASK,
+  payload: taskId
 })
 
 export const addEndIntervalTask = (endData) => ({

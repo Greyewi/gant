@@ -1,5 +1,5 @@
 import {connect} from "react-redux"
-import {taskListSelector, addNewTask, editTask, deleteTask} from "../../models/tasks"
+import {taskListSelector, addNewTask, editTask, deleteTask} from "../../modules/tasks"
 import Task from "../Task";
 
 const TaskContainer = () => {

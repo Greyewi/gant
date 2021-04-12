@@ -1,23 +1,9 @@
-import React, {useState, useCallback} from "react"
-import {FormContainer, FillSelector, FillOptionSelector} from "./style"
+import React, {useCallback} from "react"
+import {FormContainer, BorderSelector, BorderOptionSelector} from "./style"
 import {Formik, Field} from 'formik'
-import ColorPicker from 'react-color'
+import MyColorPicker from '../../ui/ColorPicker'
 import "react-datepicker/dist/react-datepicker.css"
 
-const MyColorPicker = ({ field, form, handleChange, ...props }) => {
-  const {value} = field
-  const [color, setColor] = useState(value)
-  return <div>
-    <input {...field} {...props} value={color} style={{display: 'none'}}/>
-    <ColorPicker
-      color={color}
-      onChange={val => {
-        setColor(val.hex)
-        handleChange(val.hex)
-      }}
-    />
-  </div>
-}
 
 const Form = ({task = {}, editTask}) => {
   const {border, fill} = task
@@ -51,7 +37,13 @@ const Form = ({task = {}, editTask}) => {
           handleSubmit,
         }) => (
         <FormContainer onSubmit={handleSubmit}>
-          <FillSelector
+          <Field
+            name="fill"
+            id="fill"
+            component={MyColorPicker}
+            handleChange={(event) => taskChange(event, 'fill')}
+          />
+          <BorderSelector
             name="border"
             onChange={event => {
               handleChange(event)
@@ -60,17 +52,11 @@ const Form = ({task = {}, editTask}) => {
             onBlur={handleBlur}
             value={values.border}
           >
-            <FillOptionSelector value="solid"> solid</FillOptionSelector>
-            <FillOptionSelector value="none"> none</FillOptionSelector>
-            <FillOptionSelector value="dashed"> dashed</FillOptionSelector>
-            <FillOptionSelector value="dotted"> dotted</FillOptionSelector>
-          </FillSelector>
-          <Field
-            name="fill"
-            id="fill"
-            component={MyColorPicker}
-            handleChange={(event) => taskChange(event, 'fill')}
-          />
+            <BorderOptionSelector value="solid"> solid</BorderOptionSelector>
+            <BorderOptionSelector value="none"> none</BorderOptionSelector>
+            <BorderOptionSelector value="dashed"> dashed</BorderOptionSelector>
+            <BorderOptionSelector value="dotted"> dotted</BorderOptionSelector>
+          </BorderSelector>
         </FormContainer>
       )}
     </Formik>

@@ -16,20 +16,3 @@ export const NameOfMonth = styled.div`
   padding-bottom: 10px;
 `
 
-export const DayContainer = styled.div.attrs(props => ({'data-date': props.date}))`
-  font-size: 9px;
-  color: #fff;
-  display: flex;
-  height: 101px;
-`
-
-export const DayItem = styled.div.attrs(props => ({'data-day': props.day, ...props}))`
-  font-size: 9px;
-  color: #fff;
-  min-width: 15px;
-  max-width: 15px;
-  margin: 0 -1px;
-  position: relative;
-`
-
-
