@@ -20,19 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useTraceUpdate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/Day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/DnDList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/DnDList/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +115,8 @@
       <workItem from="1617985047667" duration="21672000" />
       <workItem from="1618059290522" duration="3000000" />
       <workItem from="1618080499973" duration="24897000" />
-      <workItem from="1618236753598" duration="12074000" />
+      <workItem from="1618236753598" duration="14746000" />
+      <workItem from="1618330339731" duration="13442000" />
     </task>
     <servers />
   </component>
@@ -166,10 +165,10 @@
     </state>
     <state x="1786" y="75" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618080413229" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615483848060" />
-    <state x="494" y="241" width="567" height="490" key="find.popup" timestamp="1618226543159">
+    <state x="494" y="241" width="567" height="490" key="find.popup" timestamp="1618261877387">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="2099" y="266" width="602" height="548" key="find.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618079134710" />
-    <state x="494" y="241" width="567" height="490" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1618226543159" />
+    <state x="494" y="241" width="567" height="490" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1618261877387" />
   </component>
 </project>

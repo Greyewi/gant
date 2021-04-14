@@ -1,5 +1,5 @@
-import React from "react"
-import {TaskElement} from "./style"
+import React, {useCallback, useMemo} from "react"
+import {TaskElement, TaskNameInput} from "./style"
 import moment from 'moment'
 import {format} from '../../constants'
 
@@ -7,6 +7,7 @@ export const CreatableTask = ({interval, currentDate, activeTaskEdit}) => {
   const {fill, border} = activeTaskEdit
   return (
     <TaskElement
+      tempTask
       color={fill}
       border={border}
       isEnd={currentDate === interval[1]}
@@ -15,20 +16,33 @@ export const CreatableTask = ({interval, currentDate, activeTaskEdit}) => {
   )
 }
 
-const Task = ({isCreatable, startDate, endDate, currentDate, fill, name, border, id, unionTwoTask}) => {
-  const isStart = currentDate === startDate
-  const isEnd = currentDate === endDate
-  const isSecondDay = currentDate === moment(startDate, format).add(1, 'days')
+const Task = ({isCreatable, isEditableTask, currentDate, unionTwoTask, editTask, task, taskDates, setActiveTask}) => {
+  const {dateOfStart, dateOfEnd, fill, name, border, id} = task
+
+  const isStart = currentDate === dateOfStart
+  const isEnd = currentDate === dateOfEnd
+
+  const isSecondDay = useMemo(() => currentDate === moment(dateOfStart, format).add(1, 'days').format(format), [currentDate, dateOfStart])
+  const countDates = useMemo(() => taskDates.filter(f => moment(f, format) >= moment(dateOfStart, format) && moment(f, format) <= moment(dateOfEnd, format)).length, [taskDates, dateOfStart, dateOfEnd])
 
   return (
     <TaskElement
       fill={fill}
+      isEditableTask={isEditableTask}
       border={border}
       isStart={isStart}
       isEnd={isEnd}
-      onMouseOver={() => (isStart || isEnd) && isCreatable && unionTwoTask(id, isStart ? 'start' : 'end')}
+      onMouseUp={() => isEditableTask && setActiveTask(null)}
+      onMouseEnter={() => (isStart || isEnd) && isCreatable && unionTwoTask(id, isStart ? 'start' : 'end')}
+      onMouseDown={() => setActiveTask(id, isStart ? 'start' : 'end')}
     >
-      {isSecondDay && <input type='text' value={name}/>}
+      {isSecondDay && <TaskNameInput
+        type='text'
+        value={name}
+        countDates={countDates}
+        isEditableTask={isEditableTask}
+        onChange={(e) => editTask({...task, name: e.target.value})}
+      />}
     </TaskElement>
   )
 }

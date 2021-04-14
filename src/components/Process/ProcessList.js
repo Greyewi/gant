@@ -18,6 +18,7 @@ const ProcessList = ({processList, addNewProcess, editProcess, changeProcessList
       </TimeContainer>
     </ProcessLine>
   })), [processList, editProcess])
+
   return (
     <ProcessRow>
       <DnDList

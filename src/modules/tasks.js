@@ -26,6 +26,8 @@ export const UNION_COUPLE_TASK = `${prefix}/UNION_COUPLE_TASK`
 export const ReducerState = {
   taskList: [],
   isOpenTaskFormId: null,
+  editableTaskId: null,
+  editableTaskSide: '', //start or end
   endInterval: null,
   startInterval: null,
   border: 'solid',
@@ -63,7 +65,8 @@ export default function reducer(state = ReducerState, action) {
       return {...state, startInterval: payload.startData, isCreatable: true, activeProcessId: payload.processId}
     case SET_ACTIVE_TASK:
       return Object.assign({}, state, {
-        isOpenTaskFormId: payload,
+        editableTaskId: payload.id,
+        editableTaskSide: payload.side,
       })
     case ADD_END_INTERVAL_TASK:
       return { ...state, endInterval: payload.endData, activeProcessId: payload.processId}
@@ -90,7 +93,9 @@ export default function reducer(state = ReducerState, action) {
 export const stateSelector = state => state[moduleName]
 export const taskListSelector = createSelector(stateSelector, state => state.taskList)
 export const isCreatableSelector = createSelector(stateSelector, state => state.isCreatable)
+export const editableTaskIdSelector = createSelector(stateSelector, state => state.editableTaskId)
 export const isOpenTaskFormIdSelector = createSelector(stateSelector, state => state.isOpenTaskFormId)
+export const editableTaskSideSelector = createSelector(stateSelector, state => state.editableTaskSide)
 export const activeProcessIdSelector = createSelector(stateSelector, state => state.activeProcessId)
 export const activeTaskEditSelector = createSelector(stateSelector, ({name, fill, border}) => ({name, fill, border}))
 export const intervalSelector = createSelector(stateSelector, state => {
@@ -117,9 +122,9 @@ export const addStartIntervalTask = (startData, processId) => ({
   payload: {startData, processId}
 })
 
-export const setActiveTask = (taskId) => ({
+export const setActiveTask = (taskId, side) => ({
   type: SET_ACTIVE_TASK,
-  payload: taskId
+  payload: {id: taskId, side: side}
 })
 
 export const addEndIntervalTask = (endData, processId) => ({
@@ -137,6 +142,14 @@ export const addNewTask = (processId) => (dispatch, getState) => {
   const newTask = ReducerRecord
 
   dispatch({
+    type: REMOVE_INTERVAL_TASK
+  })
+
+  if(interval.length <= 1) {
+    return
+  }
+
+  dispatch({
     type: ADD_NEW_TASK,
     payload: [
       ...taskList,
@@ -152,25 +165,22 @@ export const addNewTask = (processId) => (dispatch, getState) => {
     type: SET_OPEN_FORM_TASK,
     payload: newTask.id
   })
-
-  dispatch({
-    type: REMOVE_INTERVAL_TASK
-  })
 }
 
-export const editTask = newTask => (dispatch, getState) => {
+export const editTask = (newTask) => (dispatch, getState) => {
   const {taskList} = getState()[moduleName]
-  const activeTaskId = isOpenTaskFormIdSelector(getState())
+
   const newTaskList = taskList.map((taskItem) => {
-    if (taskItem.id === activeTaskId) {
-      taskItem = {...taskItem, ...newTask}
+    if (taskItem.id === newTask.id) {
+      return newTask
     }
     return taskItem
   })
 
+
   dispatch({
     type: EDIT_TASK,
-    payload: {taskList : newTaskList, ...newTask}
+    payload: {taskList : newTaskList}
   })
 
 }

@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react"
+import React from "react"
 import {connect} from "react-redux"
 import {timeFieldArraySelector} from "../../modules/timeline"
 import {
@@ -7,7 +7,6 @@ import {
   isOpenTaskFormIdSelector,
   setActiveTask
 } from "../../modules/tasks"
-import useTraceUpdate from '../../hooks/useTraceUpdate'
 import {FieldContainerElement} from "./styles"
 import Modal from "../../ui/Modal"
 import Form from "../Form"
@@ -15,7 +14,6 @@ import Form from "../Form"
 
 const TimeContainer = (props) => {
   const {children, timeFieldArray, setActiveTask, isOpenTaskFormId, processId} = props
-  useTraceUpdate(props)
 
   return <FieldContainerElement>
     {timeFieldArray.map((item, key) => React.cloneElement(children, {
