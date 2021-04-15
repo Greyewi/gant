@@ -2,20 +2,20 @@ import {MonthElement, NameOfMonth, DayContainer} from "./styles";
 import moment from "moment";
 import React, {useCallback} from "react";
 import {format} from '../../constants'
-import {getDaysArrayByMonth, addDayToMonth} from '../../utils'
+import {getDaysArrayByMonth, changeDayOfMonth} from '../../utils'
 
 const Month = ({timeField, odd, addStartIntervalTask, addEndIntervalTask, interval, addNewTask}) => {
 
     const setStartInterval = useCallback((addInterval, day) => {
-        addInterval(moment(addDayToMonth(timeField, day), format))
-    }, [timeField, addDayToMonth])
+        addInterval(moment(changeDayOfMonth(timeField, day), format))
+    }, [timeField, changeDayOfMonth])
 
     const setEndInterval = useCallback((month, day) => {
         if(interval.length > 0) {
-            addEndIntervalTask(addDayToMonth(month, day))
+            addEndIntervalTask(changeDayOfMonth(month, day))
         }
 
-    },[interval, addDayToMonth, addEndIntervalTask])
+    },[interval, changeDayOfMonth, addEndIntervalTask])
 
     return <MonthElement odd={odd} >
         <NameOfMonth>{moment(timeField, format).format("MMMM YYYY")}</NameOfMonth>

@@ -3,6 +3,7 @@ import {taskListSelector, addNewTask, editTask, deleteTask} from "../../models/t
 import Task from "../Task";
 
 const TaskContainer = () => {
+    console.log('test1')
     return <TaskContainerElement>
         {}
     </TaskContainerElement>

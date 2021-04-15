@@ -18,8 +18,21 @@ export const getDaysArrayByMonth = (data) => {
     return arr
 }
 
-export const addDayToMonth = (month, day) => {
+export const changeDayOfMonth = (month, day) => {
     const dArr = month.split('-')
     dArr[0] = day
     return dArr.join('-')
+}
+
+export const deleteItemFromList = (list, id) => {
+    return  list.filter(f => f.id !== id)
+}
+
+export const modifyListByObject = (list, object) => {
+    return  list.map(item => {
+        if(item.id === object.id){
+            return {...item, ...object}
+        }
+        return item
+    })
 }
