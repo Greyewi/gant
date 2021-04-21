@@ -23,12 +23,11 @@ export const ADD_NEW_PROCESS_SUCCESS = `${prefix}/ADD_NEW_PROCESS_SUCCESS`
  * Reducer
  * */
 export const ReducerState = {
-        processList: []
+    processList: []
 }
 
 export const ReducerRecord = {
     id: null,
-    position: 0,
     name: 'new process',
 
 }
@@ -64,25 +63,54 @@ export const addNewProcess = () => ({
     payload: ReducerRecord
 })
 
+export const removeProcess = (id) => ({
+    type: REMOVE_PROCESS_REQUEST,
+    payload: id
+})
+
+export const changeProcess = (editProcess) => ({
+    type: CHANGE_PROCESS_REQUEST,
+    payload: editProcess
+})
+
 /**
  * Redux sagas
  * */
 
 export const addNewProcessSaga = function* () {
-/*    while(true){*/
+    while(true){
         const {payload} = yield take(ADD_NEW_PROCESS_REQUEST)
         const processList = yield select(processListSelector)
         const token = yield uuidv4()
         yield put({
             type: ADD_NEW_PROCESS_SUCCESS,
-            payload: [...processList, {...payload, id: token, position: processList.length}]
+            payload: [...processList, {...payload, id: token}]
         })
-/*    }*/
+    }
+}
 
-/*    dispatch({
-        type: ADD_NEW_PROCESS,
-        payload: [...processList, {...newProcess, id: uuidv4(), position: processList.length}]
-    })*/
+export const removeProcessSaga = function* () {
+    while(true){
+        const {payload} = yield take(CHANGE_PROCESS_REQUEST)
+        const processList = yield select(processListSelector)
+        const newProcessList = yield deleteItemFromList(processList, payload.id)
+        yield put({
+            type: CHANGE_PROCESS_SUCCESS,
+            payload: newProcessList
+        })
+    }
+}
+
+export const changeProcessSaga = function* () {
+    while(true){
+        const {payload} = yield take(REMOVE_PROCESS_REQUEST)
+        const processList = yield select(processListSelector)
+        const changedProcessList = yield modifyListByObject(processList, payload.editProcess)
+        yield put({
+            type: REMOVE_PROCESS_SUCCESS,
+            payload: changedProcessList
+        })
+    }
 }
 
 /*export const removeProcess = (id) => (dispatch, getState)=>{
@@ -105,6 +133,8 @@ export const changeProcess = (editProcess) => (dispatch, getState)=>{
 
 export const saga = function* () {
     yield all([
-        addNewProcessSaga()
+        addNewProcessSaga(),
+        removeProcessSaga(),
+        changeProcessSaga()
     ])
 }

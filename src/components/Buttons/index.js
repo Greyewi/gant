@@ -2,7 +2,7 @@ import React, {useRef} from "react"
 import Mousetrap from 'mousetrap';
 import {timeFieldArraySelector, addNewMoth} from "../../models/timeline";
 import {connect} from "react-redux";
-
+import {ButtonElement} from './style'
 
 const Button = props => {
     const {children, hotKey, onClick, timeFieldArray, addNewMoth} = props
@@ -14,13 +14,13 @@ const Button = props => {
         Mousetrap.bind(hotKey, () => {inputEl.click()})
     }
 
-    return <button
+    return <ButtonElement
         onClick={()=>addNewMoth(onClick(timeFieldArray))}
         ref={inputEl}
 
     >
         {children}
-    </button>
+    </ButtonElement>
 }
 
 export default connect((state) => ({

@@ -13,7 +13,12 @@ export const getDaysArrayByMonth = (data) => {
     const days = moment(data, format).daysInMonth()
     const arr = []
     for(let i = 1; i <= days; i++){
-        arr.push(i)
+        if(i < 10){
+            arr.push("0" + i)
+        } else {
+            arr.push(i)
+        }
+
     }
     return arr
 }

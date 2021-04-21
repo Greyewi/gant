@@ -1,12 +1,7 @@
 import React from "react"
+import {connect} from "react-redux";
+import Process from './process'
+import {addNewProcess, changeProcess, removeProcess, processListSelector} from '../../models/processes'
 
-
-const ProcessContainer = ({children}) => {
-    return (
-        <ProcessContainer>
-            {children}
-        </ProcessContainer>
-    )
-}
-
-export default ProcessContainer
+export default connect((state) => (
+    {processList: processListSelector(state)}), {addNewProcess, removeProcess, changeProcess})(Process)

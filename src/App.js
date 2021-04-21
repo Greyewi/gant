@@ -11,10 +11,8 @@ function App() {
 
     return (
         <div className="App">
+            <ProcessContainer>Process</ProcessContainer>
 
-            <TimeContainer>
-                <Month />
-            </TimeContainer>
             <div>
                 <Button onClick={addPreviousMonth} hotKey="left">Prev</Button>
                 <Button onClick={addNextMonth} hotKey='right'>Next</Button>

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const FieldContainerElement = styled.section`
-  margin: 150px;
+
   display: flex;
-  width: 100%;
+  justify-content: center;
+  width: auto;
   height: auto;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: visible;
 `
