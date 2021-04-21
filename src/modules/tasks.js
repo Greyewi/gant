@@ -9,6 +9,7 @@ import {v4 as uuidv4} from 'uuid'
 
 export const moduleName = 'tasks'
 const prefix = moduleName
+
 export const ADD_NEW_TASK = `${prefix}/ADD_NEW_TASK`
 export const ADD_START_INTERVAL_TASK = `${prefix}/ADD_START_INTERVAL_TASK`
 export const ADD_END_INTERVAL_TASK = `${prefix}/ADD_END_INTERVAL_TASK`
@@ -26,12 +27,12 @@ export const UNION_COUPLE_TASK = `${prefix}/UNION_COUPLE_TASK`
 export const ReducerState = {
   taskList: [],
   isOpenTaskFormId: null,
+  isCreatable: false,
   editableTaskId: null,
   editableTaskSide: '', //start or end
   endInterval: null,
   startInterval: null,
   border: 'solid',
-  isCreatable: false,
   activeProcessId: null
 }
 
@@ -122,14 +123,14 @@ export const addStartIntervalTask = (startData, processId) => ({
   payload: {startData, processId}
 })
 
-export const setActiveTask = (taskId, side) => ({
-  type: SET_ACTIVE_TASK,
-  payload: {id: taskId, side: side}
-})
-
 export const addEndIntervalTask = (endData, processId) => ({
   type: ADD_END_INTERVAL_TASK,
   payload: {endData, processId}
+})
+
+export const setActiveTask = (taskId, side) => ({
+  type: SET_ACTIVE_TASK,
+  payload: {id: taskId, side: side}
 })
 
 /**
@@ -182,7 +183,6 @@ export const editTask = (newTask) => (dispatch, getState) => {
     type: EDIT_TASK,
     payload: {taskList : newTaskList}
   })
-
 }
 
 export const deleteTask = (key) => (dispatch, getState) => {

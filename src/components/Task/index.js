@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from "react"
+import React, {useMemo} from "react"
 import {TaskElement, TaskNameInput} from "./style"
 import moment from 'moment'
 import {format} from '../../constants'
@@ -16,7 +16,7 @@ export const CreatableTask = ({interval, currentDate, activeTaskEdit}) => {
   )
 }
 
-const Task = ({isCreatable, isEditableTask, currentDate, unionTwoTask, editTask, task, taskDates, setActiveTask}) => {
+const Task = ({addEndIntervalTask, addStartIntervalTask, isCreatable, isEditableTask, currentDate, unionTwoTask, editTask, task, taskDates, setActiveTask}) => {
   const {dateOfStart, dateOfEnd, fill, name, border, id} = task
 
   const isStart = currentDate === dateOfStart
@@ -34,7 +34,15 @@ const Task = ({isCreatable, isEditableTask, currentDate, unionTwoTask, editTask,
       isEnd={isEnd}
       onMouseUp={() => isEditableTask && setActiveTask(null)}
       onMouseEnter={() => (isStart || isEnd) && isCreatable && unionTwoTask(id, isStart ? 'start' : 'end')}
-      onMouseDown={() => setActiveTask(id, isStart ? 'start' : 'end')}
+      onMouseDown={() => {
+        if(isStart){
+          setActiveTask(id, 'start')
+          addEndIntervalTask(currentDate)
+        } else {
+          setActiveTask(id, 'end')
+          addStartIntervalTask(currentDate)
+        }
+      }}
     >
       {isSecondDay && <TaskNameInput
         type='text'

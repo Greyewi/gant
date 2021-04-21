@@ -1,5 +1,5 @@
 import {MonthElement} from "./styles"
-import Day from '../Day'
+import DayList from '../DayList'
 
 const Month = ({
                  processId,
@@ -8,7 +8,7 @@ const Month = ({
                  taskList
                }) => {
   return <MonthElement odd={odd}>
-    <Day processId={processId} taskList={taskList} timeField={timeField}/>
+    <DayList processId={processId} taskList={taskList} timeField={timeField}/>
   </MonthElement>
 }
 
