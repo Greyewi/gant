@@ -9,6 +9,7 @@
     "moment": "^2.29.1",
     "mousetrap": "^1.6.5",
     "react": "^17.0.1",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.1",
     "react-indiana-drag-scroll": "^1.8.1",
     "react-mousetrap": "^0.2.0",

@@ -20,19 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Buttons/style.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProcessContainer/process.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProcessContainer/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DnDList/drag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DnDList/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DnDList/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Buttons/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Day/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ProcessContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProcessContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProcessContainer/process.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProcessContainer/process.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/processes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/processes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
@@ -44,6 +41,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -57,6 +55,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />

@@ -18,8 +18,7 @@ const Day = ({timeField, addStartIntervalTask, addEndIntervalTask, interval, add
         }
 
     },[interval, changeDayOfMonth, addEndIntervalTask])
-
-    return <DayContainer date={timeField}>
+    return <DayContainer>
                 {getDaysArrayByMonth(timeField).map((day) => <div
                     onMouseUp={() => addNewTask()}
                     onMouseDown={() => setStartInterval(addStartIntervalTask, day)}
