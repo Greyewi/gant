@@ -12,17 +12,18 @@ export const ProcessLine = styled.div`
   align-items: flex-end;
   justify-content: center;
   height: 100px;
-
+  margin: 5px;
 `
 
 export const ProcessName = styled.input.attrs(props => ({...props}))`
   display: flex;
   align-items: center;
   height: 100px;
-  width: 80px;
+  width: 100px;
   border: 0;
   background-color: transparent;
   outline: none;
   color: white;
   margin-right: 10px;
 `
+

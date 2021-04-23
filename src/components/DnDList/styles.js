@@ -7,6 +7,7 @@ export const DnDElement = styled.div`
   background: url("${Drag}") no-repeat;
   background-size: contain;
   cursor: grabbing;
+  margin: 5px;
 `
 
 export const DnDElementContainer = styled.div`

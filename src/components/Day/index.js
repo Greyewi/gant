@@ -6,7 +6,7 @@ import {getDaysArrayByMonth, changeDayOfMonth} from '../../utils'
 
 
 
-const Day = ({timeField, addStartIntervalTask, addEndIntervalTask, interval, addNewTask}) => {
+const Day = ({timeField, addStartIntervalTask, addEndIntervalTask, interval, addNewTask, day}) => {
 
     const setStartInterval = useCallback((addInterval, day) => {
         addInterval(moment(changeDayOfMonth(timeField, day), format))
@@ -18,16 +18,13 @@ const Day = ({timeField, addStartIntervalTask, addEndIntervalTask, interval, add
         }
 
     },[interval, changeDayOfMonth, addEndIntervalTask])
-    return <DayContainer>
-                {getDaysArrayByMonth(timeField).map((day) => <div
-                    onMouseUp={() => addNewTask()}
-                    onMouseDown={() => setStartInterval(addStartIntervalTask, day)}
-                    onMouseMove={(event) => setEndInterval(event.target.parentElement.dataset.date, event.target.innerHTML)}
-                    key={day}
-                >
-                    {day}
-                </div>)}
-            </DayContainer>
+    return <div
+            onMouseUp={() => addNewTask()}
+            onMouseDown={() => setStartInterval(addStartIntervalTask, day)}
+            onMouseMove={(event) => setEndInterval(event.target.innerHTML)}
+        >
+            {day}
+        </div>
 }
 
 export default Day

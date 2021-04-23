@@ -10,8 +10,10 @@ export const moduleName = 'tasks'
 const prefix = moduleName
 /*ACTIONS*/
 export const ADD_NEW_TASK = `${prefix}/ADD_NEW_TASK`
-export const ADD_START_INTERVAL_TASK = `${prefix}/ADD_START_INTERVAL_TASK`
-export const ADD_END_INTERVAL_TASK = `${prefix}/ADD_END_INTERVAL_TASK`
+export const ADD_START_TEMP_INTERVAL_TASK_REQUEST = `${prefix}/ADD_START_TEMP_INTERVAL_TASK_REQUEST`
+export const ADD_START_TEMP_INTERVAL_TASK_SUCCESS = `${prefix}/ADD_START_TEMP_INTERVAL_TASK_SUCCESS`
+export const ADD_END_TEMP_INTERVAL_TASK_REQUEST = `${prefix}/ADD_END_TEMP_INTERVAL_TASK_REQUEST`
+export const ADD_END_TEMP_INTERVAL_TASK_SUCCESS = `${prefix}/ADD_END_TEMP_INTERVAL_TASK_SUCCESS`
 export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/DELETE_FIRST_MONTH`
@@ -23,7 +25,10 @@ export const EDIT_TASK = `${prefix}/DELETE_FIRST_MONTH`
  * */
 
 export const ReducerState = {
-    taskList: []
+    taskList: [],
+    startIntervalTemp: null,
+    endIntervalTemp: null,
+    processIdTemp: null
 }
 
 export const ReducerRecord = {
@@ -31,9 +36,7 @@ export const ReducerRecord = {
     dateOfStart: moment().format(format),
     dateOfEnd: moment().add(1, 'months').format(format),
     taskColor: "#000",
-    position: 0,
-    startInterval: null,
-    endInterval: null,
+
 }
 
 export default function reducer(state = ReducerState, action) {
@@ -46,18 +49,18 @@ export default function reducer(state = ReducerState, action) {
             return Object.assign({}, state, {
                 taskList: payload,
             })
-        case ADD_START_INTERVAL_TASK:
+        case ADD_START_TEMP_INTERVAL_TASK_SUCCESS:
             return Object.assign({}, state, {
-                startInterval: payload,
+                startIntervalTemp: payload,
             })
-        case ADD_END_INTERVAL_TASK:
+        case ADD_END_TEMP_INTERVAL_TASK_SUCCESS:
             return Object.assign({}, state, {
-                endInterval: payload,
+                endIntervalTemp: payload,
             })
         case REMOVE_INTERVAL_TASK:
             return Object.assign({}, state, {
-                startInterval: null,
-                endInterval: null
+                startIntervalTemp: null,
+                endIntervalTemp: null
             })
         default:
             return state
@@ -70,17 +73,20 @@ export default function reducer(state = ReducerState, action) {
 
 export const stateSelector = state => state[moduleName]
 export const taskListSelector = createSelector(stateSelector, state => state.taskList)
+export const startIntervalSelector = createSelector(stateSelector, state => state.startIntervalTemp)
+export const endIntervalSelector = createSelector(stateSelector, state => state.endIntervalTemp)
+export const processIdTempSelector = createSelector(stateSelector, state => state.processIdTemp)
 export const intervalSelector = createSelector(stateSelector, state => {
-    if(!state.startInterval && state.endInterval) {
-        return [state.endInterval]
-    } else if (state.startInterval && !state.endInterval){
-        return [state.startInterval]
-    } else if (!state.startInterval && !state.endInterval){
+    if(!state.startIntervalTemp && state.endIntervalTemp) {
+        return [state.endIntervalTemp]
+    } else if (state.startIntervalTemp && !state.endIntervalTemp){
+        return [state.startIntervalTemp]
+    } else if (!state.startIntervalTemp && !state.endIntervalTemp){
         return []
     } else {
-        const arr = moment(state.startInterval, format) < moment(state.endInterval, format) ?
-            [state.startInterval, state.endInterval] :
-            [state.endInterval, state.startInterval]
+        const arr = moment(state.startIntervalTemp, format) < moment(state.endIntervalTemp, format) ?
+            [state.startIntervalTemp, state.endIntervalTemp] :
+            [state.endIntervalTemp, state.startIntervalTemp]
         return arr
     }
 
@@ -90,13 +96,13 @@ export const intervalSelector = createSelector(stateSelector, state => {
  * Action creators
  * */
 
-export const addStartIntervalTask = (startData) => ({
-    type: ADD_START_INTERVAL_TASK,
+export const addStartIntervalTempTask = (startData) => ({
+    type: ADD_START_TEMP_INTERVAL_TASK_SUCCESS,
     payload: startData
 })
 
-export const addEndIntervalTask = (endData) => ({
-    type: ADD_END_INTERVAL_TASK,
+export const addEndIntervalTempTask = (endData) => ({
+    type: ADD_END_TEMP_INTERVAL_TASK_SUCCESS,
     payload: endData
 })
 

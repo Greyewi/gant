@@ -1,12 +1,12 @@
 import {MonthElement, NameOfMonth} from "./styles";
 import React, {useCallback} from "react";
-import Day from "../Day";
+import DayList from "../DayList";
 
 const Month = ({odd, ...rest}) => {
 
     return <MonthElement odd={odd} >
         {/*<NameOfMonth>{moment(timeField, format).format("MMMM YYYY")}</NameOfMonth>*/}
-        <Day {...rest}/>
+        <DayList {...rest}/>
     </MonthElement>
 }
 

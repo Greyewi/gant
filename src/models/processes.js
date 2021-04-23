@@ -109,7 +109,7 @@ export const removeProcessSaga = function* () {
   while (true) {
     const {payload} = yield take(REMOVE_PROCESS_REQUEST )
     const processList = yield select(processListSelector)
-    const newProcessList = yield deleteItemFromList(processList, payload.id)
+    const newProcessList = yield deleteItemFromList(processList, payload)
     yield put({
       type: REMOVE_PROCESS_SUCCESS,
       payload: newProcessList

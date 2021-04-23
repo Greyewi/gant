@@ -20,18 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/DnDList/drag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DnDList/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DnDList/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DayList/DayList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DayList/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DnDList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DnDList/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProcessContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProcessContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ProcessContainer/process.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProcessContainer/process.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProcessContainer/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProcessContainer/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/processes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/processes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tasks.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +58,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../2048" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -97,6 +98,9 @@
       <workItem from="1618675537159" duration="3850000" />
       <workItem from="1618721034577" duration="5043000" />
       <workItem from="1618980696303" duration="2246000" />
+      <workItem from="1619128283982" duration="21000" />
+      <workItem from="1619128314789" duration="596000" />
+      <workItem from="1619153801058" duration="6289000" />
     </task>
     <servers />
   </component>
@@ -128,17 +132,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1616230591724" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1618341300709">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1619156585453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618341300709" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619156585453" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1615483848060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615483848060" />
-    <state x="478" y="0" width="579" height="824" key="find.popup" timestamp="1618127235408">
+    <state x="478" y="0" width="579" height="824" key="find.popup" timestamp="1619158650233">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="0" width="579" height="824" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1618127235408" />
+    <state x="478" y="0" width="579" height="824" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619158650233" />
   </component>
 </project>

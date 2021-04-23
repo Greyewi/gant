@@ -1,7 +1,7 @@
 import React from "react"
 import {connect} from "react-redux"
 import {timeFieldArraySelector} from "../../models/timeline"
-import {addNewTask, intervalSelector, addStartIntervalTask, addEndIntervalTask} from "../../models/tasks"
+import {addNewTask, intervalSelector, addEndIntervalTempTask, addStartIntervalTempTask} from "../../models/tasks"
 import {FieldContainerElement} from "./styles";
 
 const TimeContainer = ({children, timeFieldArray, ...rest}) => {
@@ -13,4 +13,4 @@ const TimeContainer = ({children, timeFieldArray, ...rest}) => {
 export default connect((state) => ({
     timeFieldArray: timeFieldArraySelector(state),
     interval: intervalSelector(state)
-}), {addNewTask, addStartIntervalTask, addEndIntervalTask})(TimeContainer)
+}), {addNewTask, addStartIntervalTempTask, addEndIntervalTempTask})(TimeContainer)
