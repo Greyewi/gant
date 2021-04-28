@@ -1,7 +1,6 @@
 import {createSelector} from 'reselect'
 import moment from "moment"
 import {format} from '../constants'
-import {v4 as uuidv4} from 'uuid'
 
 /**
  * Constants
@@ -13,6 +12,7 @@ const prefix = moduleName
 export const ADD_NEW_TASK = `${prefix}/ADD_NEW_TASK`
 export const ADD_START_INTERVAL_TASK = `${prefix}/ADD_START_INTERVAL_TASK`
 export const ADD_END_INTERVAL_TASK = `${prefix}/ADD_END_INTERVAL_TASK`
+export const ADD_FIRST_DATE_INTERVAL_TASK = `${prefix}/ADD_FIRST_DATE_INTERVAL_TASK`
 export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/EDIT_TASK`
@@ -32,6 +32,7 @@ export const ReducerState = {
   editableTaskSide: '', //start or end
   endInterval: null,
   startInterval: null,
+  firstDateInterval: null,
   border: 'solid',
   activeProcessId: null
 }
@@ -62,22 +63,29 @@ export default function reducer(state = ReducerState, action) {
       return Object.assign({}, state, {
         ...payload,
       })
+    case ADD_FIRST_DATE_INTERVAL_TASK:
+      return {
+        ...state,
+        firstDateInterval: payload.data,
+        startInterval: payload.data,
+        endInterval: payload.data,
+        activeProcessId: payload.processId
+      }
     case ADD_START_INTERVAL_TASK:
-      return {...state, startInterval: payload.startData, isCreatable: true, activeProcessId: payload.processId}
+      return {...state, startInterval: payload.startData, isCreatable: true}
     case SET_ACTIVE_TASK:
       return Object.assign({}, state, {
         editableTaskId: payload.id,
         editableTaskSide: payload.side,
       })
     case ADD_END_INTERVAL_TASK:
-      return { ...state, endInterval: payload.endData, activeProcessId: payload.processId}
+      return {...state, endInterval: payload.endData}
     case SET_OPEN_FORM_TASK:
       return Object.assign({}, state, {
         isOpenTaskFormId: payload,
       })
     case REMOVE_INTERVAL_TASK:
       return Object.assign({}, state, {
-        isCreatable: false,
         activeProcessId: null,
         startInterval: null,
         endInterval: null
@@ -98,6 +106,9 @@ export const editableTaskIdSelector = createSelector(stateSelector, state => sta
 export const isOpenTaskFormIdSelector = createSelector(stateSelector, state => state.isOpenTaskFormId)
 export const editableTaskSideSelector = createSelector(stateSelector, state => state.editableTaskSide)
 export const activeProcessIdSelector = createSelector(stateSelector, state => state.activeProcessId)
+export const startTempIntervalSelector = createSelector(stateSelector, state => state.startInterval)
+export const firstDateIntervalSelector = createSelector(stateSelector, state => state.firstDateInterval)
+export const endTempIntervalSelector = createSelector(stateSelector, state => state.endInterval)
 export const activeTaskEditSelector = createSelector(stateSelector, ({name, fill, border}) => ({name, fill, border}))
 export const intervalSelector = createSelector(stateSelector, state => {
   if (!state.startInterval && state.endInterval) {
@@ -118,14 +129,19 @@ export const intervalSelector = createSelector(stateSelector, state => {
  * Action creators
  * */
 
-export const addStartIntervalTask = (startData, processId) => ({
-  type: ADD_START_INTERVAL_TASK,
-  payload: {startData, processId}
+export const addFirstDateIntervalTask = (data, processId) => ({
+  type: ADD_FIRST_DATE_INTERVAL_TASK,
+  payload: {data, processId}
 })
 
-export const addEndIntervalTask = (endData, processId) => ({
+export const addStartIntervalTask = (startData) => ({
+  type: ADD_START_INTERVAL_TASK,
+  payload: {startData}
+})
+
+export const addEndIntervalTask = (endData) => ({
   type: ADD_END_INTERVAL_TASK,
-  payload: {endData, processId}
+  payload: {endData}
 })
 
 export const setActiveTask = (taskId, side) => ({
@@ -138,34 +154,34 @@ export const setActiveTask = (taskId, side) => ({
  * */
 
 export const addNewTask = (processId) => (dispatch, getState) => {
-  const interval = intervalSelector(getState())
-  const {taskList} = getState()[moduleName]
-  const newTask = ReducerRecord
+  // const interval = intervalSelector(getState())
+  // const {taskList} = getState()[moduleName]
+  // const newTask = ReducerRecord
 
   dispatch({
     type: REMOVE_INTERVAL_TASK
   })
 
-  if(interval.length <= 1) {
-    return
-  }
-
-  dispatch({
-    type: ADD_NEW_TASK,
-    payload: [
-      ...taskList,
-      Object.assign(
-        {},
-        newTask,
-        {id: uuidv4(), dateOfStart: interval[0], dateOfEnd: interval[1], processId}
-      )
-    ]
-  })
-
-  dispatch({
-    type: SET_OPEN_FORM_TASK,
-    payload: newTask.id
-  })
+  // if(interval.length <= 1) {
+  //   return
+  // }
+  //
+  // dispatch({
+  //   type: ADD_NEW_TASK,
+  //   payload: [
+  //     ...taskList,
+  //     Object.assign(
+  //       {},
+  //       newTask,
+  //       {id: uuidv4(), dateOfStart: interval[0], dateOfEnd: interval[1], processId}
+  //     )
+  //   ]
+  // })
+  //
+  // dispatch({
+  //   type: SET_OPEN_FORM_TASK,
+  //   payload: newTask.id
+  // })
 }
 
 export const editTask = (newTask) => (dispatch, getState) => {
@@ -181,7 +197,7 @@ export const editTask = (newTask) => (dispatch, getState) => {
 
   dispatch({
     type: EDIT_TASK,
-    payload: {taskList : newTaskList}
+    payload: {taskList: newTaskList}
   })
 }
 
@@ -208,7 +224,7 @@ export const unionTwoTask = (unionTaskId, direction) => (dispatch, getState) => 
   })
 
 
-  if(window.confirm('Do you want to union task?')){
+  if (window.confirm('Do you want to union task?')) {
     dispatch({
       type: UNION_COUPLE_TASK,
       payload: newTaskList

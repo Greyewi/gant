@@ -6,6 +6,7 @@ import {getDatedIntoIntervals, getDaysArrayByMonth} from '../../utils'
 const DayList = ({
                    timeField,
                    taskList,
+                   activeProcessId,
                    processId
                  }) => {
 
@@ -13,9 +14,11 @@ const DayList = ({
   const taskDates = getDatedIntoIntervals(processTaskList)
 
   return (
-    <DayContainer>
+    <DayContainer
+      isActiveDay={processId === activeProcessId}
+    >
       {getDaysArrayByMonth(timeField).map((day, key) => {
-        return <Day key={key + processId} day={day} timeField={timeField} taskDates={taskDates}/>
+        return <Day processId={processId} key={key + processId + day} day={day} timeField={timeField} taskDates={taskDates}/>
       })}
     </DayContainer>
   )

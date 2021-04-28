@@ -1,28 +1,40 @@
 import Day from "./Day"
 import {connect} from "react-redux"
 import {
-  editableTaskIdSelector,
-  editableTaskSideSelector,
   activeProcessIdSelector,
   activeTaskEditSelector,
+  firstDateIntervalSelector,
   addEndIntervalTask,
+  addFirstDateIntervalTask,
   addNewTask,
   addStartIntervalTask,
+  editableTaskIdSelector,
+  editableTaskSideSelector,
   editTask,
-  intervalSelector,
+  endTempIntervalSelector,
   isCreatableSelector,
   isOpenTaskFormIdSelector,
   setActiveTask,
+  startTempIntervalSelector,
   unionTwoTask
 } from "../../modules/tasks"
 
-
 export default connect((state) => ({
+  firstDateInterval: firstDateIntervalSelector(state),
   editableTaskSide: editableTaskSideSelector(state),
   activeProcessId: activeProcessIdSelector(state),
   isCreatable: isCreatableSelector(state),
   editableTaskId: editableTaskIdSelector(state),
   isOpenTaskFormId: isOpenTaskFormIdSelector(state),
   activeTaskEdit: activeTaskEditSelector(state),
-  interval: intervalSelector(state)
-}), {editTask, unionTwoTask, addNewTask, setActiveTask, addStartIntervalTask, addEndIntervalTask})(Day)
+  startTempInterval: startTempIntervalSelector(state),
+  endTempInterval: endTempIntervalSelector(state),
+}), {
+  editTask,
+  unionTwoTask,
+  addNewTask,
+  setActiveTask,
+  addStartIntervalTask,
+  addFirstDateIntervalTask,
+  addEndIntervalTask
+})(Day)

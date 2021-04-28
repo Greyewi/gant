@@ -20,17 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/DayList/DayList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DayList/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DayList/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Day/TempTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/Day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Day/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DayList/DayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/DayList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DayList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DayList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -122,6 +123,9 @@
       <workItem from="1618722192554" duration="2616000" />
       <workItem from="1618732424252" duration="510000" />
       <workItem from="1618911608008" duration="8410000" />
+      <workItem from="1619270939600" duration="258000" />
+      <workItem from="1619520063292" duration="1990000" />
+      <workItem from="1619595862386" duration="7864000" />
     </task>
     <servers />
   </component>
@@ -170,10 +174,10 @@
     </state>
     <state x="1786" y="75" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618080413229" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615483848060" />
-    <state x="494" y="241" width="567" height="490" key="find.popup" timestamp="1618911858775">
+    <state x="494" y="241" width="567" height="490" key="find.popup" timestamp="1619522084723">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="2099" y="266" width="602" height="548" key="find.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618079134710" />
-    <state x="494" y="241" width="567" height="490" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1618911858775" />
+    <state x="494" y="241" width="567" height="490" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1619522084723" />
   </component>
 </project>
