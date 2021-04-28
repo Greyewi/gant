@@ -19,3 +19,13 @@ export const TaskContainerElement = styled.div`
   border-radius: 15px;
   width: 500px;
 `
+export const TempTask = styled.div `
+  display: ${props => props.isDateInsideInterval ? "flex" : "none"};
+  height: 60px;
+  width: 100%;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  border-left: ${props => props.isStartInterval? "2px solid white" : 0};
+  border-right: ${props => props.isEndInterval? "2px solid white" : 0};
+  background-color: #e7ba78;
+`

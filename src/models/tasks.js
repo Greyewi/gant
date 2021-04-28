@@ -14,6 +14,7 @@ export const ADD_START_TEMP_INTERVAL_TASK_REQUEST = `${prefix}/ADD_START_TEMP_IN
 export const ADD_START_TEMP_INTERVAL_TASK_SUCCESS = `${prefix}/ADD_START_TEMP_INTERVAL_TASK_SUCCESS`
 export const ADD_END_TEMP_INTERVAL_TASK_REQUEST = `${prefix}/ADD_END_TEMP_INTERVAL_TASK_REQUEST`
 export const ADD_END_TEMP_INTERVAL_TASK_SUCCESS = `${prefix}/ADD_END_TEMP_INTERVAL_TASK_SUCCESS`
+export const ADD_PROCESS_ID_TEMP_SUCCESS = `${prefix}/ADD_PROCESS_ID_TEMP_SUCCESS`
 export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/DELETE_FIRST_MONTH`
@@ -62,6 +63,10 @@ export default function reducer(state = ReducerState, action) {
                 startIntervalTemp: null,
                 endIntervalTemp: null
             })
+        case ADD_PROCESS_ID_TEMP_SUCCESS:
+            return Object.assign({}, state, {
+                processIdTemp: payload
+            })
         default:
             return state
     }
@@ -104,6 +109,11 @@ export const addStartIntervalTempTask = (startData) => ({
 export const addEndIntervalTempTask = (endData) => ({
     type: ADD_END_TEMP_INTERVAL_TASK_SUCCESS,
     payload: endData
+})
+
+export const addProcessIdTemp = (processIdTemp) => ({
+    type: ADD_PROCESS_ID_TEMP_SUCCESS,
+    payload: processIdTemp
 })
 
 

@@ -49,3 +49,24 @@ export const reorder = (list, startIndex, endIndex) => {
 
     return result
 }
+
+export const addDayToMonth = (month, day) => {
+    const dArr = month.split('-')
+    dArr[0] = day
+    return dArr.join('-')
+}
+
+export const enumerateDaysBetweenDates = (startDate, endDate) => {
+    const dates = []
+    const currDate = moment(startDate, format).startOf('day').add(-1, 'days')
+    const lastDate = moment(endDate, format).startOf('day')
+    while (currDate.add(1, 'days').diff(lastDate) <= 1) {
+        dates.push(currDate.clone().format(format))
+    }
+    return dates
+}
+
+export const getDatedIntoIntervals = (list = []) => {
+    const dates = list.map((item) => enumerateDaysBetweenDates(item.dateOfStart, item.dateOfEnd))
+    return dates && dates.length ? dates.flat(1) : []
+}

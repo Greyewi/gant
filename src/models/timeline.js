@@ -23,8 +23,6 @@ export const ReducerRecord = {
     timeFieldArray: [
         moment().format("DD-MM-YYYY"),
         moment().add(1, 'months').format("DD-MM-YYYY"),
-        moment().add(2, 'months').format("DD-MM-YYYY"),
-        moment().add(3, 'months').format("DD-MM-YYYY")
     ],
     timelineScale: 'months',
     scaleOptions: ['years', 'months', 'days', 'hours']

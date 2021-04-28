@@ -1,14 +1,16 @@
 import {DayContainer} from "../Day/styles";
-import {getDaysArrayByMonth} from "../../utils";
+import {getDaysArrayByMonth, addDayToMonth} from "../../utils";
 import React from "react";
 import Day from "../Day"
 
-const DayList = ({timeField}) => {
+const DayList = ({timeField, ...rest}) => {
+
     return <DayContainer>
         {getDaysArrayByMonth(timeField).map((day) => <Day
+            {...rest}
             key={day}
-            day={day}
-        />)}
+            date={addDayToMonth(timeField, day)}
+        >{day}</Day>)}
     </DayContainer>
 }
 
