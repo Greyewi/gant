@@ -1,6 +1,7 @@
 import Day from "./Day"
 import {connect} from "react-redux"
 import {
+  activeMonthsListSelector,
   activeProcessIdSelector,
   activeTaskEditSelector,
   firstDateIntervalSelector,
@@ -29,6 +30,7 @@ export default connect((state) => ({
   activeTaskEdit: activeTaskEditSelector(state),
   startTempInterval: startTempIntervalSelector(state),
   endTempInterval: endTempIntervalSelector(state),
+  activeMonthsList: activeMonthsListSelector(state),
 }), {
   editTask,
   unionTwoTask,

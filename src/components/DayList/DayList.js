@@ -1,7 +1,8 @@
 import {DayContainer} from "./styles"
 import Day from "../Day"
-import {useMemo} from "react"
+import {useMemo, memo} from "react"
 import {getDatedIntoIntervals, getDaysArrayByMonth} from '../../utils'
+import {doNotRerenderDiffProcess} from '../../hoc/memos'
 
 const DayList = ({
                    timeField,
@@ -24,4 +25,4 @@ const DayList = ({
   )
 }
 
-export default DayList
+export default memo(DayList, doNotRerenderDiffProcess)

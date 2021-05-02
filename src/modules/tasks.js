@@ -34,7 +34,8 @@ export const ReducerState = {
   startInterval: null,
   firstDateInterval: null,
   border: 'solid',
-  activeProcessId: null
+  activeProcessId: null,
+  activeMonthsList: new Set(),
 }
 
 export const ReducerRecord = {
@@ -63,29 +64,31 @@ export default function reducer(state = ReducerState, action) {
       return Object.assign({}, state, {
         ...payload,
       })
+    case SET_ACTIVE_TASK:
+      return Object.assign({}, state, {
+        editableTaskId: payload.id,
+        editableTaskSide: payload.side,
+      })
     case ADD_FIRST_DATE_INTERVAL_TASK:
       return {
         ...state,
         firstDateInterval: payload.data,
         startInterval: payload.data,
         endInterval: payload.data,
-        activeProcessId: payload.processId
+        activeProcessId: payload.processId,
+        activeMonthsList: new Set([...state.activeMonthsList, payload.month])
       }
     case ADD_START_INTERVAL_TASK:
-      return {...state, startInterval: payload.startData, isCreatable: true}
-    case SET_ACTIVE_TASK:
-      return Object.assign({}, state, {
-        editableTaskId: payload.id,
-        editableTaskSide: payload.side,
-      })
+      return {...state, startInterval: payload.startData, activeMonthsList: new Set([...state.activeMonthsList, payload.month])}
     case ADD_END_INTERVAL_TASK:
-      return {...state, endInterval: payload.endData}
+      return {...state, endInterval: payload.endData, activeMonthsList: new Set([...state.activeMonthsList, payload.month])}
     case SET_OPEN_FORM_TASK:
       return Object.assign({}, state, {
         isOpenTaskFormId: payload,
       })
     case REMOVE_INTERVAL_TASK:
       return Object.assign({}, state, {
+        activeMonthsList: new Set(),
         activeProcessId: null,
         startInterval: null,
         endInterval: null
@@ -101,6 +104,7 @@ export default function reducer(state = ReducerState, action) {
 
 export const stateSelector = state => state[moduleName]
 export const taskListSelector = createSelector(stateSelector, state => state.taskList)
+export const activeMonthsListSelector = createSelector(stateSelector, state => state.activeMonthsList)
 export const isCreatableSelector = createSelector(stateSelector, state => state.isCreatable)
 export const editableTaskIdSelector = createSelector(stateSelector, state => state.editableTaskId)
 export const isOpenTaskFormIdSelector = createSelector(stateSelector, state => state.isOpenTaskFormId)
@@ -129,19 +133,19 @@ export const intervalSelector = createSelector(stateSelector, state => {
  * Action creators
  * */
 
-export const addFirstDateIntervalTask = (data, processId) => ({
+export const addFirstDateIntervalTask = (data, processId, month) => ({
   type: ADD_FIRST_DATE_INTERVAL_TASK,
-  payload: {data, processId}
+  payload: {data, processId, month}
 })
 
-export const addStartIntervalTask = (startData) => ({
+export const addStartIntervalTask = (startData, month) => ({
   type: ADD_START_INTERVAL_TASK,
-  payload: {startData}
+  payload: {startData, month}
 })
 
-export const addEndIntervalTask = (endData) => ({
+export const addEndIntervalTask = (endData, month) => ({
   type: ADD_END_INTERVAL_TASK,
-  payload: {endData}
+  payload: {endData, month}
 })
 
 export const setActiveTask = (taskId, side) => ({

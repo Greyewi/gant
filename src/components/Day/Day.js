@@ -1,10 +1,11 @@
 import {DayItem} from "./styles"
 import {addDayToMonth} from "../../utils"
-import {useMemo} from "react"
+import {useMemo, memo} from "react"
 import TempTask from './TempTask'
 import moment from 'moment'
 import {format} from '../../constants'
 import {batch} from "react-redux"
+import {doNotRerenderDiffProcess} from '../../hoc/memos'
 
 const Day = ({
                addFirstDateIntervalTask,
@@ -19,7 +20,7 @@ const Day = ({
                addNewTask,
                timeField
              }) => {
-  const date = useMemo(() => addDayToMonth(timeField, day), [timeField, day])
+  const date = addDayToMonth(timeField, day)
 
   const isDateInsideInterval = useMemo(
     () => moment(date, format)
@@ -53,20 +54,20 @@ const Day = ({
       onMouseEnter={isIntervalCreated ? () => {
         if(date === firstDateInterval) {
           batch(() => {
-            addEndIntervalTask(date)
-            addStartIntervalTask(date)
+            addEndIntervalTask(date, timeField)
+            addStartIntervalTask(date, timeField)
           })
           return 0
         }
 
         if(isCreatingNextDate){
-          addEndIntervalTask(date)
+          addEndIntervalTask(date, timeField)
         } else if(isCreatingPrevDate){
-          addStartIntervalTask(date)
+          addStartIntervalTask(date, timeField)
         }
 
       } : () => null}
-      onMouseDown={() => addFirstDateIntervalTask(date, processId)}
+      onMouseDown={() => addFirstDateIntervalTask(date, processId, timeField)}
       onMouseUp={addNewTask}
     >
       {day}
@@ -79,4 +80,17 @@ const Day = ({
   )
 }
 
-export default Day
+const doNotRerenderDaysInCurrentProcess = (prevProps, nextProps) => {
+
+  if(prevProps.activeMonthsList.size !== nextProps.activeMonthsList.size) {
+    return false
+  }
+
+  if(prevProps.activeMonthsList.has(prevProps.timeField) && nextProps.activeMonthsList.has(nextProps.timeField)){
+    return false
+  }
+
+  return true
+}
+
+export default memo(memo(Day, doNotRerenderDaysInCurrentProcess), doNotRerenderDiffProcess)
