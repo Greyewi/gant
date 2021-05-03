@@ -18,7 +18,7 @@ export const DELETE_LAST_MONTH = `${prefix}/DELETE_LAST_MONTH`
  * */
 
 export const ReducerRecord = {
-    timeFieldArray: [...Array(100).keys()].map( i => moment().add(i, 'months').format("DD-MM-YYYY"))
+    timeFieldArray: [...Array(4).keys()].map( i => moment().add(i, 'months').format("DD-MM-YYYY"))
 }
 
 export default function reducer(state = ReducerRecord, action) {

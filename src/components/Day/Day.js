@@ -5,7 +5,7 @@ import TempTask from './TempTask'
 import moment from 'moment'
 import {format} from '../../constants'
 import {batch} from "react-redux"
-import {doNotRerenderDiffProcess} from '../../hoc/memos'
+import {doNotRerenderDiffProcess, doNotRerenderDaysInCurrentProcess} from '../../hoc/memos'
 
 const Day = ({
                addFirstDateIntervalTask,
@@ -80,17 +80,6 @@ const Day = ({
   )
 }
 
-const doNotRerenderDaysInCurrentProcess = (prevProps, nextProps) => {
 
-  if(prevProps.activeMonthsList.size !== nextProps.activeMonthsList.size) {
-    return false
-  }
-
-  if(prevProps.activeMonthsList.has(prevProps.timeField) && nextProps.activeMonthsList.has(nextProps.timeField)){
-    return false
-  }
-
-  return true
-}
 
 export default memo(memo(Day, doNotRerenderDaysInCurrentProcess), doNotRerenderDiffProcess)
