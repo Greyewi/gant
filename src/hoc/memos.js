@@ -3,11 +3,11 @@ export const doNotRerenderDiffProcess = (prevProps, nextProps) => {
     return false
   }
 
-  if(prevProps.activeProcessId === prevProps.processId || nextProps.activeProcessId === nextProps.processId){
-    return false
+  if(prevProps.activeProcessId !== prevProps.processId && nextProps.activeProcessId !== nextProps.processId){
+    return true
   }
 
-  return true
+  return false
 }
 
 export const doNotRerenderDaysInCurrentProcess = (prevProps, nextProps) => {

@@ -1,6 +1,7 @@
 import {createSelector} from 'reselect'
 import moment from "moment"
 import {format} from '../constants'
+import { v4 as uuidv4 } from 'uuid'
 
 /**
  * Constants
@@ -63,11 +64,12 @@ export default function reducer(state = ReducerState, action) {
     case EDIT_TASK:
       return Object.assign({}, state, {
         ...payload,
-      })
+      },
+        {activeProcessId: null, editableTaskId: null})
     case SET_ACTIVE_TASK:
       return Object.assign({}, state, {
-        editableTaskId: payload.id,
-        editableTaskSide: payload.side,
+        editableTaskId: payload.editableTaskId,
+        activeProcessId: payload.processId
       })
     case ADD_FIRST_DATE_INTERVAL_TASK:
       return {
@@ -88,6 +90,7 @@ export default function reducer(state = ReducerState, action) {
       })
     case REMOVE_INTERVAL_TASK:
       return Object.assign({}, state, {
+        firstDateInterval: null,
         activeMonthsList: new Set(),
         activeProcessId: null,
         startInterval: null,
@@ -148,9 +151,9 @@ export const addEndIntervalTask = (endData, month) => ({
   payload: {endData, month}
 })
 
-export const setActiveTask = (taskId, side) => ({
+export const setActiveTask = (editableTaskId, processId) => ({
   type: SET_ACTIVE_TASK,
-  payload: {id: taskId, side: side}
+  payload: {editableTaskId, processId}
 })
 
 /**
@@ -158,34 +161,35 @@ export const setActiveTask = (taskId, side) => ({
  * */
 
 export const addNewTask = (processId) => (dispatch, getState) => {
-  // const interval = intervalSelector(getState())
-  // const {taskList} = getState()[moduleName]
-  // const newTask = ReducerRecord
+  const interval = intervalSelector(getState())
+  const activeProcessId = activeProcessIdSelector(getState())
+  const {taskList} = getState()[moduleName]
+  const newTask = ReducerRecord
+
+  if(interval.length <= 1) {
+    return
+  }
+
+  dispatch({
+    type: ADD_NEW_TASK,
+    payload: [
+      ...taskList,
+      Object.assign(
+        {},
+        newTask,
+        {id: uuidv4(), dateOfStart: interval[0], dateOfEnd: interval[1], processId : activeProcessId}
+      )
+    ]
+  })
 
   dispatch({
     type: REMOVE_INTERVAL_TASK
   })
 
-  // if(interval.length <= 1) {
-  //   return
-  // }
-  //
-  // dispatch({
-  //   type: ADD_NEW_TASK,
-  //   payload: [
-  //     ...taskList,
-  //     Object.assign(
-  //       {},
-  //       newTask,
-  //       {id: uuidv4(), dateOfStart: interval[0], dateOfEnd: interval[1], processId}
-  //     )
-  //   ]
-  // })
-  //
-  // dispatch({
-  //   type: SET_OPEN_FORM_TASK,
-  //   payload: newTask.id
-  // })
+  dispatch({
+    type: SET_OPEN_FORM_TASK,
+    payload: newTask.id
+  })
 }
 
 export const editTask = (newTask) => (dispatch, getState) => {
@@ -214,11 +218,25 @@ export const deleteTask = (key) => (dispatch, getState) => {
   })
 }
 
-export const unionTwoTask = (unionTaskId, direction) => (dispatch, getState) => { //direction === 'end' or 'start'
+export const unionTwoTask = (unionTaskId, direction) => (dispatch, getState) => {
   const {taskList} = getState()[moduleName]
   const interval = intervalSelector(getState())
 
-  const newDates = direction === 'start' ? {dateOfStart: interval[0]} : {dateOfEnd: interval[1]}
+
+  let newDirection = direction
+  if(newDirection !== 'start' && newDirection !== 'end'){
+    const task = taskList.find(f => unionTaskId === f.id)
+    if(moment(task.dateOfStart, format).isAfter(moment(direction))){
+      newDirection = 'start'
+    } else if(moment(task.dateOfEnd, format).isBefore(moment(direction))){
+      newDirection = 'end'
+    } else {
+      return false
+    }
+  }
+
+
+  const newDates = newDirection === 'start' ? {dateOfStart: interval[0]} : {dateOfEnd: interval[1]}
 
   const newTaskList = taskList.map((taskItem) => {
     if (taskItem.id === unionTaskId) {
