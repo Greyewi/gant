@@ -70,3 +70,4 @@ export const getDatedIntoIntervals = (list = []) => {
     const dates = list.map((item) => enumerateDaysBetweenDates(item.dateOfStart, item.dateOfEnd))
     return dates && dates.length ? dates.flat(1) : []
 }
+

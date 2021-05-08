@@ -2,6 +2,7 @@ import {DayContainer} from "../Day/styles";
 import {getDaysArrayByMonth, addDayToMonth} from "../../utils";
 import React from "react";
 import Day from "../Day"
+import {dontRenderOtherProcess} from "../../hoc/memo";
 
 const DayList = ({timeField, ...rest}) => {
 
@@ -14,4 +15,4 @@ const DayList = ({timeField, ...rest}) => {
     </DayContainer>
 }
 
-export default DayList
+export default dontRenderOtherProcess(DayList)

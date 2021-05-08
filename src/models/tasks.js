@@ -18,6 +18,7 @@ export const ADD_PROCESS_ID_TEMP_SUCCESS = `${prefix}/ADD_PROCESS_ID_TEMP_SUCCES
 export const REMOVE_INTERVAL_TASK = `${prefix}/REMOVE_INTERVAL_TASK`
 export const DELETE_TASK = `${prefix}/DELETE_TASK`
 export const EDIT_TASK = `${prefix}/DELETE_FIRST_MONTH`
+export const ADD_FIRST_DATE_SUCCESS = `${prefix}/ADD_FIRST_DATE_SUCCESS`
 
 
 
@@ -29,7 +30,8 @@ export const ReducerState = {
     taskList: [],
     startIntervalTemp: null,
     endIntervalTemp: null,
-    processIdTemp: null
+    processIdTemp: null,
+    firstDate: null
 }
 
 export const ReducerRecord = {
@@ -67,6 +69,13 @@ export default function reducer(state = ReducerState, action) {
             return Object.assign({}, state, {
                 processIdTemp: payload
             })
+        case ADD_FIRST_DATE_SUCCESS:
+            return Object.assign({}, state, {
+                firstDate: payload.date,
+                processIdTemp: payload.processId,
+                startIntervalTemp: payload.date,
+                endIntervalTemp: payload.date
+            })
         default:
             return state
     }
@@ -80,6 +89,7 @@ export const stateSelector = state => state[moduleName]
 export const taskListSelector = createSelector(stateSelector, state => state.taskList)
 export const startIntervalSelector = createSelector(stateSelector, state => state.startIntervalTemp)
 export const endIntervalSelector = createSelector(stateSelector, state => state.endIntervalTemp)
+export const firstDateSelector = createSelector(stateSelector, state => state.firstDate)
 export const processIdTempSelector = createSelector(stateSelector, state => state.processIdTemp)
 export const intervalSelector = createSelector(stateSelector, state => {
     if(!state.startIntervalTemp && state.endIntervalTemp) {
@@ -114,6 +124,10 @@ export const addEndIntervalTempTask = (endData) => ({
 export const addProcessIdTemp = (processIdTemp) => ({
     type: ADD_PROCESS_ID_TEMP_SUCCESS,
     payload: processIdTemp
+})
+export const addFirstDate = (date, processId) => ({
+    type: ADD_FIRST_DATE_SUCCESS,
+    payload: {date, processId}
 })
 
 
