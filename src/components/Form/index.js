@@ -1,16 +1,18 @@
-import React, {useCallback} from "react"
-import {FormContainer, BorderSelector, BorderOptionSelector} from "./style"
-import {Formik, Field} from 'formik'
-import MyColorPicker from '../../ui/ColorPicker'
-import "react-datepicker/dist/react-datepicker.css"
+import React, { useCallback } from "react";
+import { FormContainer, BorderSelector, BorderOptionSelector } from "./style";
+import { Formik, Field } from "formik";
+import MyColorPicker from "../../ui/ColorPicker";
+import "react-datepicker/dist/react-datepicker.css";
 
+const Form = ({ task = {}, editTask }) => {
+  const { border, fill } = task;
 
-const Form = ({task = {}, editTask}) => {
-  const {border, fill} = task
-
-  const taskChange = useCallback((value, fieldName) =>{
-    editTask({...task, [fieldName]: value})
-  }, [editTask, task])
+  const taskChange = useCallback(
+    (value, fieldName) => {
+      editTask({ ...task, [fieldName]: value });
+    },
+    [editTask, task]
+  );
 
   return (
     <Formik
@@ -18,36 +20,31 @@ const Form = ({task = {}, editTask}) => {
         border: border,
         fill: fill,
       }}
-      validate={values => {
-        const errors = {}
+      validate={(values) => {
+        const errors = {};
         if (!values.name) {
-          errors.name = 'Required'
+          errors.name = "Required";
         }
-        return errors
+        return errors;
       }}
-      onSubmit={(values, {setSubmitting}) => {
-        editTask(values)
-        setSubmitting(false)
+      onSubmit={(values, { setSubmitting }) => {
+        editTask(values);
+        setSubmitting(false);
       }}
     >
-      {({
-          values,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
+      {({ values, handleChange, handleBlur, handleSubmit }) => (
         <FormContainer onSubmit={handleSubmit}>
           <Field
             name="fill"
             id="fill"
             component={MyColorPicker}
-            handleChange={(event) => taskChange(event, 'fill')}
+            handleChange={(event) => taskChange(event, "fill")}
           />
           <BorderSelector
             name="border"
-            onChange={event => {
-              handleChange(event)
-              editTask({...task, border: event.target.value})
+            onChange={(event) => {
+              handleChange(event);
+              editTask({ ...task, border: event.target.value });
             }}
             onBlur={handleBlur}
             value={values.border}
@@ -60,7 +57,7 @@ const Form = ({task = {}, editTask}) => {
         </FormContainer>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

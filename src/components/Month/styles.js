@@ -1,10 +1,9 @@
-import styled from "styled-components"
-
+import styled from "styled-components";
 
 export const MonthElement = styled.div`
-  background-color: ${props => props.odd ? "#333" : "#444"};
+  background-color: ${(props) => (props.odd ? "#333" : "#444")};
   width: auto;
-`
+`;
 
 export const NameOfMonth = styled.div`
   color: #fff;
@@ -13,5 +12,4 @@ export const NameOfMonth = styled.div`
   width: 100%;
   justify-content: center;
   padding-bottom: 10px;
-`
-
+`;

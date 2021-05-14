@@ -1,21 +1,33 @@
-export const doNotRerenderDiffProcess = (prevProps, nextProps) => {
-  if((!prevProps.activeProcessId && !prevProps.processId) || (!nextProps.activeProcessId && !nextProps.processId)) {
-    return false
-  }
+import { memo } from "react";
 
-  if(prevProps.activeProcessId !== prevProps.processId && nextProps.activeProcessId !== nextProps.processId){
-    return true
-  }
+export const doNotRerenderDiffProcess = (component) =>
+  memo(component, (prevProps, nextProps) => {
+    if (
+      (!prevProps.activeProcessId && !prevProps.processId) ||
+      (!nextProps.activeProcessId && !nextProps.processId)
+    ) {
+      return false;
+    }
 
-  return false
-}
+    if (
+      prevProps.activeProcessId !== prevProps.processId &&
+      nextProps.activeProcessId !== nextProps.processId
+    ) {
+      return true;
+    }
+
+    return false;
+  });
 
 export const doNotRerenderDaysInCurrentProcess = (prevProps, nextProps) => {
-  if(prevProps.activeMonthsList.size !== nextProps.activeMonthsList.size) {
-    return false
+  if (prevProps.activeMonthsList.size !== nextProps.activeMonthsList.size) {
+    return false;
   }
-  if(prevProps.activeMonthsList.has(prevProps.timeField) && nextProps.activeMonthsList.has(nextProps.timeField)){
-    return false
+  if (
+    prevProps.activeMonthsList.has(prevProps.timeField) &&
+    nextProps.activeMonthsList.has(nextProps.timeField)
+  ) {
+    return false;
   }
-  return true
-}
+  return true;
+};

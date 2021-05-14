@@ -1,18 +1,18 @@
 @font-face {
-  font-family: 'Roboto black';
-  src: url('shared/fonts/Roboto-Black.ttf');
+  font-family: "Roboto black";
+  src: url("shared/fonts/Roboto-Black.ttf");
 }
 
 @font-face {
   font-family: Roboto;
-  src: url('shared/fonts/Roboto-Regular.ttf');
+  src: url("shared/fonts/Roboto-Regular.ttf");
 }
 
 .App {
   text-align: center;
   display: flex;
   align-items: flex-end;
-  margin:50px 20px;
+  margin: 50px 20px;
   font-family: Roboto;
 }
 

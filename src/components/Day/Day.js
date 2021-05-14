@@ -1,16 +1,16 @@
 import {DayItem} from "./styles"
 import {addDayToMonth} from "../../utils"
-import {memo, useMemo} from "react"
-import TempTask from './TempTask'
-import moment from 'moment'
-import {format} from '../../constants'
+import {useCallback, useMemo} from "react"
+import TempTask from "./TempTask"
+import moment from "moment"
+import {format} from "../../constants"
 import {batch} from "react-redux"
-import {doNotRerenderDaysInCurrentProcess, doNotRerenderDiffProcess} from '../../hoc/memos'
-import Task from '../Task'
-import {unionTwoTask} from "../../modules/tasks"
+import {doNotRerenderDiffProcess} from "../../hoc/memos"
+import Task from "../Task"
 
 const Day = ({
                addFirstDateIntervalTask,
+               editTask,
                firstDateInterval,
                addStartIntervalTask,
                addEndIntervalTask,
@@ -22,17 +22,15 @@ const Day = ({
                day,
                addNewTask,
                taskList,
-               timeField
+               timeField,
              }) => {
   const date = useMemo(() => addDayToMonth(timeField, day), [timeField, day])
 
   const isTempDateInsideInterval = useMemo(
-    () => moment(date, format)
-      .isBetween(
-        moment(startTempInterval, format)
-          .add(-1, 'days'),
-        moment(endTempInterval, format)
-          .add(1, 'days')
+    () =>
+      moment(date, format).isBetween(
+        moment(startTempInterval, format).add(-1, "days"),
+        moment(endTempInterval, format).add(1, "days")
       ) && activeProcessId === processId,
     [date, activeProcessId, processId, endTempInterval, startTempInterval]
   )
@@ -54,43 +52,69 @@ const Day = ({
     [currentMomentDate, firstDateInterval]
   )
 
-  const dayTask = taskList.find(task => task.processId === processId && moment(task.dateOfStart, format).isSameOrBefore(currentMomentDate) && moment(task.dateOfEnd, format).isSameOrAfter(currentMomentDate))
+  const dayTask = useMemo(() => taskList.find(
+    (task) =>
+      task.processId === processId &&
+      moment(task.dateOfStart, format).isSameOrBefore(currentMomentDate) &&
+      moment(task.dateOfEnd, format).isSameOrAfter(currentMomentDate)
+  ), [currentMomentDate, taskList, processId])
+
+  const handleTaskEdit = useCallback(() => {
+    const editTaskData = taskList.find(f => f.id === editableTaskId)
+    editTask({...editTaskData, dateOfStart: startTempInterval, dateOfEnd: endTempInterval})
+  }, [taskList, editableTaskId, startTempInterval, endTempInterval, editTask])
+
+  const handleChangeInterval = useCallback(() => {
+    if (isIntervalCreated) {
+      if (date === firstDateInterval) {
+        batch(() => {
+          addEndIntervalTask(date, timeField)
+          addStartIntervalTask(date, timeField)
+        })
+        return 0
+      }
+
+      if (isCreatingNextDate) {
+        addEndIntervalTask(date, timeField)
+      } else if (isCreatingPrevDate) {
+        addStartIntervalTask(date, timeField)
+      }
+    }
+  }, [
+    isIntervalCreated,
+    date,
+    timeField,
+    firstDateInterval,
+    isCreatingNextDate,
+    isCreatingPrevDate,
+    addEndIntervalTask,
+    addStartIntervalTask
+  ])
 
   return (
     <DayItem
-      onMouseEnter={isIntervalCreated ? () => {
-        if (date === firstDateInterval) {
-          batch(() => {
-            addEndIntervalTask(date, timeField)
-            addStartIntervalTask(date, timeField)
-          })
-          return 0
-        }
-
-        if (isCreatingNextDate) {
-          addEndIntervalTask(date, timeField)
-        } else if (isCreatingPrevDate) {
-          addStartIntervalTask(date, timeField)
-        }
-
-      } : () => {
-        if(editableTaskId) {
-          addEndIntervalTask(date, timeField)
-        }
+      onMouseEnter={() => {
+        editableTaskId && console.log("DAY CHANGE")
+        handleChangeInterval()
       }}
-      onMouseDown={() => !dayTask && addFirstDateIntervalTask(date, processId, timeField)}
-      onMouseUp={() => editableTaskId ? unionTwoTask(editableTaskId, date) : addNewTask() }
+      onMouseDown={() =>
+        !dayTask && addFirstDateIntervalTask(date, processId, timeField)
+      }
+      onMouseUp={() =>
+        editableTaskId ? handleTaskEdit() : addNewTask()
+      }
     >
       {day}
-      {isTempDateInsideInterval && <TempTask
-        currentDate={date}
-        startDate={startTempInterval}
-        endDate={endTempInterval}
-      />}
-      {dayTask && <Task task={dayTask} date={date} processId={processId}/>}
+      {isTempDateInsideInterval && !dayTask && (
+        <TempTask
+          currentDate={date}
+          startDate={startTempInterval}
+          endDate={endTempInterval}
+        />
+      )}
+      {dayTask && <Task handleChangeInterval={handleChangeInterval} task={dayTask} date={date} processId={processId}/>}
     </DayItem>
   )
 }
 
-
-export default memo(memo(Day, doNotRerenderDaysInCurrentProcess), doNotRerenderDiffProcess)
+export default doNotRerenderDiffProcess(Day)

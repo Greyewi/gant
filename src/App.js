@@ -1,14 +1,13 @@
-import './App.css'
-import React from "react"
-import ProcessList from "./components/Process"
+import "./App.css";
+import React from "react";
+import ProcessList from "./components/Process";
 
 function App() {
-
   return (
     <div className="App">
-      <ProcessList/>
+      <ProcessList />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

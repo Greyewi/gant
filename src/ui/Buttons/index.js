@@ -1,32 +1,35 @@
-import React, {useRef} from "react"
-import Mousetrap from 'mousetrap';
-import {timeFieldArraySelector, addNewMoth} from "../../modules/timeline";
-import {connect} from "react-redux";
+import React, { useRef } from "react";
+import Mousetrap from "mousetrap";
+import { timeFieldArraySelector, addNewMoth } from "../../modules/timeline";
+import { connect } from "react-redux";
 
+const Button = (props) => {
+  const { children, hotKey, onClick, timeFieldArray, addNewMoth } = props;
+  const inputEl = useRef(null);
+  console.log(timeFieldArray);
+  if (onClick) {
+    Mousetrap.bind(hotKey, () => {
+      onClick(timeFieldArray);
+    });
+  } else {
+    Mousetrap.bind(hotKey, () => {
+      inputEl.click();
+    });
+  }
 
-const Button = props => {
-    const {children, hotKey, onClick, timeFieldArray, addNewMoth} = props
-    const inputEl = useRef(null)
-    console.log(timeFieldArray)
-    if(onClick){
-        Mousetrap.bind(hotKey, () => {onClick(timeFieldArray)})
-    } else {
-        Mousetrap.bind(hotKey, () => {inputEl.click()})
-    }
-
-    return <button
-        onClick={()=>addNewMoth(onClick(timeFieldArray))}
-        ref={inputEl}
-
-    >
-        {children}
+  return (
+    <button onClick={() => addNewMoth(onClick(timeFieldArray))} ref={inputEl}>
+      {children}
     </button>
-}
+  );
+};
 
-export default connect((state) => ({
-    timeFieldArray: timeFieldArraySelector(state)
-}), {addNewMoth})(Button)
-
+export default connect(
+  (state) => ({
+    timeFieldArray: timeFieldArraySelector(state),
+  }),
+  { addNewMoth }
+)(Button);
 
 /*
 import React from "react"
