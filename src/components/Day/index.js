@@ -7,7 +7,9 @@ import {
     startIntervalSelector,
     endIntervalSelector,
     addProcessIdTemp,
-    firstDateSelector
+    firstDateSelector,
+    addNewTask,
+    taskListSelector
 } from "../../models/tasks";
 import Day from "./Day";
 
@@ -15,5 +17,6 @@ export default connect((state) => ({
     startInterval: startIntervalSelector(state),
     endInterval: endIntervalSelector(state),
     processIdTemp: processIdTempSelector(state),
-    firstDate: firstDateSelector(state)
-}), {addStartIntervalTempTask, addEndIntervalTempTask, addProcessIdTemp, addFirstDate})(Day)
+    firstDate: firstDateSelector(state),
+    taskList: taskListSelector(state)
+}), {addStartIntervalTempTask, addEndIntervalTempTask, addProcessIdTemp, addFirstDate, addNewTask})(Day)

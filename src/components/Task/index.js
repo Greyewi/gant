@@ -1,12 +1,19 @@
-import React from "react"
-import {TaskContainer} from "./style";
+import {connect} from "react-redux"
 
-const Task = () => {
-    return (
-        <TaskContainer>
 
-        </TaskContainer>
-    )
-}
+import {
+    processIdTempSelector,
+    startIntervalSelector,
+    endIntervalSelector,
+    firstDateSelector,
+    unionTask,
+    editTask
+} from "../../models/tasks";
+import Task from "./Task";
 
-export default Task
+export default connect((state) => ({
+    startInterval: startIntervalSelector(state),
+    endInterval: endIntervalSelector(state),
+    processIdTemp: processIdTempSelector(state),
+    firstDate: firstDateSelector(state)
+}), {unionTask, editTask})(Task)

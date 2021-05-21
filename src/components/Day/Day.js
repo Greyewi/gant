@@ -2,19 +2,20 @@ import {dontRenderOtherProcess} from "../../hoc/memo";
 import moment from "moment";
 import React, {useMemo, memo} from "react";
 import {format} from '../../constants';
-import {getDaysArrayByMonth, changeDayOfMonth} from '../../utils'
+import Task from "../Task";
 import {batch} from "react-redux";
-import {TempTask} from "./styles"
-import {addFirstDate} from "../../models/tasks";
+import {TempTask, DayTaskContainer} from "./styles"
 
-const Day = ({addStartIntervalTempTask, addEndIntervalTempTask, processId, date, addFirstDate, children, startInterval, endInterval, processIdTemp, firstDate}) => {
+
+const Day = ({addStartIntervalTempTask, addEndIntervalTempTask, processId, date, addFirstDate, children, startInterval, endInterval, processIdTemp, firstDate, addNewTask, taskList}) => {
     const isDateInsideInterval = useMemo(() => moment(date, format).isBetween(moment(startInterval, format).add(-1, 'days'), moment(endInterval, format).add(1, 'days')) && processIdTemp === processId, [date, startInterval, endInterval, processId, processIdTemp])
     const isStartInterval = useMemo(() => date === startInterval, [date, startInterval])
     const isEndInterval = useMemo(() => date === endInterval, [date, startInterval])
+    const dayTask = taskList.find((task) => task.processId === processId && moment(task.dateOfStart, format).isSameOrBefore(moment(date, format)) && moment(task.dateOfEnd, format).isSameOrAfter(moment(date, format)))
 
     return <div
 
-        onMouseDown={() => addFirstDate(date, processId)}
+        onMouseDown={() => !dayTask ? addFirstDate(date, processId) : null}
         onMouseEnter={() => {
             if(date === firstDate){
                 batch(() => {
@@ -29,10 +30,15 @@ const Day = ({addStartIntervalTempTask, addEndIntervalTempTask, processId, date,
                 addEndIntervalTempTask(date)
             }
         }}
-/*        onMouseUp={(event) => setEndInterval(event.target.innerHTML)}*/
+        onMouseUp={() => !dayTask ? addNewTask() : null}
     >
         {children}
-        <TempTask isDateInsideInterval={isDateInsideInterval} isStartInterval={isStartInterval} isEndInterval={isEndInterval}/>
+        {dayTask && <Task task={dayTask} date={date} firstDate={firstDate} />}
+        {!dayTask && <TempTask
+            isDateInsideInterval={isDateInsideInterval}
+            isStartInterval={isStartInterval}
+            isEndInterval={isEndInterval}
+        />}
     </div>
 }
 
