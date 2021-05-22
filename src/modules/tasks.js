@@ -107,6 +107,7 @@ export default function reducer(state = ReducerState, action) {
       });
     case REMOVE_INTERVAL_TASK:
       return Object.assign({}, state, {
+        editableTaskId: null,
         firstDateInterval: null,
         activeMonthsList: new Set(),
         activeProcessId: null,
@@ -306,8 +307,7 @@ export const deleteTask = (key) => (dispatch, getState) => {
   });
 };
 
-export const unionTwoTask =
-  (unionTaskId, direction) => (dispatch, getState) => {
+export const unionTwoTask = (unionTaskId, direction, editableTaskId = null) => (dispatch, getState) => {
     const { taskList } = getState()[moduleName];
     const interval = intervalSelector(getState());
 
@@ -323,8 +323,7 @@ export const unionTwoTask =
       }
     }
 
-    const newDates =
-      newDirection === "start"
+    const newDates = newDirection === "start"
         ? { dateOfStart: interval[0] }
         : { dateOfEnd: interval[1] };
 
@@ -333,9 +332,9 @@ export const unionTwoTask =
         taskItem = { ...taskItem, ...newDates };
       }
       return taskItem;
-    });
+    }).filter(f => f.id !== editableTaskId);
 
-    if (window.confirm("Do you want to union task?")) {
+    if (window.confirm(editableTaskId ? "Do you want to merge task?" : "Do you want to union task?")) {
       dispatch({
         type: UNION_COUPLE_TASK,
         payload: newTaskList,

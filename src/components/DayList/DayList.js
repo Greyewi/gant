@@ -1,7 +1,7 @@
 import { DayContainer } from "./styles";
 import Day from "../Day";
 import { useMemo } from "react";
-import { getDatedIntoIntervals, getDaysArrayByMonth } from "../../utils";
+import { getDatedIntoIntervals, getUnitsArrayByInterval } from "../../utils";
 import { doNotRerenderDiffProcess } from "../../hoc/memos";
 
 const DayList = ({ timeField, taskList, activeProcessId, processId }) => {
@@ -13,7 +13,7 @@ const DayList = ({ timeField, taskList, activeProcessId, processId }) => {
 
   return (
     <DayContainer isActiveDay={processId === activeProcessId}>
-      {getDaysArrayByMonth(timeField).map((day, key) => {
+      {getUnitsArrayByInterval(timeField).map((day, key) => {
         return (
           <Day
             processId={processId}

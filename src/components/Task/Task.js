@@ -25,6 +25,7 @@ const Task = ({
     () => date === moment(dateOfStart, format).add(1, "days").format(format),
     [date, dateOfStart]
   )
+
   const countDates = useMemo(
     () => enumerateDaysBetweenDates(dateOfStart, dateOfEnd),
     [dateOfStart, dateOfEnd]
@@ -35,22 +36,15 @@ const Task = ({
 
   const handleEditTask = useCallback(() => {
     let changedInterval = null
-    if(firstDateInterval === task.dateOfStart){
+    if (firstDateInterval === task.dateOfStart) {
       changedInterval = {...task, dateOfStart: endTempInterval}
-    } else if(firstDateInterval === task.dateOfEnd){
+    } else if (firstDateInterval === task.dateOfEnd) {
       changedInterval = {...task, dateOfEnd: startTempInterval}
     }
     isEditableTask && editTask(changedInterval)
   }, [isEditableTask, editTask, task, startTempInterval, endTempInterval, firstDateInterval])
 
-  const isEditedInterval = useMemo(() => {
-    if (moment(date, format).isBefore(moment(startTempInterval, format))) {
-      return true
-    } else if(moment(date, format).isAfter(moment(endTempInterval, format))){
-      return true
-    }
-    return false
-  }, [date, startTempInterval, endTempInterval])
+  const isEditedInterval = useMemo(() => isEditableTask && (moment(date, format).isBefore(moment(startTempInterval, format)) || moment(date, format).isAfter(moment(endTempInterval, format))), [date, startTempInterval, endTempInterval, isEditableTask])
 
   return (
     <TaskElement
@@ -67,7 +61,8 @@ const Task = ({
             id,
             moment(date, format).isAfter(moment(firstDateInterval, format))
               ? "start"
-              : "end"
+              : "end",
+            editableTaskId
           )
         } else if (isEditableTask) {
           handleChangeInterval()

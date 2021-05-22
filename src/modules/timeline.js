@@ -11,6 +11,7 @@ export const INIT_TIME_FIELD = `${prefix}/INIT_TIME_FIELD`;
 export const ADD_NEW_MONTH = `${prefix}/ADD_NEW_MONTH`;
 export const DELETE_FIRST_MONTH = `${prefix}/DELETE_FIRST_MONTH`;
 export const DELETE_LAST_MONTH = `${prefix}/DELETE_LAST_MONTH`;
+export const CHANGE_SCALE = `${prefix}/CHANGE_SCALE`;
 
 /**
  * Reducer
@@ -20,6 +21,8 @@ export const ReducerRecord = {
   timeFieldArray: [...Array(2).keys()].map((i) =>
     moment().add(i, "months").format("DD-MM-YYYY")
   ),
+  scale: 'months', // medium
+  unit: 'week', // small
 };
 
 export default function reducer(state = ReducerRecord, action) {

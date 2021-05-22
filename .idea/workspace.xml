@@ -20,51 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tree.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Day/Day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Day/TempTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/TempTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Day/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Day/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DayList/DayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/DayList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DayList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DayList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Process/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Process/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/memos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/memos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useTraceUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useTraceUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/processes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/processes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/timeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reportWebVitals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Buttons/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/DnDList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/DnDList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/DnDList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/DnDList/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.spec.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +130,12 @@
       <workItem from="1620303835872" duration="6517000" />
       <workItem from="1620572260357" duration="10267000" />
       <workItem from="1620810051848" duration="5591000" />
-      <workItem from="1620831473284" duration="12237000" />
+      <workItem from="1620831473284" duration="13129000" />
+      <workItem from="1621063408144" duration="5402000" />
+      <workItem from="1621184640312" duration="8231000" />
+      <workItem from="1621405908771" duration="1949000" />
+      <workItem from="1621579818286" duration="2464000" />
+      <workItem from="1621680105942" duration="648000" />
     </task>
     <servers />
   </component>
