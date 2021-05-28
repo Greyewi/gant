@@ -19,8 +19,17 @@ import {
   startTempIntervalSelector,
 } from "../../modules/tasks";
 
+import {
+  formatSelector,
+  unitNameSelector,
+  scaleSelector
+} from '../../modules/timeline'
+
 export default connect(
   (state) => ({
+    format: formatSelector(state),
+    unitName: unitNameSelector(state),
+    scale: scaleSelector(state),
     taskList: taskListSelector(state),
     firstDateInterval: firstDateIntervalSelector(state),
     editableTaskSide: editableTaskSideSelector(state),

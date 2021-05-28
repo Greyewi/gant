@@ -1,1 +1,1 @@
-export const format = "DD-MM-YYYY";
+export const defaultFormat = "DD-MM-YYYY";

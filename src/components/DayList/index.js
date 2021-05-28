@@ -5,11 +5,20 @@ import {
   activeProcessIdSelector,
   activeMonthsListSelector,
 } from "../../modules/tasks";
-import { timeFieldArraySelector } from "../../modules/timeline";
+
+import {
+  unitsPerScaleSelector,
+  timeFieldArraySelector,
+  unitNameSelector,
+  formatSelector
+} from "../../modules/timeline";
 
 export default connect((state) => ({
+  unitName: unitNameSelector(state),
+  unitsPerScale: unitsPerScaleSelector(state),
   activeProcessId: activeProcessIdSelector(state),
   activeMonthsList: activeMonthsListSelector(state),
   timeFieldArray: timeFieldArraySelector(state),
   taskList: taskListSelector(state),
+  format: formatSelector(state),
 }))(DayList);

@@ -1,33 +1,32 @@
 import moment from "moment";
-import { format } from "./constants";
 
-export const addPreviousMonth = (array) => {
+export const addPreviousMonth = (array, format) => {
   return [moment(array, format).subtract(1, "months").format(format), ...array];
 };
 
-export const addNextMonth = (array) => {
+export const addNextMonth = (array, format) => {
   return [
     ...array,
     moment(array, format).add(array.length, "months").format(format),
   ];
 };
 
-export const getUnitsArrayByInterval = (data) => {
-  const days = moment(data, format).daysInMonth();
+export const getUnitsArrayByInterval = (data, count) => {
   const arr = [];
-  for (let i = 1; i <= days; i++) {
-    arr.push(i < 10 ? "0" + i : String(i));
+  for (let i = 1; i <= count; i++) {
+    const strI = String(i)
+    arr.push(strI.length === 1 ? "0" + strI : strI);
   }
   return arr;
 };
 
-export const addDayToMonth = (month, day) => {
-  const dArr = month.split("-");
-  dArr[0] = day;
-  return dArr.join("-");
-};
+export const addUnitToScale = (date, unitName, unit, format) => {
+  return moment(date).set({
+    [unitName]: unit
+  }).format(format)
+}
 
-export const dateIntoInterval = (date, interval) =>
+export const dateIntoInterval = (date, interval, format) =>
   moment(date, format) >= moment(interval[0], format) &&
   moment(date, format) <= moment(interval[1], format);
 
@@ -42,7 +41,7 @@ export function getCoords(elem) {
   };
 }
 
-export const setFormatDateFromHTMLtoMain = (inputValue) =>
+export const setFormatDateFromHTMLtoMain = (inputValue, format) =>
   moment(inputValue, "yyyy-MM-DD").format(format);
 
 export const reorder = (list, startIndex, endIndex) => {
@@ -53,19 +52,19 @@ export const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-export const enumerateDaysBetweenDates = (startDate, endDate) => {
+export const enumerateDaysBetweenDates = (startDate, endDate, unitName, format) => {
   const dates = [];
-  const currDate = moment(startDate, format).startOf("day").add(-1, "days");
-  const lastDate = moment(endDate, format).startOf("day");
-  while (currDate.add(1, "days").diff(lastDate) <= 1) {
+  const currDate = moment(startDate, format).startOf(unitName.slice(0, -1)).add(-1, unitName);
+  const lastDate = moment(endDate, format).startOf(unitName.slice(0, -1));
+  while (currDate.add(1, unitName).diff(lastDate) <= 1) {
     dates.push(currDate.clone().format(format));
   }
   return dates;
 };
 
-export const getDatedIntoIntervals = (list = []) => {
+export const getDatedIntoIntervals = (list = [], unitName, format) => {
   const dates = list.map((item) =>
-    enumerateDaysBetweenDates(item.dateOfStart, item.dateOfEnd)
+    enumerateDaysBetweenDates(item.dateOfStart, item.dateOfEnd, unitName, format)
   );
   return dates && dates.length ? dates.flat(1) : [];
 };

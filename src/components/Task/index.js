@@ -15,8 +15,16 @@ import {
   unionTwoTask,
 } from "../../modules/tasks"
 
+import {
+  formatSelector,
+  unitNameSelector
+} from '../../modules/timeline'
+
+
 export default connect(
   (state) => ({
+    unitName: unitNameSelector(state),
+    format: formatSelector(state),
     editableTaskSide: editableTaskSideSelector(state),
     firstDateInterval: firstDateIntervalSelector(state),
     editableTaskId: editableTaskIdSelector(state),

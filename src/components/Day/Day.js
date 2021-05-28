@@ -1,9 +1,8 @@
 import {DayItem} from "./styles"
-import {addDayToMonth} from "../../utils"
+import {addUnitToScale} from "../../utils"
 import {useCallback, useMemo} from "react"
 import TempTask from "./TempTask"
 import moment from "moment"
-import {format} from "../../constants"
 import {batch} from "react-redux"
 import {doNotRerenderDiffProcess} from "../../hoc/memos"
 import Task from "../Task"
@@ -19,23 +18,26 @@ const Day = ({
                processId,
                activeProcessId,
                editableTaskId,
-               day,
+               unit,
+               scale,
+               format,
+               unitName,
                addNewTask,
                taskList,
                timeField,
              }) => {
-  const date = useMemo(() => addDayToMonth(timeField, day), [timeField, day])
+  const date = useMemo(() => addUnitToScale(timeField, unitName, unit, format), [timeField, scale, unit, format])
 
   const isTempDateInsideInterval = useMemo(
     () =>
       moment(date, format).isBetween(
-        moment(startTempInterval, format).add(-1, "days"),
-        moment(endTempInterval, format).add(1, "days")
+        moment(startTempInterval, format).add(-1, unitName),
+        moment(endTempInterval, format).add(1, unitName)
       ) && activeProcessId === processId,
-    [date, activeProcessId, processId, endTempInterval, startTempInterval]
+    [date, activeProcessId, processId, endTempInterval, startTempInterval, format]
   )
 
-  const currentMomentDate = useMemo(() => moment(date, format), [date])
+  const currentMomentDate = useMemo(() => moment(date, format), [date, format])
 
   const isIntervalCreated = useMemo(
     () => activeProcessId === processId && endTempInterval && startTempInterval,
@@ -44,12 +46,12 @@ const Day = ({
 
   const isCreatingNextDate = useMemo(
     () => currentMomentDate.isSameOrAfter(moment(firstDateInterval, format)),
-    [currentMomentDate, firstDateInterval]
+    [currentMomentDate, firstDateInterval, format]
   )
 
   const isCreatingPrevDate = useMemo(
     () => currentMomentDate.isSameOrBefore(moment(firstDateInterval, format)),
-    [currentMomentDate, firstDateInterval]
+    [currentMomentDate, firstDateInterval, format]
   )
 
   const dayTask = useMemo(() => taskList.find(
@@ -57,10 +59,11 @@ const Day = ({
       task.processId === processId &&
       moment(task.dateOfStart, format).isSameOrBefore(currentMomentDate) &&
       moment(task.dateOfEnd, format).isSameOrAfter(currentMomentDate)
-  ), [currentMomentDate, taskList, processId])
+  ), [currentMomentDate, taskList, processId, format])
 
   const handleTaskEdit = useCallback(() => {
-    const editTaskData = taskList.find(f => f.id === editableTaskId)
+    const editTaskData = {...taskList.find(f => f.id === editableTaskId)}
+
     editTask({...editTaskData, dateOfStart: startTempInterval, dateOfEnd: endTempInterval})
   }, [taskList, editableTaskId, startTempInterval, endTempInterval, editTask])
 
@@ -94,7 +97,6 @@ const Day = ({
   return (
     <DayItem
       onMouseEnter={() => {
-        editableTaskId && console.log("DAY CHANGE")
         handleChangeInterval()
       }}
       onMouseDown={() =>
@@ -104,7 +106,7 @@ const Day = ({
         editableTaskId ? handleTaskEdit() : addNewTask()
       }
     >
-      {day}
+      {unit}
       {isTempDateInsideInterval && !dayTask && (
         <TempTask
           currentDate={date}

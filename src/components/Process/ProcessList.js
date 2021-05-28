@@ -15,6 +15,7 @@ const ProcessList = ({
   editProcess,
   changeProcessListPosition,
 }) => {
+
   const list = useMemo(
     () =>
       processList.map((process) => ({
