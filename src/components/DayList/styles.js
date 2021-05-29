@@ -5,5 +5,4 @@ export const DayContainer = styled.div.attrs((props) => ({ ...props }))`
   display: flex;
   height: 101px;
   user-select: none;
-  cursor: ${(props) => (props.isActiveDay ? "move" : "auto")};
 `;

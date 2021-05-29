@@ -24,12 +24,12 @@ const Task = ({
 
   const isSecondDay = useMemo(
     () => date === moment(dateOfStart, format).add(1, unitName).format(format),
-    [date, dateOfStart, format]
+    [date, dateOfStart, format, unitName]
   )
 
   const countDates = useMemo(
     () => enumerateDaysBetweenDates(dateOfStart, dateOfEnd, unitName, format),
-    [dateOfStart, dateOfEnd, format]
+    [dateOfStart, dateOfEnd, format, unitName]
   )
 
   const isEditableTask = editableTaskId === id

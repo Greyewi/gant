@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { getDatedIntoIntervals, getUnitsArrayByInterval } from "../../utils";
 import { doNotRerenderDiffProcess } from "../../hoc/memos";
 
-const DayList = ({ timeField, taskList, activeProcessId, processId, format, unitName, unitsPerScale }) => {
+const DayList = ({ timeField, taskList, processId, format, unitName, unitsPerScale }) => {
   const processTaskList = useMemo(
     () => taskList.filter((f) => f.processId === processId),
     [taskList, processId]
@@ -12,9 +12,12 @@ const DayList = ({ timeField, taskList, activeProcessId, processId, format, unit
 
   const taskDates = getDatedIntoIntervals(processTaskList, unitName, format)
 
+
+  const calcUnitsPerScale = typeof unitsPerScale === 'function' ? unitsPerScale(timeField, format) : unitsPerScale
+
   return (
-    <DayContainer isActiveDay={processId === activeProcessId}>
-      {getUnitsArrayByInterval(timeField, unitsPerScale).map((unit, key) => {
+    <DayContainer>
+      {getUnitsArrayByInterval(calcUnitsPerScale).map((unit, key) => {
         return (
           <Day
             processId={processId}

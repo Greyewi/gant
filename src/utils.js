@@ -11,9 +11,10 @@ export const addNextMonth = (array, format) => {
   ];
 };
 
-export const getUnitsArrayByInterval = (data, count) => {
+export const getUnitsArrayByInterval = (unitsPerScale) => {
   const arr = [];
-  for (let i = 1; i <= count; i++) {
+
+  for (let i = 1; i <= unitsPerScale; i++) {
     const strI = String(i)
     arr.push(strI.length === 1 ? "0" + strI : strI);
   }
@@ -21,9 +22,10 @@ export const getUnitsArrayByInterval = (data, count) => {
 };
 
 export const addUnitToScale = (date, unitName, unit, format) => {
-  return moment(date).set({
-    [unitName]: unit
-  }).format(format)
+  if(unitName === 'days') {
+    return moment(date, format).set("date", unit).format(format)
+  }
+  return moment(date, format).set(unitName, unit).format(format)
 }
 
 export const dateIntoInterval = (date, interval, format) =>

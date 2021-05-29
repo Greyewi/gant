@@ -1,21 +1,22 @@
 import "./App.css";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import { connect, batch } from "react-redux";
 import ProcessList from "./components/Process";
 import { loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits } from "./modules/timeline";
+import moment from 'moment'
 
 function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits}) {
 
   useEffect(() => {
     batch(() => {
-      onChangeFormat('YYYY-MM-DD HH:mm')
-      onChangeScale('days')
-      onChangeUnitName('hours')
-      onChangeCountUnits(8)
+      onChangeFormat('YYYY-MM-DD')
+      onChangeScale('months')
+      onChangeUnitName('days')
+      onChangeCountUnits((data, format) => moment(data, format).daysInMonth()) // number of function with callback(data, format)
 
-      loadTimeLine('2021-06-01 00:00', 7) // startDate, count
+      loadTimeLine('2021-06-01', 4) // startDate, count
     })
-  }, [loadTimeLine, onChangeFormat, onChangeScale])
+  }, [loadTimeLine, onChangeFormat, onChangeScale, onChangeCountUnits, onChangeUnitName])
 
   return (
     <div className="App">

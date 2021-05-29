@@ -19,22 +19,20 @@ const Day = ({
                activeProcessId,
                editableTaskId,
                unit,
-               scale,
                format,
                unitName,
                addNewTask,
                taskList,
                timeField,
              }) => {
-  const date = useMemo(() => addUnitToScale(timeField, unitName, unit, format), [timeField, scale, unit, format])
+  const date = useMemo(() => addUnitToScale(timeField, unitName, unit, format), [timeField, unitName, unit, format])
 
   const isTempDateInsideInterval = useMemo(
-    () =>
-      moment(date, format).isBetween(
+    () => moment(date, format).isBetween(
         moment(startTempInterval, format).add(-1, unitName),
         moment(endTempInterval, format).add(1, unitName)
       ) && activeProcessId === processId,
-    [date, activeProcessId, processId, endTempInterval, startTempInterval, format]
+    [date, activeProcessId, processId, endTempInterval, startTempInterval, format, unitName]
   )
 
   const currentMomentDate = useMemo(() => moment(date, format), [date, format])
