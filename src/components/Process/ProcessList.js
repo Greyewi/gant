@@ -7,13 +7,17 @@ import {
 import Month from "../Month";
 import TimeContainer from "../TimeContainer";
 import DnDList from "../../ui/DnDList";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
+import Modal from "../../ui/Modal"
+import Form from "../Form"
 
 const ProcessList = ({
   processList,
   addNewProcess,
   editProcess,
   changeProcessListPosition,
+  closeEditTaskForm,
+  isOpenTaskFormId,
 }) => {
 
   const list = useMemo(
@@ -44,6 +48,11 @@ const ProcessList = ({
         elementsMap={list}
       />
       <AddNewProcess onClick={addNewProcess} />
+      {isOpenTaskFormId && (
+        <Modal toggle={() => closeEditTaskForm(null)} openTaskId={isOpenTaskFormId}>
+          <Form />
+        </Modal>
+      )}
     </ProcessRow>
   );
 };

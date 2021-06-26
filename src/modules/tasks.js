@@ -35,7 +35,6 @@ export const ReducerState = {
   endInterval: null,
   startInterval: null,
   firstDateInterval: null,
-  border: "solid",
   activeProcessId: null,
   activeMonthsList: new Set(),
 }
@@ -174,7 +173,9 @@ export const endTempIntervalSelector = createSelector(
 )
 export const activeTaskEditSelector = createSelector(
   stateSelector,
-  ({name, fill, border}) => ({name, fill, border})
+  (state) => {
+    state.taskList.find(item => state.isOpenTaskFormId === item.id)
+  }
 )
 
 /**
@@ -194,6 +195,11 @@ export const addStartIntervalTask = (startData, month) => ({
 export const addEndIntervalTask = (endData, month) => ({
   type: ADD_END_INTERVAL_TASK,
   payload: {endData, month},
+})
+
+export const closeEditTaskForm = () => ({
+  type: SET_OPEN_FORM_TASK,
+  payload: null
 })
 
 /**
@@ -245,12 +251,14 @@ export const addNewTask = () => (dispatch, getState) => {
     return
   }
 
+  const id = uuidv4()
+
   dispatch({
     type: ADD_NEW_TASK,
     payload: [
       ...taskList,
       Object.assign({}, newTask, {
-        id: uuidv4(),
+        id: id,
         dateOfStart: startTempInterval,
         dateOfEnd: endTempInterval,
         processId: activeProcessId,
@@ -264,13 +272,13 @@ export const addNewTask = () => (dispatch, getState) => {
 
   dispatch({
     type: SET_OPEN_FORM_TASK,
-    payload: newTask.id,
+    payload: id,
   })
 }
 
 export const editTask = (newTask) => (dispatch, getState) => {
   const {taskList} = getState()[moduleName]
-
+  console.log(newTask)
   const newTaskList = taskList.map((taskItem) => {
     if (taskItem.id === newTask.id) {
       return newTask

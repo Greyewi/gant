@@ -5,18 +5,15 @@ import {
   addNewTask,
   editTask,
   isOpenTaskFormIdSelector,
-  setActiveTask,
+  closeEditTaskForm,
 } from "../../modules/tasks";
 import { FieldContainerElement } from "./styles";
-import Modal from "../../ui/Modal";
-import Form from "../Form";
+
 
 const TimeContainer = (props) => {
   const {
     children,
     timeFieldArray,
-    setActiveTask,
-    isOpenTaskFormId,
     processId,
   } = props;
 
@@ -30,11 +27,6 @@ const TimeContainer = (props) => {
           odd: key % 2 === 0,
         })
       )}
-      {isOpenTaskFormId && (
-        <Modal toggle={() => setActiveTask(null)} isOpen={isOpenTaskFormId}>
-          <Form />
-        </Modal>
-      )}
     </FieldContainerElement>
   );
 };
@@ -44,5 +36,5 @@ export default connect(
     isOpenTaskFormId: isOpenTaskFormIdSelector(state),
     timeFieldArray: timeFieldArraySelector(state),
   }),
-  { editTask, addNewTask, setActiveTask }
+  { editTask, addNewTask, closeEditTaskForm }
 )(TimeContainer);

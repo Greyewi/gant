@@ -28,10 +28,6 @@ export const addUnitToScale = (date, unitName, unit, format) => {
   return moment(date, format).set(unitName, unit).format(format)
 }
 
-export const dateIntoInterval = (date, interval, format) =>
-  moment(date, format) >= moment(interval[0], format) &&
-  moment(date, format) <= moment(interval[1], format);
-
 export function getCoords(elem) {
   const box = elem.getBoundingClientRect();
   return {

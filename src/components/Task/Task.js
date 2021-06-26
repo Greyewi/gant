@@ -59,6 +59,7 @@ const Task = ({
       border={border}
       isStart={isStart}
       isEnd={isEnd}
+      id={isStart ? id : ''}
       onMouseUp={handleEditTask}
       onMouseEnter={() => {
         if (firstDateInterval && !isEditableTask) {

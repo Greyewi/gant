@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { BlockPicker } from "react-color";
+import React, {useState} from "react"
+import {BlockPicker} from "react-color"
 
-const MyColorPicker = ({ field, form, handleChange, ...props }) => {
-  const { value } = field;
-  const [color, setColor] = useState(value);
+const MyColorPicker = ({field, form, handleChange, ...props}) => {
+  const {value} = field
+  const [color, setColor] = useState(value)
   return (
     <div>
-      <input {...field} {...props} value={color} style={{ display: "none" }} />
       <BlockPicker
         color={color}
         colors={[
@@ -23,12 +22,12 @@ const MyColorPicker = ({ field, form, handleChange, ...props }) => {
         ]}
         triangle="hide"
         onChange={(val) => {
-          setColor(val.hex);
-          handleChange(val.hex);
+          setColor(val.hex)
+          handleChange(val.hex)
         }}
       />
     </div>
-  );
-};
+  )
+}
 
-export default MyColorPicker;
+export default MyColorPicker

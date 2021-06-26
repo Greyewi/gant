@@ -20,12 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Form/Form.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Day/Day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Day/Day.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DayList/DayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/DayList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DayList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Process/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Modal/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +146,20 @@
       <workItem from="1621680105942" duration="648000" />
       <workItem from="1622131193366" duration="55000" />
       <workItem from="1622201869103" duration="9100000" />
-      <workItem from="1622315925750" duration="3651000" />
+      <workItem from="1622315925750" duration="4042000" />
+      <workItem from="1622569609409" duration="552000" />
+      <workItem from="1622702149979" duration="3121000" />
+      <workItem from="1623144900615" duration="630000" />
+      <workItem from="1623478508048" duration="778000" />
+      <workItem from="1623670928647" duration="1006000" />
+      <workItem from="1623769204339" duration="1101000" />
+      <workItem from="1623774045742" duration="13000" />
+      <workItem from="1623923204650" duration="468000" />
+      <workItem from="1624038458513" duration="357000" />
+      <workItem from="1624341390268" duration="605000" />
+      <workItem from="1624363588447" duration="189000" />
+      <workItem from="1624514244914" duration="50000" />
+      <workItem from="1624629742424" duration="7238000" />
     </task>
     <servers />
   </component>
@@ -159,18 +179,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="638" y="323" key="#ESLint" timestamp="1616005530579">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="638" y="323" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1616005530579" />
     <state x="2034" y="235" key="#Inspections" timestamp="1617904683822">
       <screen x="1440" y="25" width="1920" height="1055" />
     </state>
     <state x="2034" y="235" key="#Inspections/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1617904683822" />
-    <state x="507" y="121" key="#JavaScript" timestamp="1616001849810">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="507" y="121" key="#JavaScript/0.0.1536.824@0.0.1536.824" timestamp="1616001849810" />
     <state x="2088" y="280" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1618080444793">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -188,13 +200,12 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1786" y="75" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618080413229" />
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615483848060" />
-    <state x="2357" y="201" width="756" height="591" key="find.popup" timestamp="1622319050576">
+    <state x="2357" y="201" width="756" height="591" key="find.popup" timestamp="1624701331901">
       <screen x="1440" y="25" width="1920" height="1055" />
     </state>
     <state x="2099" y="266" width="602" height="548" key="find.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1618079134710" />
     <state x="494" y="241" width="567" height="490" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1620224801286" />
-    <state x="2357" y="201" width="756" height="591" key="find.popup/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1622319050576" />
+    <state x="2357" y="201" width="756" height="591" key="find.popup/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1624701331901" />
     <state x="2065" y="259" width="670" height="676" key="search.everywhere.popup" timestamp="1622207300981">
       <screen x="1440" y="25" width="1920" height="1055" />
     </state>
