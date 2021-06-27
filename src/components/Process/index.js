@@ -8,12 +8,12 @@ import {
   removeProcess,
 } from "../../modules/processes"
 
-import {closeEditTaskForm, isOpenTaskFormIdSelector,} from "../../modules/tasks"
+import {toggleEditTaskForm, isOpenTaskFormIdSelector,} from "../../modules/tasks"
 
 export default connect(
   (state) => ({
     processList: processListSelector(state),
     isOpenTaskFormId: isOpenTaskFormIdSelector(state),
   }),
-  {addNewProcess, editProcess, removeProcess, changeProcessListPosition, closeEditTaskForm}
+  {addNewProcess, editProcess, removeProcess, changeProcessListPosition, toggleEditTaskForm}
 )(ProcessList)

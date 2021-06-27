@@ -2,6 +2,7 @@ import { memo } from "react";
 
 export const doNotRerenderDiffProcess = (component) =>
   memo(component, (prevProps, nextProps) => {
+
     if (
       (!prevProps.activeProcessId && !prevProps.processId) ||
       (!nextProps.activeProcessId && !nextProps.processId)
@@ -11,7 +12,8 @@ export const doNotRerenderDiffProcess = (component) =>
 
     if (
       prevProps.activeProcessId !== prevProps.processId &&
-      nextProps.activeProcessId !== nextProps.processId
+      nextProps.activeProcessId !== nextProps.processId &&
+      nextProps.firstDateInterval
     ) {
       return true;
     }

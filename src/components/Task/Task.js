@@ -2,6 +2,7 @@ import React, {useCallback, useMemo, useState} from "react"
 import {TaskElement, TaskNameInput} from "./style"
 import moment from "moment"
 import {enumerateDaysBetweenDates} from "../../utils"
+import {useOnDoubleClick} from '../../hooks/useOnDoubleClick'
 
 const Task = ({
                 unitName,
@@ -15,6 +16,7 @@ const Task = ({
                 firstDateInterval,
                 setActiveTask,
                 unionTwoTask,
+                toggleEditTaskForm,
                 editTask,
               }) => {
   const {dateOfStart, dateOfEnd, fill, border, name, id} = task
@@ -51,6 +53,10 @@ const Task = ({
     [date, startTempInterval, endTempInterval, isEditableTask, format]
   )
 
+  const handleDoubleClick = useOnDoubleClick(
+    useCallback(() => toggleEditTaskForm(id), [id, toggleEditTaskForm])
+  )
+
   return (
     <TaskElement
       fill={fill}
@@ -61,6 +67,7 @@ const Task = ({
       isEnd={isEnd}
       id={isStart ? id : ''}
       onMouseUp={handleEditTask}
+      onClick={handleDoubleClick}
       onMouseEnter={() => {
         if (firstDateInterval && !isEditableTask) {
           unionTwoTask(

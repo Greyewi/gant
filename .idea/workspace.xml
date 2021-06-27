@@ -20,20 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/Form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useOnDoubleClick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DayList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DayList/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Process/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/memos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/memos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +157,8 @@
       <workItem from="1624341390268" duration="605000" />
       <workItem from="1624363588447" duration="189000" />
       <workItem from="1624514244914" duration="50000" />
-      <workItem from="1624629742424" duration="7238000" />
+      <workItem from="1624629742424" duration="10301000" />
+      <workItem from="1624779272129" duration="1471000" />
     </task>
     <servers />
   </component>

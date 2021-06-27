@@ -197,9 +197,9 @@ export const addEndIntervalTask = (endData, month) => ({
   payload: {endData, month},
 })
 
-export const closeEditTaskForm = () => ({
+export const toggleEditTaskForm = (taskId) => ({
   type: SET_OPEN_FORM_TASK,
-  payload: null
+  payload: taskId
 })
 
 /**

@@ -1,24 +1,19 @@
-import {
-  AddNewProcess,
-  ProcessElement,
-  ProcessLine,
-  ProcessRow,
-} from "./styles";
-import Month from "../Month";
-import TimeContainer from "../TimeContainer";
-import DnDList from "../../ui/DnDList";
-import React, { useMemo } from "react";
+import {AddNewProcess, ProcessElement, ProcessLine, ProcessRow,} from "./styles"
+import Month from "../Month"
+import TimeContainer from "../TimeContainer"
+import DnDList from "../../ui/DnDList"
+import React, {useMemo} from "react"
 import Modal from "../../ui/Modal"
 import Form from "../Form"
 
 const ProcessList = ({
-  processList,
-  addNewProcess,
-  editProcess,
-  changeProcessListPosition,
-  closeEditTaskForm,
-  isOpenTaskFormId,
-}) => {
+                       processList,
+                       addNewProcess,
+                       editProcess,
+                       changeProcessListPosition,
+                       toggleEditTaskForm,
+                       isOpenTaskFormId,
+                     }) => {
 
   const list = useMemo(
     () =>
@@ -29,17 +24,17 @@ const ProcessList = ({
             <ProcessElement
               value={process.name}
               onChange={(e) =>
-                editProcess({ ...process, name: e.target.value })
+                editProcess({...process, name: e.target.value})
               }
             />
             <TimeContainer processId={process.id}>
-              <Month />
+              <Month/>
             </TimeContainer>
           </ProcessLine>
         ),
       })),
     [processList, editProcess]
-  );
+  )
 
   return (
     <ProcessRow>
@@ -47,14 +42,14 @@ const ProcessList = ({
         onChangePosition={changeProcessListPosition}
         elementsMap={list}
       />
-      <AddNewProcess onClick={addNewProcess} />
+      <AddNewProcess onClick={addNewProcess}/>
       {isOpenTaskFormId && (
-        <Modal toggle={() => closeEditTaskForm(null)} openTaskId={isOpenTaskFormId}>
-          <Form />
+        <Modal toggle={() => toggleEditTaskForm(null)} openTaskId={isOpenTaskFormId}>
+          <Form/>
         </Modal>
       )}
     </ProcessRow>
-  );
-};
+  )
+}
 
-export default ProcessList;
+export default ProcessList

@@ -13,6 +13,7 @@ import {
   setActiveTask,
   startTempIntervalSelector,
   unionTwoTask,
+  toggleEditTaskForm
 } from "../../modules/tasks"
 
 import {
@@ -39,5 +40,6 @@ export default connect(
     setActiveTask,
     addStartIntervalTask,
     addEndIntervalTask,
+    toggleEditTaskForm
   }
 )(Task)

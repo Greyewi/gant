@@ -4,8 +4,6 @@ import { timeFieldArraySelector } from "../../modules/timeline";
 import {
   addNewTask,
   editTask,
-  isOpenTaskFormIdSelector,
-  closeEditTaskForm,
 } from "../../modules/tasks";
 import { FieldContainerElement } from "./styles";
 
@@ -33,8 +31,7 @@ const TimeContainer = (props) => {
 
 export default connect(
   (state) => ({
-    isOpenTaskFormId: isOpenTaskFormIdSelector(state),
     timeFieldArray: timeFieldArraySelector(state),
   }),
-  { editTask, addNewTask, closeEditTaskForm }
+  { editTask, addNewTask }
 )(TimeContainer);
