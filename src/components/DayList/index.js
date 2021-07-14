@@ -1,19 +1,14 @@
-import DayList from "./DayList";
-import { connect } from "react-redux";
+import DayList from "./DayList"
+import {connect} from "react-redux"
 import {
-  taskListSelector,
-  activeProcessIdSelector,
   activeMonthsListSelector,
+  activeProcessIdSelector,
   editableTaskIdSelector,
   firstDateIntervalSelector,
-} from "../../modules/tasks";
+  taskListSelector,
+} from "../../modules/tasks"
 
-import {
-  unitsPerScaleSelector,
-  timeFieldArraySelector,
-  unitNameSelector,
-  formatSelector
-} from "../../modules/timeline";
+import {formatSelector, timeFieldArraySelector, unitNameSelector, unitsPerScaleSelector} from "../../modules/timeline"
 
 export default connect((state) => ({
   unitName: unitNameSelector(state),
@@ -25,4 +20,4 @@ export default connect((state) => ({
   taskList: taskListSelector(state),
   firstDateInterval: firstDateIntervalSelector(state), // for memos
   format: formatSelector(state),
-}))(DayList);
+}))(DayList)
