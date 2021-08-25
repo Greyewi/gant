@@ -81,6 +81,7 @@ const array = hashArray.map(el => {
 
   return el
 })
+
 const tree = {[array[0]]: parseArrayToTree(array)}
 console.log(getArrayByTreeInDeep(tree))
 

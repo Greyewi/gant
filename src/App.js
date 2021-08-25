@@ -1,13 +1,20 @@
-import "./App.css";
-import { useEffect } from "react";
-import { connect, batch } from "react-redux";
-import ProcessList from "./components/Process";
-import { loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits } from "./modules/timeline";
+import "./App.css"
+import {useEffect} from "react"
+import {batch, connect} from "react-redux"
+import ProcessList from "./components/Process"
+import {
+  loadTimeLine,
+  onChangeActiveScaleCount,
+  onChangeCountUnits,
+  onChangeFormat,
+  onChangeScale,
+  onChangeUnitName
+} from "./modules/timeline"
 //import moment from 'moment'
 
 // const scaleMap = [{format: 'YYYY-MM', scale: 'years', unit: 'months', countUnits: 12}, ]
 
-function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits}) {
+function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, onChangeActiveScaleCount}) {
 
   useEffect(() => {
     batch(() => {
@@ -15,16 +22,23 @@ function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onC
       onChangeScale('days')
       onChangeUnitName('hours')
       onChangeCountUnits(24) // number of function with callback(data, format) //(data, format) => moment(data, format).daysInMonth()
-
-      loadTimeLine('2021-06-01 00', 6) // startDate, count
+      loadTimeLine('2021-06-01 00', 28) // startDate, count
+      onChangeActiveScaleCount({from: 1, to: 25})
     })
-  }, [onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, loadTimeLine])
+  }, [onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, loadTimeLine, onChangeActiveScaleCount])
 
   return (
     <div className="App">
-      <ProcessList />
+      <ProcessList/>
     </div>
-  );
+  )
 }
 
-export default connect(null, {loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits})(App);
+export default connect(null, {
+  loadTimeLine,
+  onChangeFormat,
+  onChangeScale,
+  onChangeUnitName,
+  onChangeCountUnits,
+  onChangeActiveScaleCount
+})(App)

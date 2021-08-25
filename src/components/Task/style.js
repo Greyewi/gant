@@ -20,7 +20,7 @@ export const TaskNameInput = styled.input.attrs((props) => ({ ...props }))`
 `;
 
 export const TaskElement = styled.div.attrs((props) => ({ ...props }))`
-  background-color: ${(props) => props.isEditedInterval ? 'transparent' : props.fill || "#E09B33"};
+  background-color: ${(props) => props.isEditedInterval ? 'transparent' : props.fill || 'transparent'};
   width: 100%;
   height: 50px;
   border-top: 2px ${(props) => props.border} #fff;

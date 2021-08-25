@@ -1,4 +1,4 @@
-import { memo } from "react";
+import {memo} from "react"
 
 export const doNotRerenderDiffProcess = (component) =>
   memo(component, (prevProps, nextProps) => {
@@ -7,29 +7,36 @@ export const doNotRerenderDiffProcess = (component) =>
       (!prevProps.activeProcessId && !prevProps.processId) ||
       (!nextProps.activeProcessId && !nextProps.processId)
     ) {
-      return false;
+      return false
     }
 
     if (
       prevProps.activeProcessId !== prevProps.processId &&
       nextProps.activeProcessId !== nextProps.processId &&
-      nextProps.firstDateInterval
+      (!prevProps.isOpenTaskFormId && !nextProps.isOpenTaskFormId)
     ) {
-      return true;
+      return true
     }
 
-    return false;
-  });
+    return false
+  })
 
 export const doNotRerenderDaysInCurrentProcess = (prevProps, nextProps) => {
   if (prevProps.activeMonthsList.size !== nextProps.activeMonthsList.size) {
-    return false;
+    return false
   }
   if (
     prevProps.activeMonthsList.has(prevProps.timeField) &&
     nextProps.activeMonthsList.has(nextProps.timeField)
   ) {
-    return false;
+    return false
   }
-  return true;
-};
+  return true
+}
+
+export const doNotRerenderNotActiveScales = (prevProps, nextProps) => {
+  if (nextProps && nextProps.isActiveScale === false) {
+    return false
+  }
+  return false
+}

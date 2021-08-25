@@ -1,16 +1,12 @@
-import { MonthElement } from "./styles";
-import DayList from "../DayList";
+import {MonthElement} from "./styles"
+import DayList from "../DayList"
 
-const Month = ({ processId, timeField, odd, taskList }) => {
+const Month = ({odd, ...rest}) => {
   return (
     <MonthElement odd={odd}>
-      <DayList
-        processId={processId}
-        taskList={taskList}
-        timeField={timeField}
-      />
+      <DayList {...rest}/>
     </MonthElement>
-  );
-};
+  )
+}
 
-export default Month;
+export default Month

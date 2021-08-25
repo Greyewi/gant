@@ -4,11 +4,15 @@ import {
   activeMonthsListSelector,
   activeProcessIdSelector,
   editableTaskIdSelector,
-  firstDateIntervalSelector,
   taskListSelector,
 } from "../../modules/tasks"
 
-import {formatSelector, timeFieldArraySelector, unitNameSelector, unitsPerScaleSelector} from "../../modules/timeline"
+import {
+  formatSelector,
+  timeFieldArraySelector,
+  unitNameSelector,
+  unitsPerScaleSelector
+} from "../../modules/timeline"
 
 export default connect((state) => ({
   unitName: unitNameSelector(state),
@@ -18,6 +22,5 @@ export default connect((state) => ({
   activeMonthsList: activeMonthsListSelector(state),
   timeFieldArray: timeFieldArraySelector(state),
   taskList: taskListSelector(state),
-  firstDateInterval: firstDateIntervalSelector(state), // for memos
   format: formatSelector(state),
 }))(DayList)

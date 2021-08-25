@@ -15,8 +15,8 @@ import {
   editableTaskSideSelector,
   endTempIntervalSelector,
   isCreatableSelector,
-  isOpenTaskFormIdSelector,
   startTempIntervalSelector,
+  isOpenTaskFormIdSelector,
 } from "../../modules/tasks";
 
 import {
@@ -36,11 +36,11 @@ export default connect(
     activeProcessId: activeProcessIdSelector(state),
     isCreatable: isCreatableSelector(state),
     editableTaskId: editableTaskIdSelector(state),
-    isOpenTaskFormId: isOpenTaskFormIdSelector(state),
     activeTaskEdit: activeTaskEditSelector(state),
     startTempInterval: startTempIntervalSelector(state),
     endTempInterval: endTempIntervalSelector(state),
     activeMonthsList: activeMonthsListSelector(state),
+    isOpenTaskFormId: isOpenTaskFormIdSelector(state), // for memos
   }),
   {
     editTask,

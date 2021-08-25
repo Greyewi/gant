@@ -12,12 +12,12 @@ const ProcessList = ({
                        editProcess,
                        changeProcessListPosition,
                        toggleEditTaskForm,
-                       isOpenTaskFormId,
+                       isOpenTaskFormId
                      }) => {
 
   const list = useMemo(
     () =>
-      processList.map((process) => ({
+      processList.map(process => ({
         ...process,
         component: (
           <ProcessLine key={process.id}>
