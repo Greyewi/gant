@@ -35,11 +35,74 @@ export const ProcessLine = styled.div`
 
 export const AddNewProcess = styled.div`
   display: block;
-  width: 100px;
+  width: 50px;
   position: relative;
   top: 10px;
-  height: 100px;
-  fill: #2f2b2b;
+  height: 50px;
+  fill: #9f9d9d;
   cursor: pointer;
   background-image: url(${Plus});
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid #2f2b2b;
+  border-radius: 5px;
+  
+  &:hover {
+    border-color: #838282;
+  }
+  
+  
 `;
+
+export const ProcessConfigContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - 30px);
+  position: sticky;
+`
+
+export const ManageScaleContainer = styled.div`
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 38px;
+  margin: 10px 5px;
+  height: 50px;
+`
+
+export const ScaleCombineBtn = styled.div`
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 30px;
+`
+
+export const ScaleBtn = styled.div`
+  width: 50px;
+  border: 2px solid #2f2b2b;
+  color: #2f2b2b;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  & > img {
+    width: 34px;
+  }
+  
+  &:hover {
+    border-color: #838282;
+  }
+  
+  ${ScaleCombineBtn} > & {
+    height: 20px;
+  }
+  
+  ${ScaleCombineBtn} > & > img {
+    height: 20px;
+  }
+`
+

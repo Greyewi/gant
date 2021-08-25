@@ -11,11 +11,13 @@ import {
   formatSelector,
   timeFieldArraySelector,
   unitNameSelector,
-  unitsPerScaleSelector
+  unitsPerScaleSelector,
+  activeScalesSelector,
 } from "../../modules/timeline"
 
 export default connect((state) => ({
   unitName: unitNameSelector(state),
+  activeScales: activeScalesSelector(state),
   editableTaskId: editableTaskIdSelector(state),
   unitsPerScale: unitsPerScaleSelector(state),
   activeProcessId: activeProcessIdSelector(state),

@@ -10,6 +10,11 @@ export const doNotRerenderDiffProcess = (component) =>
       return false
     }
 
+    if (prevProps.activeScales.from !== nextProps.activeScales.from ||
+      prevProps.activeScales.to !== nextProps.activeScales.to) {
+      return false
+    }
+
     if (
       prevProps.activeProcessId !== prevProps.processId &&
       nextProps.activeProcessId !== nextProps.processId &&

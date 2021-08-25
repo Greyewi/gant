@@ -27,7 +27,15 @@ export const CHANGE_END_DATE_TASK = `${prefix}/CHANGE_END_DATE_TASK`
  * */
 
 export const ReducerState = {
-  taskList: [],
+  taskList: [{
+    border: "solid",
+    dateOfEnd: "2021-06-04 07",
+    dateOfStart: "2021-06-03 18",
+    fill: "#E09B33",
+    id: "628bf54d-216f-4f74-9a09-78175382bcfd",
+    name: "Enter name",
+    processId: "431"
+  }],
   isOpenTaskFormId: null,
   isCreatable: false,
   editableTaskId: null,

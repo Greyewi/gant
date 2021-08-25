@@ -1,4 +1,5 @@
-import {AddNewProcess, ProcessElement, ProcessLine, ProcessRow,} from "./styles"
+import {ProcessElement, ProcessLine, ProcessRow} from "./styles"
+import ProcessConfig from './ProcessConfig'
 import Month from "../Month"
 import TimeContainer from "../TimeContainer"
 import DnDList from "../../ui/DnDList"
@@ -8,7 +9,6 @@ import Form from "../Form"
 
 const ProcessList = ({
                        processList,
-                       addNewProcess,
                        editProcess,
                        changeProcessListPosition,
                        toggleEditTaskForm,
@@ -42,7 +42,9 @@ const ProcessList = ({
         onChangePosition={changeProcessListPosition}
         elementsMap={list}
       />
-      <AddNewProcess onClick={addNewProcess}/>
+
+      <ProcessConfig/>
+
       {isOpenTaskFormId && (
         <Modal toggle={() => toggleEditTaskForm(null)} openTaskId={isOpenTaskFormId}>
           <Form/>

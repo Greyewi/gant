@@ -22,6 +22,7 @@ import {
 import {
   formatSelector,
   unitNameSelector,
+  activeScalesSelector,
   scaleSelector
 } from '../../modules/timeline'
 
@@ -40,6 +41,7 @@ export default connect(
     startTempInterval: startTempIntervalSelector(state),
     endTempInterval: endTempIntervalSelector(state),
     activeMonthsList: activeMonthsListSelector(state),
+    activeScales: activeScalesSelector(state),
     isOpenTaskFormId: isOpenTaskFormIdSelector(state), // for memos
   }),
   {

@@ -18,6 +18,7 @@ const Day = ({
                processId,
                activeProcessId,
                editableTaskId,
+               activeScales,
                unit,
                format,
                unitName,
@@ -29,9 +30,9 @@ const Day = ({
 
   const isTempDateInsideInterval = useMemo(
     () => moment(date, format).isBetween(
-        moment(startTempInterval, format).add(-1, unitName),
-        moment(endTempInterval, format).add(1, unitName)
-      ) && activeProcessId === processId,
+      moment(startTempInterval, format).add(-1, unitName),
+      moment(endTempInterval, format).add(1, unitName)
+    ) && activeProcessId === processId,
     [date, activeProcessId, processId, endTempInterval, startTempInterval, format, unitName]
   )
 
@@ -112,7 +113,12 @@ const Day = ({
           endDate={endTempInterval}
         />
       )}
-      {dayTask && <Task handleChangeInterval={handleChangeInterval} task={dayTask} date={date} processId={processId}/>}
+      {dayTask && <Task
+        handleChangeInterval={handleChangeInterval}
+        task={dayTask}
+        date={date}
+        processId={processId}
+        activeScales={activeScales}/>}
     </DayItem>
   )
 }
