@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-export const MonthElement = styled.div`
+export const ScaleElement = styled.div`
   background-color: ${(props) => (props.odd ? "#333" : "#444")};
   width: auto;
 `;
 
-export const NameOfMonth = styled.div`
+export const NameOfScale = styled.div`
   color: #fff;
   display: flex;
   background-color: #000;
   width: 100%;
   justify-content: center;
   padding-bottom: 10px;
+  z-index: -1;
 `;

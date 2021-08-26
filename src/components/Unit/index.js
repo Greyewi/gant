@@ -1,4 +1,4 @@
-import Day from "./Day";
+import Unit from "./Unit";
 import { connect } from "react-redux";
 import {
   taskListSelector,
@@ -51,4 +51,4 @@ export default connect(
     addFirstDateIntervalTask,
     addEndIntervalTask,
   }
-)(Day);
+)(Unit);

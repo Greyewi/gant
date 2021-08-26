@@ -5,6 +5,7 @@ import minus from '../../shared/images/minus.svg'
 import plus from '../../shared/images/plus.svg'
 import {connect} from "react-redux"
 import {useCallback} from 'react'
+
 import {
   addNewProcess,
 } from "../../modules/processes"

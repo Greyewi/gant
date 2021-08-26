@@ -1,5 +1,5 @@
 import {DayContainer} from "./styles"
-import Day from "../Day"
+import Unit from "../Unit"
 import {useMemo} from "react"
 import {getDatedIntoIntervals, getUnitsArrayByInterval} from "../../utils"
 import {doNotRerenderDiffProcess} from "../../hoc/memos"
@@ -17,7 +17,7 @@ const DayList = ({timeField, taskList, processId, format, unitName, unitsPerScal
     <DayContainer>
       {getUnitsArrayByInterval(calcUnitsPerScale).map((unit, key) => {
         return (
-          <Day
+          <Unit
             processId={processId}
             key={key + processId + unit}
             unit={unit}

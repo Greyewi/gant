@@ -7,25 +7,27 @@ import {
 } from "../../modules/tasks";
 import { FieldContainerElement } from "./styles";
 
-
 const TimeContainer = (props) => {
   const {
     children,
     timeFieldArray,
     activeScales,
     processId,
+    processKey
   } = props;
 
   return (
     <FieldContainerElement>
-      {timeFieldArray.filter((f, index) => index >= activeScales.from && index <= activeScales.to).map((item, key) =>
-        React.cloneElement(children, {
-          processId,
-          timeField: item,
-          key: key,
-          odd: key % 2 === 0,
-          scaleNumber: key
-        })
+      {timeFieldArray.filter((f, index) => index >= activeScales.from && index <= activeScales.to).map((item, key) => {
+          return React.cloneElement(children, {
+            processId,
+            timeField: item,
+            key: key,
+            odd: key % 2 === 0,
+            scaleNumber: key,
+            processKey
+          })
+        }
       )}
     </FieldContainerElement>
   );

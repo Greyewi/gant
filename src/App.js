@@ -22,7 +22,7 @@ function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onC
       onChangeUnitName('hours')
       onChangeCountUnits(24) // number of function with callback(data, format) //(data, format) => moment(data, format).daysInMonth()
       loadTimeLine('2021-06-01 00', 28) // startDate, count
-      onChangeActiveScaleCount({from: 1, to: 2})
+      onChangeActiveScaleCount({from: 1, to: 4})
     })
   }, [onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, loadTimeLine, onChangeActiveScaleCount])
 

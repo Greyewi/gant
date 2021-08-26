@@ -33,7 +33,7 @@ export const ReducerState = {
     dateOfStart: "2021-06-03 18",
     fill: "#E09B33",
     id: "628bf54d-216f-4f74-9a09-78175382bcfd",
-    name: "Enter name",
+    name: "The first task",
     processId: "431"
   }],
   isOpenTaskFormId: null,

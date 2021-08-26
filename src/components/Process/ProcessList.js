@@ -1,6 +1,6 @@
 import {ProcessElement, ProcessLine, ProcessRow} from "./styles"
 import ProcessConfig from './ProcessConfig'
-import Month from "../Month"
+import Scale from "../Scale"
 import TimeContainer from "../TimeContainer"
 import DnDList from "../../ui/DnDList"
 import React, {useMemo} from "react"
@@ -17,7 +17,7 @@ const ProcessList = ({
 
   const list = useMemo(
     () =>
-      processList.map(process => ({
+      processList.map((process, processKey) => ({
         ...process,
         component: (
           <ProcessLine key={process.id}>
@@ -27,8 +27,8 @@ const ProcessList = ({
                 editProcess({...process, name: e.target.value})
               }
             />
-            <TimeContainer processId={process.id}>
-              <Month/>
+            <TimeContainer processId={process.id} processKey={processKey}>
+              <Scale/>
             </TimeContainer>
           </ProcessLine>
         ),

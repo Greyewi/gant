@@ -1,4 +1,4 @@
-import {DayItem} from "./styles"
+import {UnitItem} from "./styles"
 import {addUnitToScale} from "../../utils"
 import {useCallback, useMemo} from "react"
 import TempTask from "./TempTask"
@@ -7,7 +7,7 @@ import {batch} from "react-redux"
 import {doNotRerenderDiffProcess} from "../../hoc/memos"
 import Task from "../Task"
 
-const Day = ({
+const Unit = ({
                addFirstDateIntervalTask,
                editTask,
                firstDateInterval,
@@ -94,7 +94,7 @@ const Day = ({
   ])
 
   return (
-    <DayItem
+    <UnitItem
       onMouseEnter={() => {
         handleChangeInterval()
       }}
@@ -104,6 +104,7 @@ const Day = ({
       onMouseUp={() =>
         editableTaskId ? handleTaskEdit() : addNewTask()
       }
+      isScalable={!!(startTempInterval && endTempInterval)}
     >
       {unit}
       {isTempDateInsideInterval && !dayTask && (
@@ -119,8 +120,8 @@ const Day = ({
         date={date}
         processId={processId}
         activeScales={activeScales}/>}
-    </DayItem>
+    </UnitItem>
   )
 }
 
-export default doNotRerenderDiffProcess(Day)
+export default doNotRerenderDiffProcess(Unit)

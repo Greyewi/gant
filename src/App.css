@@ -50,3 +50,14 @@
     transform: rotate(360deg);
   }
 }
+
+.app-scale-title {
+  position: absolute;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color:#fff;
+}
