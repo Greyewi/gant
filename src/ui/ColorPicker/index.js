@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {BlockPicker} from "react-color"
 
-const MyColorPicker = ({field, form, handleChange, ...props}) => {
+const MyColorPicker = ({field, handleChange}) => {
   const {value} = field
   const [color, setColor] = useState(value)
   return (

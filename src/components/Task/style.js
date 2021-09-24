@@ -35,5 +35,5 @@ export const TaskElement = styled.div.attrs((props) => ({ ...props }))`
   margin: 10px 0 10px ${(props) => (props.isEnd ? "-4px" : 0)};
   display: flex;
   align-items: center;
-  // cursor: ${(props) => (props.isEnd || props.isStart ? "move" : "auto")};
+  ${(props) => (props.isEnd || props.isStart ? "cursor: ew-resize" : "")};
 `;

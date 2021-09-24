@@ -21,6 +21,7 @@ export const SET_ACTIVE_TASK = `${prefix}/SET_ACTIVE_TASK`
 export const SET_OPEN_FORM_TASK = `${prefix}/SET_OPEN_FORM_TASK`
 export const UNION_COUPLE_TASK = `${prefix}/UNION_COUPLE_TASK`
 export const CHANGE_END_DATE_TASK = `${prefix}/CHANGE_END_DATE_TASK`
+export const HOVER_TASK_LINKS = `${prefix}/HOVER_TASK_LINKS`
 
 /**
  * Reducer
@@ -29,11 +30,11 @@ export const CHANGE_END_DATE_TASK = `${prefix}/CHANGE_END_DATE_TASK`
 export const ReducerState = {
   taskList: [{
     border: "solid",
-    dateOfEnd: "2021-06-04 07",
-    dateOfStart: "2021-06-03 18",
+    dateOfEnd: "2021-10-10",
+    dateOfStart: "2021-09-21",
     fill: "#E09B33",
-    id: "628bf54d-216f-4f74-9a09-78175382bcfd",
-    name: "The first task",
+    id: "26c0dbf1-b60e-42d1-b682-8f7f204a962e",
+    name: "Enter name",
     processId: "431"
   }],
   isOpenTaskFormId: null,
@@ -45,6 +46,7 @@ export const ReducerState = {
   firstDateInterval: null,
   activeProcessId: null,
   activeMonthsList: new Set(),
+  hoverTaskId: null,
 }
 
 export const ReducerRecord = {
@@ -111,6 +113,10 @@ export default function reducer(state = ReducerState, action) {
     case SET_OPEN_FORM_TASK:
       return Object.assign({}, state, {
         isOpenTaskFormId: payload,
+      })
+    case HOVER_TASK_LINKS:
+      return Object.assign({}, state, {
+        hoverTaskId: payload,
       })
     case REMOVE_INTERVAL_TASK:
       return Object.assign({}, state, {
@@ -179,6 +185,10 @@ export const endTempIntervalSelector = createSelector(
   stateSelector,
   (state) => state.endInterval
 )
+export const hoverTaskIdSelector = createSelector(
+  stateSelector,
+  (state) => state.hoverTaskId
+)
 export const activeTaskEditSelector = createSelector(
   stateSelector,
   (state) => {
@@ -207,6 +217,11 @@ export const addEndIntervalTask = (endData, month) => ({
 
 export const toggleEditTaskForm = (taskId) => ({
   type: SET_OPEN_FORM_TASK,
+  payload: taskId
+})
+
+export const hoverTask = (taskId) => ({
+  type: HOVER_TASK_LINKS,
   payload: taskId
 })
 
@@ -286,7 +301,6 @@ export const addNewTask = () => (dispatch, getState) => {
 
 export const editTask = (newTask) => (dispatch, getState) => {
   const {taskList} = getState()[moduleName]
-  console.log(newTask)
   const newTaskList = taskList.map((taskItem) => {
     if (taskItem.id === newTask.id) {
       return newTask

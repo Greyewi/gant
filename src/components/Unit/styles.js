@@ -8,5 +8,5 @@ export const UnitItem = styled.div.attrs((props) => ({ ...props }))`
   margin: 0 -1px;
   position: relative;
   border-right: 1px dashed rgba(255, 255, 255, 0.02);
-  cursor: ${(props) => props.isScalable ? 'move' : 'auto'}
+  cursor: ${(props) => props.isScalable ? 'ew-resize' : 'auto'}
 `;

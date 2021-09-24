@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { timeFieldArraySelector, activeScalesSelector } from "../../modules/timeline";
+import { timeFieldArraySelector, activeScalesSelector, scaleSelector, formatSelector } from "../../modules/timeline";
 import {
   addNewTask,
   editTask,
@@ -13,6 +13,8 @@ const TimeContainer = (props) => {
     timeFieldArray,
     activeScales,
     processId,
+    scaleName,
+    format,
     processKey
   } = props;
 
@@ -25,7 +27,9 @@ const TimeContainer = (props) => {
             key: key,
             odd: key % 2 === 0,
             scaleNumber: key,
-            processKey
+            processKey,
+            format,
+            scaleName
           })
         }
       )}
@@ -35,6 +39,8 @@ const TimeContainer = (props) => {
 
 export default connect(
   (state) => ({
+    scaleName: scaleSelector(state),
+    format: formatSelector(state),
     timeFieldArray: timeFieldArraySelector(state),
     activeScales: activeScalesSelector(state),
   }),

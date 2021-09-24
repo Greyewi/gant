@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const FieldContainerElement = styled.section`
   display: flex;
@@ -6,4 +6,4 @@ export const FieldContainerElement = styled.section`
   height: auto;
   overflow-x: scroll;
   overflow-y: visible;
-`;
+`

@@ -10,6 +10,7 @@ import {
   onChangeScale,
   onChangeUnitName
 } from "./modules/timeline"
+import moment from "moment"
 
 // const scaleMap = [{format: 'YYYY-MM', scale: 'years', unit: 'months', countUnits: 12}, ]
 
@@ -17,11 +18,11 @@ function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onC
 
   useEffect(() => {
     batch(() => {
-      onChangeFormat('YYYY-MM-DD HH')
-      onChangeScale('days')
-      onChangeUnitName('hours')
-      onChangeCountUnits(24) // number of function with callback(data, format) //(data, format) => moment(data, format).daysInMonth()
-      loadTimeLine('2021-06-01 00', 28) // startDate, count
+      onChangeFormat('YYYY-MM-DD')
+      onChangeScale('months')
+      onChangeUnitName('days')
+      onChangeCountUnits((data, format) => moment(data, format).daysInMonth()) // number of function with callback(data, format) //(data, format) => moment(data, format).daysInMonth()
+      loadTimeLine('2021-08-01', 28) // startDate, count
       onChangeActiveScaleCount({from: 1, to: 4})
     })
   }, [onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, loadTimeLine, onChangeActiveScaleCount])

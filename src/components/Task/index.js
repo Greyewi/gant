@@ -10,9 +10,11 @@ import {
   endTempIntervalSelector,
   firstDateIntervalSelector,
   isOpenTaskFormIdSelector,
+  hoverTaskIdSelector,
   setActiveTask,
   startTempIntervalSelector,
   unionTwoTask,
+  hoverTask,
   toggleEditTaskForm
 } from "../../modules/tasks"
 
@@ -32,9 +34,11 @@ export default connect(
     isOpenTaskFormId: isOpenTaskFormIdSelector(state),
     startTempInterval: startTempIntervalSelector(state),
     endTempInterval: endTempIntervalSelector(state),
+    hoverTaskId: hoverTaskIdSelector(state),
     activeTaskEdit: activeTaskEditSelector(state),
   }),
   {
+    hoverTask,
     unionTwoTask,
     editTask,
     setActiveTask,

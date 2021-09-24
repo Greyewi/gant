@@ -9,6 +9,8 @@ const Task = ({
                 format,
                 date,
                 task,
+                hoverTaskId,
+                hoverTask,
                 editableTaskId,
                 handleChangeInterval,
                 startTempInterval,
@@ -35,6 +37,7 @@ const Task = ({
   )
 
   const isEditableTask = editableTaskId === id
+  const isHoverTask = hoverTaskId === id
   const [taskName, setTaskName] = useState(name)
 
   const handleEditTask = useCallback(() => {
@@ -89,7 +92,14 @@ const Task = ({
           setActiveTask(id, "end")
         }
       }}
+      onMouseOver={(e) => {
+        !isHoverTask && hoverTask(id)
+      }}
+      onMouseOut={(e) => {
+        !isHoverTask && hoverTask(null)
+      }}
     >
+      {isHoverTask && isStart && <div onMouseDown={() => console.log(id)}> {"<-"} </div>}
       {isSecondDay && (
         <TaskNameInput
           type="text"
@@ -100,6 +110,7 @@ const Task = ({
           onBlur={() => editTask({...task, name: taskName})}
         />
       )}
+      {isHoverTask && isEnd && <div onMouseDown={() => console.log(id)}> {"->"} </div>}
     </TaskElement>
   )
 }
