@@ -1,6 +1,7 @@
 import "./App.css"
+import moment from "moment"
 import {useEffect} from "react"
-import {batch, connect} from "react-redux"
+import {batch, useDispatch} from "react-redux"
 import ProcessList from "./components/Process"
 import {
   loadTimeLine,
@@ -10,22 +11,45 @@ import {
   onChangeScale,
   onChangeUnitName
 } from "./modules/timeline"
-import moment from "moment"
 
 // const scaleMap = [{format: 'YYYY-MM', scale: 'years', unit: 'months', countUnits: 12}, ]
 
-function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, onChangeActiveScaleCount}) {
+const initialState = {
+  format: 'YYYY-MM-DD',
+  scale: 'months',
+  unitName: 'days',
+  countUnitsPerScale: (data, format) => moment(data, format).daysInMonth(),
+  timeLine: {startDate: '2021-08-01', countScales: 28},
+  visibleScales: {from: 1, to: 4},
+}
 
+function App({
+               format = initialState.format,
+               scale = initialState.scale,
+               unitName = initialState.unitName,
+               countUnitsPerScale = initialState.countUnitsPerScale,
+               timeLine = initialState.timeLine,
+               visibleScales = initialState.visibleScales
+             }) {
+  const dispatch = useDispatch()
   useEffect(() => {
     batch(() => {
-      onChangeFormat('YYYY-MM-DD')
-      onChangeScale('months')
-      onChangeUnitName('days')
-      onChangeCountUnits((data, format) => moment(data, format).daysInMonth()) // number of function with callback(data, format) //(data, format) => moment(data, format).daysInMonth()
-      loadTimeLine('2021-08-01', 28) // startDate, count
-      onChangeActiveScaleCount({from: 1, to: 4})
+      dispatch(onChangeFormat(format))
+      dispatch(onChangeScale(scale))
+      dispatch(onChangeUnitName(unitName))
+      dispatch(onChangeCountUnits(countUnitsPerScale)) // number of function with callback(data, format) //(data, format) => moment(data, format).daysInMonth()
+      dispatch(loadTimeLine(...Object.values(timeLine))) // startDate, count
+      dispatch(onChangeActiveScaleCount(visibleScales))
     })
-  }, [onChangeFormat, onChangeScale, onChangeUnitName, onChangeCountUnits, loadTimeLine, onChangeActiveScaleCount])
+  }, [
+    dispatch,
+    format,
+    scale,
+    unitName,
+    countUnitsPerScale,
+    timeLine,
+    visibleScales,
+  ])
 
   return (
     <div className="App">
@@ -34,11 +58,4 @@ function App({loadTimeLine, onChangeFormat, onChangeScale, onChangeUnitName, onC
   )
 }
 
-export default connect(null, {
-  loadTimeLine,
-  onChangeFormat,
-  onChangeScale,
-  onChangeUnitName,
-  onChangeCountUnits,
-  onChangeActiveScaleCount
-})(App)
+export default App

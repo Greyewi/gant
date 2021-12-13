@@ -3,7 +3,10 @@ import logger from "redux-logger"
 import thunk from "redux-thunk"
 import reducer from "./reducer"
 
-const enhancer = applyMiddleware(thunk, logger)
-const store = createStore(reducer, enhancer)
+const carriedStore = ({isLogger}) => {
+    const middlewares = [thunk, (isLogger ? logger : null)]
+    const enhancer = applyMiddleware(...middlewares)
+    return createStore(reducer, enhancer)
+}
 
-export default store
+export default carriedStore

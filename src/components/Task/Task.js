@@ -22,7 +22,6 @@ const Task = ({
                 editTask,
               }) => {
   const {dateOfStart, dateOfEnd, fill, border, name, id} = task
-
   const isStart = date === dateOfStart
   const isEnd = date === dateOfEnd
 

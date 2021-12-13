@@ -15,15 +15,9 @@ export const doNotRerenderDiffProcess = (component) =>
       return false
     }
 
-    if (
-      prevProps.activeProcessId !== prevProps.processId &&
+    return prevProps.activeProcessId !== prevProps.processId &&
       nextProps.activeProcessId !== nextProps.processId &&
-      (!prevProps.isOpenTaskFormId && !nextProps.isOpenTaskFormId)
-    ) {
-      return true
-    }
-
-    return false
+      (!prevProps.isOpenTaskFormId && !nextProps.isOpenTaskFormId);
   })
 
 export const doNotRerenderDaysInCurrentProcess = (prevProps, nextProps) => {

@@ -23,18 +23,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Process/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Scale/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Scale/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TESTS/classes.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Unit/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Unit/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ColorPicker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/memos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/memos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Buttons/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +188,18 @@
       <workItem from="1630345732512" duration="1084000" />
       <workItem from="1630411240151" duration="2894000" />
       <workItem from="1630560603121" duration="2814000" />
+      <workItem from="1632571329368" duration="25000" />
+      <workItem from="1632735440150" duration="773000" />
+      <workItem from="1633178174864" duration="162000" />
+      <workItem from="1633180802388" duration="340000" />
+      <workItem from="1633239206515" duration="100000" />
+      <workItem from="1633275054067" duration="231000" />
+      <workItem from="1633277071928" duration="362000" />
+      <workItem from="1633506006969" duration="49000" />
+      <workItem from="1633506248675" duration="68000" />
+      <workItem from="1634125999142" duration="844000" />
+      <workItem from="1638693944360" duration="791000" />
+      <workItem from="1639397187929" duration="4946000" />
     </task>
     <servers />
   </component>
@@ -211,30 +219,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2002" y="380" key="#Notifications" timestamp="1629901630858">
+    <state x="2357" y="201" width="756" height="593" key="find.popup" timestamp="1639398180512">
       <screen x="1440" y="25" width="1920" height="1055" />
     </state>
-    <state x="2002" y="380" key="#Notifications/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1629901630858" />
-    <state x="2000" y="197" key="#Plugins" timestamp="1629901739537">
-      <screen x="1440" y="25" width="1920" height="1055" />
-    </state>
-    <state x="2000" y="197" key="#Plugins/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1629901739537" />
-    <state x="1967" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1629898072497">
-      <screen x="1440" y="25" width="1920" height="1055" />
-    </state>
-    <state x="1967" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1629898072497" />
-    <state x="2126" y="239" key="FileChooserDialogImpl" timestamp="1622207223142">
-      <screen x="1440" y="25" width="1920" height="1055" />
-    </state>
-    <state x="2126" y="239" key="FileChooserDialogImpl/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1622207223142" />
-    <state x="688" y="171" width="567" height="491" key="find.popup" timestamp="1630083476459">
-      <screen x="0" y="25" width="1440" height="875" />
-    </state>
-    <state x="688" y="171" width="567" height="491" key="find.popup/0.25.1440.875/1440.25.1920.1055@0.25.1440.875" timestamp="1630083476459" />
-    <state x="2357" y="201" width="756" height="591" key="find.popup/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1629880772759" />
-    <state x="2065" y="259" width="670" height="676" key="search.everywhere.popup" timestamp="1629910176486">
-      <screen x="1440" y="25" width="1920" height="1055" />
-    </state>
-    <state x="2065" y="259" width="670" height="676" key="search.everywhere.popup/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1629910176486" />
+    <state x="2357" y="201" width="756" height="593" key="find.popup/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1639398180512" />
+    <state x="688" y="171" width="567" height="491" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1634126283509" />
   </component>
 </project>
