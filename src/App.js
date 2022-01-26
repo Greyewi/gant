@@ -29,7 +29,8 @@ function App({
                unitName = initialState.unitName,
                countUnitsPerScale = initialState.countUnitsPerScale,
                timeLine = initialState.timeLine,
-               visibleScales = initialState.visibleScales
+               visibleScales = initialState.visibleScales,
+               backgroundColor = "#000"
              }) {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -52,7 +53,7 @@ function App({
   ])
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor}}>
       <ProcessList/>
     </div>
   )

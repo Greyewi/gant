@@ -20,17 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/stand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TESTS/classes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TimeContainer/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/memos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/memos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Buttons/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,16 +79,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/Day" />
-      <recent name="$PROJECT_DIR$/src/shared/fonts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/shared/images" />
       <recent name="$PROJECT_DIR$/src/ui/DnDList" />
       <recent name="$PROJECT_DIR$/src/shared" />
       <recent name="$PROJECT_DIR$/src/components/Process" />
-      <recent name="$PROJECT_DIR$/src/ui" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Day" />
+      <recent name="$PROJECT_DIR$/src/shared/fonts" />
     </key>
   </component>
   <component name="RunManager">
@@ -199,7 +194,10 @@
       <workItem from="1633506248675" duration="68000" />
       <workItem from="1634125999142" duration="844000" />
       <workItem from="1638693944360" duration="791000" />
-      <workItem from="1639397187929" duration="4946000" />
+      <workItem from="1639397187929" duration="5272000" />
+      <workItem from="1639482676740" duration="1444000" />
+      <workItem from="1642411510832" duration="611000" />
+      <workItem from="1643190386285" duration="449000" />
     </task>
     <servers />
   </component>

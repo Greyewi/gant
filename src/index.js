@@ -1,17 +1,45 @@
-import React from "react";
-import "./index.css";
-import App from "./App";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import ReactDOM from 'react-dom'
+import Stand from "./stand";
 
-// storeConfig = {isLogger: false}
-
-const TimeLine = ({storeConfig, ...props}) => {
-  return (
-    <Provider store={store(storeConfig)}>
-      <App {...props}/>
-    </Provider>
-  )
+const config = {
+  storeConfig: {
+    isLogger: true
+  },
+  backgroundColor: "#fff",
+  navigation: {
+    addProcess: (event) => {
+      console.log(event)
+      return event
+    },
+    scaleMoveForward: (event) => {
+      console.log(event)
+      return event
+    },
+    scaleMoveBackward: (event) => {
+      console.log(event)
+      return event
+    },
+    scaleAddForward: (event) => {
+      console.log(event)
+      return event
+    },
+    scaleRemoveForward: (event) => {
+      console.log(event)
+      return event
+    },
+    scaleAddBackward: (event) => {
+      console.log(event)
+      return event
+    },
+    scaleRemoveBackward: (event) => {
+      console.log(event)
+      return event
+    }
+  }
 }
 
-export default TimeLine
+const domContainer = document.querySelector('#root');
+ReactDOM.render(
+  <div>
+    <Stand {...config}/>
+  </div>, domContainer);
