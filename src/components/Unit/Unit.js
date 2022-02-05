@@ -93,17 +93,15 @@ const Unit = ({
     addStartIntervalTask
   ])
 
+  const onMouseDown = useCallback(() => {
+    !dayTask && addFirstDateIntervalTask(date, processId, timeField)
+  }, [dayTask, date, processId, timeField, addFirstDateIntervalTask])
+
   return (
     <UnitItem
-      onMouseEnter={() => {
-        handleChangeInterval()
-      }}
-      onMouseDown={() =>
-        !dayTask && addFirstDateIntervalTask(date, processId, timeField)
-      }
-      onMouseUp={() =>
-        editableTaskId ? handleTaskEdit() : addNewTask()
-      }
+      onMouseEnter={handleChangeInterval}
+      onMouseDown={onMouseDown}
+      onMouseUp={editableTaskId ? handleTaskEdit : addNewTask}
       isScalable={!!(startTempInterval && endTempInterval)}
     >
       {unit}

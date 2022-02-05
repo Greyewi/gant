@@ -3,9 +3,21 @@ import ProcessConfig from './ProcessConfig'
 import Scale from "../Scale"
 import TimeContainer from "../TimeContainer"
 import DnDList from "../../ui/DnDList"
-import React, {useMemo} from "react"
+import React, {useMemo, useCallback} from "react"
 import Modal from "../../ui/Modal"
 import Form from "../Form"
+
+const ProcessLineComponent = ({processId, processKey}) => {
+  // const handleEditProcess = useCallback((e) => editProcess({...process, name: e.target.value}), [editProcess, process])
+
+  return <ProcessLine>
+    <ProcessElement
+      value={"process.name"}
+      // onChange={handleEditProcess}
+    />
+    <TimeContainer processId={processId} processKey={processKey} />
+  </ProcessLine>
+}
 
 const ProcessList = ({
                        processList,
@@ -19,22 +31,12 @@ const ProcessList = ({
     () =>
       processList.map((process, processKey) => ({
         ...process,
-        component: (
-          <ProcessLine key={process.id}>
-            <ProcessElement
-              value={process.name}
-              onChange={(e) =>
-                editProcess({...process, name: e.target.value})
-              }
-            />
-            <TimeContainer processId={process.id} processKey={processKey}>
-              <Scale/>
-            </TimeContainer>
-          </ProcessLine>
-        ),
+        component: <ProcessLineComponent key={process} processKey={processKey} editProcess={editProcess} processId={process}/>,
       })),
     [processList, editProcess]
   )
+
+  const onToggleEditTaskForm = useCallback(() => toggleEditTaskForm(null), [])
 
   return (
     <ProcessRow>
@@ -42,11 +44,9 @@ const ProcessList = ({
         onChangePosition={changeProcessListPosition}
         elementsMap={list}
       />
-
       <ProcessConfig/>
-
       {isOpenTaskFormId && (
-        <Modal toggle={() => toggleEditTaskForm(null)} openTaskId={isOpenTaskFormId}>
+        <Modal toggle={onToggleEditTaskForm} openTaskId={isOpenTaskFormId}>
           <Form/>
         </Modal>
       )}

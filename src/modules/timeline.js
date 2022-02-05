@@ -73,6 +73,7 @@ export default function reducer(state = ReducerRecord, action) {
 
 export const stateSelector = (state) => state[moduleName]
 export const timeFieldArraySelector = createSelector(stateSelector, (state) => state.timeFieldArray)
+export const timeFieldArrayFilteredSelector = createSelector(stateSelector, (state) => state.timeFieldArray.filter((f, index) => index >= state.activeScales.from && index <= state.activeScales.to))
 export const formatSelector = createSelector(stateSelector, (state) => state.format)
 export const scaleSelector = createSelector(stateSelector, (state) => state.scale)
 export const unitNameSelector = createSelector(stateSelector, (state) => state.unitName)

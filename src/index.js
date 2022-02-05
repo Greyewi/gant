@@ -5,7 +5,7 @@ const config = {
   storeConfig: {
     isLogger: true
   },
-  backgroundColor: "#fff",
+  backgroundColor: "#000",
   navigation: {
     addProcess: (event) => {
       console.log(event)

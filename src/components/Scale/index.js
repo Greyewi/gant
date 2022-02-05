@@ -4,6 +4,7 @@ import moment from 'moment'
 import {useMemo} from 'react'
 import {parseDateMap} from '../../constants'
 
+
 const Scale = ({odd, processKey, timeField, scaleName, format, ...rest}) => {
 
   const viewDate = useMemo(() => moment(timeField, format).format(parseDateMap[scaleName]), [timeField, format, scaleName])

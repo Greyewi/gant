@@ -59,6 +59,42 @@ const Task = ({
     useCallback(() => toggleEditTaskForm(id), [id, toggleEditTaskForm])
   )
 
+  const onMouseEnter = useCallback(() => {
+    if (firstDateInterval && !isEditableTask) {
+      unionTwoTask(
+        id,
+        moment(date, format).isAfter(moment(firstDateInterval, format))
+          ? "start"
+          : "end",
+        editableTaskId
+      )
+    } else if (isEditableTask) {
+      handleChangeInterval()
+    }
+  }, [firstDateInterval, isEditableTask, unionTwoTask, id, date, format, editableTaskId, handleChangeInterval])
+
+
+  const handleMouseDown = useCallback(() => {
+    if (isStart) {
+      setActiveTask(id, "start")
+    }
+    if (isEnd) {
+      setActiveTask(id, "end")
+    }
+  }, [isStart, setActiveTask, isEnd])
+
+  const handleMouseOver = useCallback(() => {
+    !isHoverTask && hoverTask(id)
+  }, [isHoverTask, hoverTask, id])
+
+  const handleMouseOut = useCallback(() => {
+    !isHoverTask && hoverTask(null)
+  }, [isHoverTask, hoverTask])
+
+  const handleChangeTaskName = useCallback(e => setTaskName(e.target.value), [setTaskName])
+
+  const handleBlur = useCallback(() => editTask({...task, name: taskName}),[task, taskName, editTask])
+
   return (
     <TaskElement
       fill={fill}
@@ -70,46 +106,23 @@ const Task = ({
       id={isStart ? id : ''}
       onMouseUp={handleEditTask}
       onClick={handleDoubleClick}
-      onMouseEnter={() => {
-        if (firstDateInterval && !isEditableTask) {
-          unionTwoTask(
-            id,
-            moment(date, format).isAfter(moment(firstDateInterval, format))
-              ? "start"
-              : "end",
-            editableTaskId
-          )
-        } else if (isEditableTask) {
-          handleChangeInterval()
-        }
-      }}
-      onMouseDown={() => {
-        if (isStart) {
-          setActiveTask(id, "start")
-        }
-        if (isEnd) {
-          setActiveTask(id, "end")
-        }
-      }}
-      onMouseOver={(e) => {
-        !isHoverTask && hoverTask(id)
-      }}
-      onMouseOut={(e) => {
-        !isHoverTask && hoverTask(null)
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseDown={handleMouseDown}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
     >
-      {isHoverTask && isStart && <div onMouseDown={() => console.log(id)}> {"<-"} </div>}
+      {/*{isHoverTask && isStart && <div onMouseDown={() => console.log(id)}> {"<-"} </div>}*/}
       {isSecondDay && (
         <TaskNameInput
           type="text"
           value={taskName}
           countDates={countDates.length}
           isEditableTask={isEditableTask}
-          onChange={(e) => setTaskName(e.target.value)}
-          onBlur={() => editTask({...task, name: taskName})}
+          onChange={handleChangeTaskName}
+          onBlur={handleBlur}
         />
       )}
-      {isHoverTask && isEnd && <div onMouseDown={() => console.log(id)}> {"->"} </div>}
+      {/*{isHoverTask && isEnd && <div onMouseDown={() => console.log(id)}> {"->"} </div>}*/}
     </TaskElement>
   )
 }

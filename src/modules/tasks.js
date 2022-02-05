@@ -96,7 +96,7 @@ export default function reducer(state = ReducerState, action) {
         startInterval: payload.data,
         endInterval: payload.data,
         activeProcessId: payload.processId,
-        activeMonthsList: new Set([...state.activeMonthsList, payload.month]),
+        activeMonthsList: new Set([...state.activeMonthsList, payload.month]), // to distinct reducer
       }
     case ADD_START_INTERVAL_TASK:
       return {
