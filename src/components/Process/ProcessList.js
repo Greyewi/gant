@@ -1,21 +1,20 @@
 import {ProcessElement, ProcessLine, ProcessRow} from "./styles"
 import ProcessConfig from './ProcessConfig'
-// import Scale from "../Scale"
 import TimeContainer from "../TimeContainer"
 import DnDList from "../../ui/DnDList"
 import React, {useMemo, useCallback} from "react"
 import Modal from "../../ui/Modal"
 import Form from "../Form"
 
-const ProcessLineComponent = ({processId, processKey}) => {
-  // const handleEditProcess = useCallback((e) => editProcess({...process, name: e.target.value}), [editProcess, process])
+const ProcessLineComponent = ({process, processKey, editProcess}) => {
+  const handleEditProcess = useCallback((e) => editProcess({...process, name: e.target.value}), [editProcess, process])
 
   return <ProcessLine>
     <ProcessElement
-      value={"process.name"}
-      // onChange={handleEditProcess}
+      value={process.name}
+      onChange={handleEditProcess}
     />
-    <TimeContainer processId={processId} processKey={processKey} />
+    <TimeContainer processId={process.id} processKey={processKey} />
   </ProcessLine>
 }
 
@@ -31,7 +30,7 @@ const ProcessList = ({
     () =>
       processList.map((process, processKey) => ({
         ...process,
-        component: <ProcessLineComponent key={process} processKey={processKey} editProcess={editProcess} processId={process}/>,
+        component: <ProcessLineComponent key={process} processKey={processKey} editProcess={editProcess} process={process}/>,
       })),
     [processList, editProcess]
   )

@@ -51,7 +51,7 @@ export default function reducer(state = ReducerState, action) {
 export const stateSelector = (state) => state[moduleName]
 export const processListSelector = createSelector(
   stateSelector,
-  (state) => state.processList.map(process => process.id)
+  (state) => state.processList
 )
 
 /**
