@@ -1,6 +1,6 @@
 import {ProcessElement, ProcessLine, ProcessRow} from "./styles"
 import ProcessConfig from './ProcessConfig'
-import Scale from "../Scale"
+// import Scale from "../Scale"
 import TimeContainer from "../TimeContainer"
 import DnDList from "../../ui/DnDList"
 import React, {useMemo, useCallback} from "react"

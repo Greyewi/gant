@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="003b5abf-4020-4c1b-a7a1-000c04e53d7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Process/ProcessList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Process/ProcessList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +198,12 @@
       <workItem from="1643190386285" duration="963000" />
       <workItem from="1643389007973" duration="8290000" />
       <workItem from="1643472602250" duration="2821000" />
-      <workItem from="1644077158552" duration="351000" />
+      <workItem from="1644077158552" duration="1688000" />
+      <workItem from="1644408107201" duration="1180000" />
+      <workItem from="1644585958950" duration="93000" />
+      <workItem from="1645270519366" duration="614000" />
+      <workItem from="1646233162352" duration="1823000" />
+      <workItem from="1647684347277" duration="610000" />
     </task>
     <servers />
   </component>
@@ -216,6 +223,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2000" y="215" key="#Deployment" timestamp="1644408366630">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2000" y="215" key="#Deployment/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1644408366630" />
+    <state x="2266" y="449" key="#ESLint" timestamp="1644409571793">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2266" y="449" key="#ESLint/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1644409571793" />
+    <state x="2000" y="197" key="#Plugins" timestamp="1644408958108">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2000" y="197" key="#Plugins/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1644408958108" />
+    <state x="1984" y="202" key="#SSH_Configurations" timestamp="1644408363225">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="1984" y="202" key="#SSH_Configurations/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1644408363225" />
+    <state x="2240" y="455" key="WebDeployment.AddServerDialog.v.1" timestamp="1644408278900">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2240" y="455" key="WebDeployment.AddServerDialog.v.1/0.25.1440.875/1440.25.1920.1055@1440.25.1920.1055" timestamp="1644408278900" />
     <state x="688" y="171" width="567" height="492" key="find.popup" timestamp="1643473564545">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

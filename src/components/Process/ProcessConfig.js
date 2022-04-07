@@ -15,27 +15,27 @@ const ProcessConfig = ({addNewProcess, onChangeActiveScaleCount, activeScales}) 
 
   const handleBackScale = useCallback(() => {
     onChangeActiveScaleCount({from: activeScales.from - 1, to: activeScales.to - 1})
-  }, [activeScales, onChangeActiveScaleCount])
+  }, [activeScales, ])
 
   const handleNextScale = useCallback(() => {
     onChangeActiveScaleCount({from: activeScales.from + 1, to: activeScales.to + 1})
-  }, [activeScales, onChangeActiveScaleCount])
+  }, [activeScales])
 
   const handleAddScaleBefore = useCallback(() => {
     onChangeActiveScaleCount({from: activeScales.from - 1, to: activeScales.to})
-  }, [activeScales, onChangeActiveScaleCount])
+  }, [activeScales])
 
   const handleAddScaleAfter = useCallback(() => {
     onChangeActiveScaleCount({from: activeScales.from, to: activeScales.to + 1})
-  }, [activeScales, onChangeActiveScaleCount])
+  }, [activeScales])
 
   const handleRemoveScaleBefore = useCallback(() => {
     onChangeActiveScaleCount({from: activeScales.from + 1, to: activeScales.to})
-  }, [activeScales, onChangeActiveScaleCount])
+  }, [activeScales])
 
   const handleRemoveScaleAfter = useCallback(() => {
     onChangeActiveScaleCount({from: activeScales.from, to: activeScales.to - 1})
-  }, [activeScales, onChangeActiveScaleCount])
+  }, [activeScales])
 
   return <ProcessConfigContainer>
     <AddNewProcess onClick={addNewProcess}/>

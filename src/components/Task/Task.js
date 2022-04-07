@@ -81,7 +81,7 @@ const Task = ({
     if (isEnd) {
       setActiveTask(id, "end")
     }
-  }, [isStart, setActiveTask, isEnd])
+  }, [isStart, setActiveTask, isEnd, id])
 
   const handleMouseOver = useCallback(() => {
     !isHoverTask && hoverTask(id)
